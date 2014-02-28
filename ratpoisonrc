@@ -1,0 +1,18 @@
+chdir
+
+startup_message off
+
+#exec xmodmap -quiet ~/.Xmodmap
+
+unmanage trayer
+unmanage panel
+
+set border 0
+set barpadding 0 0 
+set padding 0 0 0 26
+exec trayer --edge bottom --expand true
+
+bind l exec ~/.screenlock
+
+exec rpws init 3 -k -a
+
