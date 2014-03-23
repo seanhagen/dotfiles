@@ -18,3 +18,13 @@ I might look at converting this into a Puppet usable set of configs, so that I c
 * arduino => /usr/local/arduino-v.v.v ( symlink latest to /usr/local/arduino )
 * processing => /usr/local/processing-v.v.v ( symlink latest to /usr/local/processing )
 * java => untar the jdk tarball into /usr/local/jdk-v.v.v ( symlink latest to /usr/local/java )
+
+## Fun Things
+* https://github.com/holman/boom
+* https://github.com/holman/gifme
+* https://github.com/holman/noted
+* 
+
+## Stuff To Incorporate
+* https://github.com/holman/dotfiles
+* 

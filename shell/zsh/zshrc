@@ -24,6 +24,7 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias bfg="java -jar ~/bin/bfg.jar"
 alias composer="~/bin/composer.phar"
 alias artisan="php artisan"
 
