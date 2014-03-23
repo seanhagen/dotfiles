@@ -14,4 +14,5 @@ dovecot-sieve
 postfix
 postfix-doc
 postfix-mysql
+offlineimap
 
