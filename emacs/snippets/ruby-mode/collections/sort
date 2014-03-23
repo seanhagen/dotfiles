@@ -1,0 +1,4 @@
+# name: sort do |...| ...
+# key: sort
+# --
+sort { |${x},${y}| $0 }

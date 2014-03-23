@@ -1,0 +1,32 @@
+chdir
+
+startup_message off
+
+bind x nextscreen
+bind z prevscreen
+bind l exec gnome-screensaver-command -l
+
+definekey top XF86AudioRaiseVolume exec amixer set Master 5%+ && amixer get Master | egrep -o "[0-9]+%.*"
+definekey top XF86AudioLowerVolume exec amixer set Master 5%- && amixer get Master | egrep -o "[0-9]+%.*"
+definekey top XF86AudioMute exec amixer -D pulse set Master 1+ toggle && amixer get Master | egrep -o "[0-9]+%.*"
+
+definekey top XF86AudioPlay exec emacsclient --eval "(my-emms-play-pause)"
+definekey top XF86AudioNext exec emacsclient --eval "(emms-next)"
+definekey top XF86AudioPrev exec emacsclient --eval "(emms-prev)"
+
+set border 0
+set barpadding 0 0
+set padding 0 0 0 26
+
+unmanage trayer
+unmanage panel
+
+exec trayer --edge bottom
+exec nm-applet
+exec gnome-sound-applet
+exec rpws init 3 -k
+exec nitrogen --restore
+exec start-keyring
+exec dropbox start
+bind W windows
+

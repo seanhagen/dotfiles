@@ -1,0 +1,11 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Backtick codeblock full
+# key: btcodef
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+\`\`\` ${1:Language} ${2:Title} ${3:URL} ${4:Link Text}
+${5:code-block}
+\`\`\`
+
+$0

@@ -1,0 +1,9 @@
+#-*- mode: snippet require-final-newline: nil -*-
+# name: <!-- more -->
+# key: more
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+<!-- more -->
+
+$0

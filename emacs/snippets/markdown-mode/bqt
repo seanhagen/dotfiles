@@ -1,0 +1,11 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Blockquote twitter
+# key: bqt
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+{% blockquote @${1:twitter} ${2:Twiter URL} %}
+${3:Quote}
+{% endblockquote %}
+
+$0

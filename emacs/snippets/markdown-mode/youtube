@@ -1,0 +1,9 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Youtube link
+# key: youtube
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+{% youtube  ${1:video id} %}
+
+$0

@@ -1,0 +1,6 @@
+# name: each do |...| ...
+# key: ead
+# --
+each do |${e}|
+     $0
+end

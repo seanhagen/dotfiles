@@ -1,0 +1,41 @@
+#!/bin/bash
+
+INDEX=index.html
+ALIST=albums.list
+ILIST=images.list
+DELAY=5
+
+# Fetch the user's album page.
+wget $1
+# Strip the user's page down to a list of album hyperlinks.
+cat $INDEX | grep imgur.com/a/ | sed 's/[\t]//g' | sed 's/\/\//http:\/\//g' | sed 's/<a href\="//g' | sed 's/">//g' > $ALIST
+
+# Count how many albums we are to fetch.
+COUNT=$(wc -l $ALIST | awk '{print $1}')
+
+echo "Got $COUNT"
+
+# Descend into a loop to fetch all of the images.
+for i in $(seq 1 $COUNT)
+do
+        # Make a directory. I prefer a staight numerical name. Your choice.
+        mkdir $i
+        cd $i
+        # Fetch this particular album index.
+        wget $(cat ../$ALIST | sed -n "${i}{p}")
+        # Variable-ize it.
+        mv $(ls -1 .) $ILIST
+        # Strip the file down to the actual image links.
+        cat $ILIST | grep href | egrep -i '[jpg|gif]">$' | grep -v rel | sed 's/<a href="//g' | sed 's/">//g' | sed 's/\s*//g' > $ILIST
+        # Fetch the album's images.
+        # sleep $DELAY
+        wget -i $ILIST
+        # Cleanup.
+        rm $ILIST
+        # Repeat.
+        cd ..
+done
+
+# Cleanup.
+rm $INDEX
+rm $ALIST

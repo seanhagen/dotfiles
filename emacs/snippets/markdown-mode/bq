@@ -1,0 +1,11 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Blockquote simple
+# key: bq
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+{% blockquote %}
+${1:Quote}
+{% endblockquote %}
+
+$0

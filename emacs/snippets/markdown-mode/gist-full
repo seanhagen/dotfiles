@@ -1,0 +1,9 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Gist Import - multifile gist
+# key: gistf
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+{% gist ${1:gist-id} ${2:filename} %}
+
+$0

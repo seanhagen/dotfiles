@@ -1,0 +1,11 @@
+# -*- mode: snippet require-final-newline: nil -*-
+# name: Codeblock full
+# key: codeblockf
+# contributor: Abizer Nasir abizern@junglecandy.com
+# group: Octopress
+# --
+{% codeblock ${1:Title} lang:${2:Language} ${3:URL} ${4:Link text} %}
+${5:code-block}
+{% endcodeblock %}
+
+$0
