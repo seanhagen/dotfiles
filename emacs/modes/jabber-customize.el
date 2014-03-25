@@ -4,12 +4,20 @@
 (add-hook 'jabber-chat-mode-hook 'autosmiley-mode)
 
 (setq cred (netrc-machine (netrc-parse "~/.authinfo") "jabber" t))
+(setq tscred (netrc-machine (netrc-parse "~/.authinfo") "tsjabber" t))
+
+(message (format "%s" tscred))
 (setq jabber-account-list
       `((,(netrc-get cred "login")
          (:password . ,(netrc-get cred "password"))
-     (:network-server . "talk.google.com")
-     (:connection-type . ssl)
-     (:port . 5223))))
+         (:network-server . "talk.google.com")
+         (:connection-type . ssl)
+         (:port . 5223))
+        (,(netrc-get tscred "login")
+         (:password . ,(netrc-get tscred "password"))
+         (:network-server . "talk.google.com")
+         (:connection-type . ssl)
+         (:port . 5223))))
 
 (setq
   jabber-history-enabled t
