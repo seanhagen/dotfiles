@@ -10,7 +10,6 @@ Local{
 GMail{
       .Gmail/[Gmail].Important "Important"
       .Gmail/INBOX "Inbox"
-      .Gmail/[Gmail].All Mail "All Mail"
       .Gmail/[Gmail].Trash "Junk"
       .Gmail/[Gmail].Sent Mail "Sent Mail"
       .Gmail/[Gmail].Drafts "Drafts"
@@ -132,6 +131,8 @@ GMail{
               .Gmail/Automailers.Notifications.Schemer "Schemer"
               .Gmail/Automailers.Notifications.StackOverflow "Stack Overflow"
               .Gmail/Automailers.Notifications.Steam "Steam"
+              .Gmail/Automailers.Notifications.Trac - BetterBadminton.com "Trac - BetterBadminton"
+              .Gmail/Automailers.Notifications.Trac Ticket - Metavaluate "Trac - Metavaluate"
               .Gmail/Automailers.Notifications.Trello "Trello"
               .Gmail/Automailers.Notifications.TripIt "TripIt"
               .Gmail/Automailers.Notifications.Twitter "Twitter"
@@ -141,6 +142,7 @@ GMail{
               .Gmail/Automailers.Notifications.Wind Mobile "Wind Mobile"
               .Gmail/Automailers.Notifications.WolframAlpha "Wolfram Alpha"
               .Gmail/Automailers.Notifications.WotC "WotC"
+              .Gmail/Automailers.Notifications.Z2H - Nagios "Z2H Nagios"
           }
       }
       .Gmail/Automailers.Orders &- Invoices "Orders & Invoics"

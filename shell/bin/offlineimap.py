@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import sys
-import gtk
+#import gtk
 import gnomekeyring as gkey
 
 class Keyring(object):
@@ -42,3 +42,8 @@ def get_password(server):
     keyring = Keyring("offlineimap", server, "imap")
     (username, password) = keyring.get_credentials()
     return password
+
+keyring = Keyring("offlineimap", "mail.google.com", "imap")
+(username, password) = keyring.get_credentials()
+print "Username for 'gmail.com': '"+username+"'"
+print "Password for 'gmail.com': '"+password+"'"
