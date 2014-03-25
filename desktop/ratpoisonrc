@@ -28,5 +28,6 @@ exec rpws init 3 -k
 exec nitrogen --restore
 exec start-keyring
 exec dropbox start
+exec ~/bin/xdbus.sh
 bind W windows
 
