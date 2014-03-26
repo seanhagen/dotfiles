@@ -58,7 +58,9 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
-(package-initialize)
+(load-file "~/.emacs.d/custom-packages.el")
+
+;;(package-initialize)
 (setq url-http-attempt-keepalives nil)
 
 (dolist (k '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
