@@ -13,6 +13,7 @@ Shell Stuff
 * Copy rainbarf.conf to ~/.rainbarf.conf
 * Copy tmux-powerlinerc to ~/.tmux-powerlinerc
 * Copy fonts to ~/.fonts
+* Copy mytheme.sh to ~/bin/tmux-powerline/themes
 
 ### ZSH
 See [zsh/README.md](zsh/README.md)
