@@ -3,10 +3,10 @@
 ;; for php-repl
 (add-to-list 'load-path "~/bin/php_repl/data")
 
-(add-hook 'php+-mode-hook 'startup-php-stuff)
+;; (add-hook 'php+-mode-hook 'startup-php-stuff)
 
-(require 'php+-mode)
-(php+-mode-setup)
+;; (require 'php+-mode)
+;; (php+-mode-setup)
 
 (defun startup-php-stuff ()
   (interactive)
