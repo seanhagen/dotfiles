@@ -1,9 +1,9 @@
 (require 'org)
-(require 'org-jekyll)
-(require 'org-jira)
-(require 'org-octopress)
+;;(require 'org-jekyll)
+;;(require 'org-jira)
+;;(require 'org-octopress)
+;;(require 'org-compat)
 (require 'org-present)
-
 
 (setq org-agenda-include-diary t)  
 (setq org-agenda-include-all-todo t)
@@ -19,9 +19,9 @@
                ( :strike-through t)))))
 
 (setq org-todo-keywords
-           '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d)")
+           '((sequence "TODO(t)" "STARTED(s)" "|" "DONE(d!)")
              (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")
-             (sequence "|" "CANCELED(c)")))
+             (sequence "|" "CANCELED(c@)")))
 
 (setq org-todo-keyword-faces
       '(("TODO" . org-warning) ("STARTED" . "yellow")
@@ -49,7 +49,6 @@
          "\n %^{topic} %T \n%i%?\n" :prepend t)
         ("e" "Email Todo" entry
          (file+headline "~/Documents/GTD/mygtd.org" "Tasks")
-         "* TODO %^{Brief Description}\n%a\n%?Added: %U\n" :prepend t)
-      ))
+         "* TODO %^{Brief Description}\n%a\n%?Added: %U\n" :prepend t)))
 
 (provide 'org-customize)

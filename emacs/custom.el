@@ -32,6 +32,7 @@
  '(nxml-child-indent nil)
  '(octomacs-workdir-alist (quote (("Blog" . "/home/sean/Code/Ruby/octopress"))))
  '(offlineimap-command "offlineimap -o -u basic")
+ '(org-agenda-files (quote ("~/organizer.org" "~/Documents/Org/agenda.org" "~/Documents/GTD/newgtd.org" "~/Documents/GTD/trello.org")))
  '(org-log-done (quote time))
  '(php+-mode-delete-trailing-whitespace t)
  '(php+-mode-protected-underscore t)
