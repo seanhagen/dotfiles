@@ -27,6 +27,7 @@ fi
 alias bfg="java -jar ~/bin/bfg.jar"
 alias composer="~/bin/composer.phar"
 alias artisan="php artisan"
+alias muf="mu find -u -f 'i d f s'"
 
 alias rake='noglob rake'
 
