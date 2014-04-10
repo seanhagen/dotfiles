@@ -38,7 +38,7 @@
 (require 'magit-customize)
 (require 'markdown-customize)
 (require 'org-customize)
-(require 'org-remember-customize)
+;;(require 'org-remember-customize)
 (require 'php-customize)
 (require 'puppet-customize)
 (require 'ruby-customize)

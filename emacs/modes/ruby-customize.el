@@ -6,7 +6,7 @@
 (require 'ruby-compilation)
 ;(require 'rsense)
 (require 'ruby-electric)
-(require 'ruby-end)
+;(require 'ruby-end)
 (require 'ruby-tools)
 (require 'rhtml-mode)
 (require 'rspec-mode)
@@ -16,7 +16,7 @@
 (setq rbenv-installation-dir "~/.rbenv")
 (setq ruby-block-highlight-toggle t)
 (setq rinari-tags-file-name "TAGS")
-;(setq rsense-home "/home/sean/opt/rsense")
+(setq rsense-home "/home/sean/opt/rsense")
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)

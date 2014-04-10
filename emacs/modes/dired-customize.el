@@ -9,6 +9,9 @@
 (eval-after-load 'image-dired '(require 'image-dired+))
 
 (dired-details-install)
+;; '(' hides details
+;; ')' shows details
+
 
 (define-key dired-mode-map (kbd "C-c C-s") 'dired-toggle-sudo)
 (eval-after-load 'tramp

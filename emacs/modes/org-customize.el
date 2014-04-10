@@ -3,6 +3,7 @@
 ;;(require 'org-jira)
 ;;(require 'org-octopress)
 ;;(require 'org-compat)
+(require 'org-install)
 (require 'org-present)
 
 (setq org-agenda-include-diary t)  
@@ -41,14 +42,46 @@
 						(org-remove-inline-images)))
 
 (setq org-capture-templates 
-      '(("t" "Todo" entry
-         (file+headline "~/Documents/GTD/mygtd.org" "Tasks")
-         " TODO %^{Brief Description} %^g\n%?\nAdded: %U" :prepend t)
-        ("j" "Journal" entry
-         (file+headline "~/Documents/GTD/journal.org" "")
-         "\n %^{topic} %T \n%i%?\n" :prepend t)
+      '(
+        ;; basic todo template
+        ("t" "Todo" entry
+         (file+headline "~/Dropbox/Org/mygtd.org" "Tasks")
+         "* TODO %^{Brief Description} \n%?\nAdded: %U" :prepend t)
+        ;; todo template for todos from emails
         ("e" "Email Todo" entry
-         (file+headline "~/Documents/GTD/mygtd.org" "Tasks")
-         "* TODO %^{Brief Description}\n%a\n%?Added: %U\n" :prepend t)))
+         (file+headline "~/Dropbox/Org/mygtd.org" "Tasks")
+         "* TODO %^{Brief Description}\n%a\n%?Added: %U\n" :prepend t)
+        ;; template for receipts
+        ("r" "Receipt" entry
+         (file+headline "~/Dropbox/Org/finances.org" "Receipts")
+         "* %^{BriefDesc} %U %^g\n%?" :prepend t)
+        ;; for book reviews
+        ("b" "Book" entry
+         (file+headline "~/Dropbox/Org/journal.org" "Book Reviews")
+         (file "~/.book_template.txt"))
+        ;; for film reviews
+        ("f" "Film" entry
+         (file+headline "~/Dropbox/Org/journal.org" "Film Reviews")
+         (file "~/.film_template.txt"))
+        ;; for tv episode reviews
+        ("v" "TV" entry
+         (file+headline "~/Dropbox/Org/journal.org" "TV Episode Reviews")
+         (file "~/.tv_template.txt"))
+        ;; for stuff i'd like to do someday
+        ("s" "Someday" entry
+         (file+headline "~/Dropbox/Org/mygtd.org" "Someday")
+         "* %^{Someday Heading} %U\n%?\n")
+        ;; just a place to capture random stuff
+        ("c" "Clipboard" entry
+         (file+headline "~/Dropbox/Org/journal.org" "Clipboard")
+         "* %^{Head Line} %U %^g\n%c\n%?" :prepend t)
+        ;; things to blog about
+        ("j" "Journal" entry
+         (file+headline "~/Dropbox/Org/journal.org" "Journal")
+         "\n %^{topic} %T \n%i%?\n" :prepend t)
+        ))
+
+(setq org-directory "~/Dropbox/Org/")
+(setq org-default-notes-file "~/.notes")
 
 (provide 'org-customize)
