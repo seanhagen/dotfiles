@@ -12,7 +12,8 @@ Shell Stuff
 * Download the latest packer from http://www.packer.io/downloads.html, unzip into ~/bin/packer
 * `git clone git@github.com:robbyrussell/oh-my-zsh.git ~/.oh-my-zsh`
 * Copy rainbarf.conf to ~/.rainbarf.conf
-* Copy tmux-powerlinerc to ~/.tmux-powerlinerc
+*
+Copy tmux-powerlinerc to ~/.tmux-powerlinerc
 * Copy fonts to ~/.fonts
 * Copy mytheme.sh to ~/bin/tmux-powerline/themes
 

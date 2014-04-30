@@ -14,6 +14,77 @@
 ;; ;;                                   (define-key wl-summary-mode-map "b"
 ;; ;;                                    'wl-summary-resend-message)))
 
+;; (setq wl-template-alist
+;;   '(
+;;     ("gmail"                            ; Gmail
+;;      (wl-from . "Sean Patrick Hagen <sean.hagen@gmail.com>")
+;;      ("From" . wl-from)
+;;      (wl-local-domain . "gmail.com")
+;;      (signature-file-name . "~/.signature")
+;;      )
+;;     ("Work"
+;;      (wl-from . "Sean Patrick Hagen <sean@thoughtshop.com>")
+;;      ("From" . wl-from)
+;;      (wl-local-domain . "thoughtshop.com")
+;;      ("Organization" . "ThoughtShop Creative")
+;;      (signature-file-name . "~/.signature_work")
+;;      )
+;;     ("Work-From-Home"
+;;      (wl-from . "Sean Patrick Hagen <sean@seanhagen.ca>")
+;;      ("From" . wl-from)
+;;      (wl-local-domain . "work.something")
+;;      ("Organization" . "Sean Hagen Development")
+;;      (signature-file-name . "~/.signature_work")
+;;      )
+;;     ))
+
+(setq wl-draft-config-alist
+      '(((string-match "ThoughtShop" wl-draft-parent-folder)
+         (template . "work")
+         (wl-local-domain . "gmail.thoughtshop.com")
+         (wl-draft-folder . ".Thought/[Gmail]/Drafts")
+         (wl-message-id-domain . "gmail.thoughtshop.com"))
+        ((string-match "GMail" wl-draft-parent-folder)
+         (template . "gmail")
+         (wl-local-domain . "gmail.com")
+         (wl-message-id-domain . "smtp.gmail.com"))
+        ((string-match "SeanHagenCA" wl-draft-parent-folder)
+         (template . "shca")
+         (wl-local-domain . "seanhagen.ca")
+         (wl-message-id-domain . "seanhagen.ca"))))
+
+;;choose template with C-c C-j
+(setq wl-template-alist
+      '(("gmail"
+         (wl-from . "Sean Patrick Hagen <sean.hagen@gmail.com>")
+         ("From" . wl-from))
+        ("work"
+         (wl-from . "Sean Patrick Hagen <sean@thoughtshop.com>")
+         ("From" . wl-from))
+        ("shca"
+         (wl-from . "Sean Patrick Hagen <sean@seanhagen.ca>")
+         ("From" . wl-from))))
+
+;; Use different signature files based on From: address
+(setq signature-file-alist
+      `((("From" . "sean.hagen@gmail.com") . ,(expand-file-name "~/.emacs.d/signature.d/sean.hagen@gmail.com"))
+        (("From" . "sean@thoughtshop.com") . ,(expand-file-name "~/.emacs.d/signature.d/sean@thoughtshop.com"))
+        (("From" . "sean@seanhagen.ca") . ,(expand-file-name "~/.emacs.d/signature.d/sean@seanhagen.ca"))))
+
+(add-hook 'wl-mail-setup-hook 'wl-draft-config-exec)
+
+;; (define-key wl-template-mode-map (kbd "<right>") 'wl-template-next)
+;; (define-key wl-template-mode-map (kbd "<left>") 'wl-template-prev)
+;; (define-key wl-template-mode-map (kbd "<up>") 'wl-template-next)
+;; (define-key wl-template-mode-map (kbd "<down>") 'wl-template-prev)
+
+(add-hook 'mime-view-mode-hook
+          (lambda ()
+            (local-set-key "f" 'browse-url)
+            (local-set-key "F" 'browse-url-of-region)))
+
+(remove-hook 'wl-draft-send-hook 'wl-draft-config-exec)
+
 (setq 
   elmo-maildir-folder-path "~/Mail"          ;; where i store my mail
   
@@ -68,6 +139,7 @@
   wl-summary-move-direction-toggle nil
 ;;   ;; You should set this variable if you use multiple e-mail addresses.
   wl-user-mail-address-list (quote ("sean.hagen@gmail.com" "sean@thoughtshop.com" "sean@seanhagen.ca"))
+
 ;;   ;; How messages with disposal mark ("d") are to be handled.
 ;;   ;; remove = instant removal (same as "D"), thrash = move to wl-trash-folder
 ;;   ;; string = move to string.
@@ -75,3 +147,4 @@
                             ("^%.*gmail\\.com" . ".Gmail/[Gmail].Trash")
                             ("^%.*seanhagen\\.ca" . ".SHCA/[Gmail].Trash"))
 )
+
