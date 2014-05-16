@@ -71,6 +71,18 @@
         ("s" "Someday" entry
          (file+headline "~/Dropbox/Org/mygtd.org" "Someday")
          "* %^{Someday Heading} %U\n%?\n")
+        ;; trip planning ( 2016 road trip )
+        ("o" "2016 Road Trip" entry
+         (file+headline "~/Dropbox/Org/mygtd.org" "2016 Road Trip")
+         "* %^{Heading} %U\n%?\n")
+        ;; trip planning ( 2016 road trip )
+        ("d" "2018 Road Trip" entry
+         (file+headline "~/Dropbox/Org/mygtd.org" "2018 Road Trip")
+         "* %^{Heading} %U\n%?\n")
+        ;; camping stuff
+        ("a" "Camping Stuff" entry
+         (file+headline "~/Dropbox/Org/mygtd.org" "Camping")
+         "* %^{Heading} %U\n%?\n")
         ;; just a place to capture random stuff
         ("c" "Clipboard" entry
          (file+headline "~/Dropbox/Org/journal.org" "Clipboard")

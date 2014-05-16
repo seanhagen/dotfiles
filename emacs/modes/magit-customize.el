@@ -19,4 +19,7 @@
 
 (setq vc-handled-backends nil)
 
+;;(setenv "EDITOR" "emacsclient")
+;;(message (getenv "DISPLAY"))
+
 (provide 'magit-customize)

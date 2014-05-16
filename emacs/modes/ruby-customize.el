@@ -4,14 +4,19 @@
 (require 'enh-ruby-mode)
 (require 'ruby-block)
 (require 'ruby-compilation)
-;(require 'rsense)
+(require 'rsense)
+
 (require 'ruby-electric)
+
 ;(require 'ruby-end)
+
 (require 'ruby-tools)
 (require 'rhtml-mode)
 (require 'rspec-mode)
 (require 'ruby-test-mode)
 (require 'inf-ruby)
+
+(require 'robe)
 
 (setq rbenv-installation-dir "~/.rbenv")
 (setq ruby-block-highlight-toggle t)
@@ -27,6 +32,7 @@
 (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
 (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
 (add-hook 'ruby-mode-hook 'turn-on-font-lock)
+(add-hook 'ruby-mode-hook 'robe-mode)
 ;; (add-hook 'ruby-mode-hook
 ;; 					(lambda ()
 ;; 						(add-to-list 'ac-sources 'ac-source-rsense-method)

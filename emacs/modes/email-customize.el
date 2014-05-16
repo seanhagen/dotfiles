@@ -4,16 +4,22 @@
     :prog "/usr/local/bin/mu" ;; or wherever you've installed it
     :args '("find" pattern "--fields" "l") :charset 'utf-8)
 
+;(define-key wl-draft-mode-map (kbd "<C-tab>") 'bbdb-complete-name)
+
 (setq elmo-search-default-engine 'mu)
 ;; for when you type "g" in folder or summary.
 (setq wl-default-spec "[")
+(setq mime-edit-split-message nil)
 
-(setq bbdb-file "~/.emacs.d/bbdb")           ;; keep ~/ clean; set before loading
+(setq bbdb-file "~/Dropbox/bbdb")           ;; keep ~/ clean; set before loading
 (require 'bbdb)
 (require 'bbdb-ext)
+(require 'bbdb-)
 
 (bbdb-initialize)
+(bbdb-:setup)
 (setq 
+    bbdb-pop-up-window-size 10
     ;;bbdb-offer-save 1                        ;; 1 means save-without-asking
     
     bbdb-use-pop-up t                        ;; allow popups for addresses
