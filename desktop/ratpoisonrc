@@ -20,14 +20,19 @@ set padding 0 0 0 26
 
 unmanage trayer
 unmanage panel
+unmanage tint2
 
-exec trayer --edge bottom
+#exec trayer --edge bottom
+#exec trayer --expand true --transparent true  --alpha 255 --edge bottom --align right --expand true --SetDockType true --widthtype request --margin 130
+exec gnome-settings-daemon
+exec tint2
 exec nm-applet
 exec gnome-sound-applet
 exec rpws init 3 -k
 exec nitrogen --restore
 exec start-keyring
 exec dropbox start
+exec setxkbmap -option caps:swapescape
 exec ~/bin/xdbus.sh
 bind W windows
 
