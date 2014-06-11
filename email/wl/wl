@@ -147,4 +147,3 @@
                             ("^%.*gmail\\.com" . ".Gmail/[Gmail].Trash")
                             ("^%.*seanhagen\\.ca" . ".SHCA/[Gmail].Trash"))
 )
-
