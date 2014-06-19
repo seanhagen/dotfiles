@@ -70,4 +70,25 @@
 
 (push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
 
+(defun my-ruby-toggle-block ()
+  "Toggle block type from do-end to braces or back.
+The block must begin on the current line or above it and end after the point.
+If the result is do-end block, it will always be multiline."
+  (interactive)
+  (let ((start (point)) beg end)
+    (end-of-line)
+    (unless
+        (if (and (re-search-backward "\\({\\)\\|\\_<do\\(\\s \\|$\\||\\)")
+                 (progn
+                   (setq beg (point))
+                   (save-match-data (ruby-forward-sexp))
+                   (setq end (point))
+                   (> end start)))
+            (if (match-beginning 1)
+                (ruby-brace-to-do-end beg end)
+              (ruby-do-end-to-brace beg end)))
+      (goto-char start))))
+
+(define-key enh-ruby-mode-map (kbd "C-c {") 'my-ruby-toggle-block)
+
 (provide 'ruby-customize)
