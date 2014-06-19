@@ -24,6 +24,10 @@
 (setq rinari-tags-file-name "TAGS")
 (setq rsense-home "/home/sean/opt/rsense")
 
+;; rbenv stuff
+(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
+(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
+
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
 (autoload 'inf-ruby "inf-ruby" "Run an inferior Ruby process" t)
