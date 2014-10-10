@@ -1,0 +1,43 @@
+;; gets installed as ~/.gnus
+
+;; (setq gnus-select-method
+;;       '(nnmaildir "Gmail"
+;;                   (directory "~/Mail/Gmail")
+;;                   (directory-files nnheader-directory-files-safe)
+;;                   (get-new-mail nil)))
+
+;; (setq gnus-select-method
+;;       '(nntp "news.giganews.com"
+;;              (nntp-port-number 119)))
+;; (setq gnus-secondary-select-methods
+;;       '((nnmaildir "GMail" 
+;;                    (directory "~/Maildir/Gmail")
+;;                    (directory-files nnheader-directory-files-safe)
+;;                    (get-new-mail nil))))
+;; (setq mail-sources nil)
+;; (setq mail-user-agent 'gnus-user-agent)
+;; (setq send-mail-function 'sendmail-send-it)
+
+(setq gnus-select-method '(nntp "news.giganews.com" (nntp-port-number 119)))
+
+(setq gnus-secondary-select-methods nil)
+
+(add-to-list 'gnus-secondary-select-methods 
+             '(nnimap "Local Mail"
+               (nnimap-address "localhost")
+               (nnimap-stream network)
+               (nnimap-authenticator login)))
+
+(add-to-list 'gnus-secondary-select-methods 
+             '(nnmaildir "GMail"
+                         (directory "~/Maildir/Gmail/INBOX")
+                         (directory-files nnheader-directory-files-safe)
+                         (get-new-mail nil)))
+
+;; (define-key gnus-group-mode-map (kbd "vo")
+;;   '(lambda ()
+;;      (interactive)
+;;      (shell-command "offlineimap&" "*offlineimap*" nil)))
+
+;; (setq user-mail-address "sean.hagen@gmail.com")
+;; (setq gnus-ignored-from-addresses "sean.hagen")

@@ -53,5 +53,6 @@
 (require 'blog-customize)
 (require 'crontab-customize)
 (require 'hideshow-customize)
+(require 'haml-customize)
 
 (provide 'load-customizations)

@@ -43,11 +43,11 @@
 
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
-
 (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
 (add-hook 'enh-ruby-mode-hook 'rinari-minor-mode)
+(add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
 
 (add-hook 'enh-ruby-mode-hook
 					(lambda ()
