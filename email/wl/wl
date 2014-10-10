@@ -83,7 +83,18 @@
             (local-set-key "f" 'browse-url)
             (local-set-key "F" 'browse-url-of-region)))
 
+(setq mime-view-type-subtype-score-alist
+      '(((text . plain) . 3)
+        ((text . enriched) . 2)
+        ((text . html) . 4)
+        ((text . richtext) . 1)))
+
 (remove-hook 'wl-draft-send-hook 'wl-draft-config-exec)
+
+(defun my-wl-summary-sort-hook ()
+  (wl-summary-rescan "date"))
+
+(add-hook 'wl-summary-prepared-hook 'my-wl-summary-sort-hook)
 
 (setq 
   elmo-maildir-folder-path "~/Mail"          ;; where i store my mail
