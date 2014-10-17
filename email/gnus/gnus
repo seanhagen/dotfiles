@@ -1,5 +1,3 @@
-;; gets installed as ~/.gnus
-
 ;; (setq gnus-select-method
 ;;       '(nnmaildir "Gmail"
 ;;                   (directory "~/Mail/Gmail")
@@ -30,9 +28,24 @@
 
 (add-to-list 'gnus-secondary-select-methods 
              '(nnmaildir "GMail"
-                         (directory "~/Maildir/Gmail/INBOX")
+                         (directory "~/Maildir/Gmail")
                          (directory-files nnheader-directory-files-safe)
-                         (get-new-mail nil)))
+                         (expire-age never)
+                         (nnmail-expiry-target-group "[Gmail]/All Mail")
+                         (get-new-mail t)))
+
+(add-to-list 'gnus-secondary-select-methods 
+             '(nnmaildir "ThoughtShop"
+                         (directory "~/Maildir/Thought")
+                         (directory-files nnheader-directory-files-safe)
+                         (nnmail-expiry-target-group "[Gmail]/All Mail")
+                         (expire-age never)
+                         (get-new-mail t)))
+
+(setq gnus-fetch-old-headers t)
+
+(setq mm-text-html-renderer 'w3m)
+(setq gnus-inhibit-images nil)
 
 ;; (define-key gnus-group-mode-map (kbd "vo")
 ;;   '(lambda ()
