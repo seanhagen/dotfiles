@@ -91,4 +91,5 @@ If the result is do-end block, it will always be multiline."
 
 (define-key enh-ruby-mode-map (kbd "C-c {") 'my-ruby-toggle-block)
 
+
 (provide 'ruby-customize)

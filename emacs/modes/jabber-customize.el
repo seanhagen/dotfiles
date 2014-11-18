@@ -3,8 +3,25 @@
 (require 'autosmiley)
 (add-hook 'jabber-chat-mode-hook 'autosmiley-mode)
 
+(defvar hipchat-number "182296")
+(defvar hipchat-nickname "Sean Hagen")
+
+(defun hipchat-join (room)
+  (interactive "sRoom name: ")
+  (jabber-groupchat-join
+   (jabber-read-account)
+   (concat hipchat-number "_" room "@conf.hipchat.com")
+   hipchat-nickname
+   t))
+
+(defun hipchat-mention (nickname)
+  (interactive
+   (list (jabber-muc-read-nickname jabber-group "Nickname: ")))
+  (insert (concat "@\"" nickname "\" ")))
+
 (setq cred (netrc-machine (netrc-parse "~/.authinfo") "jabber" t))
 (setq tscred (netrc-machine (netrc-parse "~/.authinfo") "tsjabber" t))
+(setq hipcred (netrc-machine (netrc-parse "~/.authinfo") "hipchat" t))
 
 (message (format "%s" tscred))
 (setq jabber-account-list
@@ -16,6 +33,11 @@
         (,(netrc-get tscred "login")
          (:password . ,(netrc-get tscred "password"))
          (:network-server . "talk.google.com")
+         (:connection-type . ssl)
+         (:port . 5223))
+        (,(netrc-get hipcred "login")
+         (:password . ,(netrc-get hipcred "password"))
+         (:network-server . "chat.hipchat.com")
          (:connection-type . ssl)
          (:port . 5223))))
 

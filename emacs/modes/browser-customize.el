@@ -15,4 +15,14 @@
 
 (setq browse-url-browser-function 'choose-browser)
 
+(defun w3m-copy-url-at-point ()
+  (interactive)
+  (let ((url (w3m-anchor)))
+    (if (w3m-url-valid url)
+        (kill-new (w3m-anchor))
+      (message "No URL at point!"))))
+(add-hook 'w3m-mode-hook
+          (lambda ()
+            (local-set-key "\M-W" 'w3m-copy-url-at-point)))
+
 (provide 'browser-customize)
