@@ -20,13 +20,21 @@ else
     fi
 fi
 
+GNUPGHOME=/media/sean/Security/gpghome
+if [ -f "${GNUPGHOME}/gpg-agent-info-$(hostname)" ]; then
+    . "${GNUPGHOME}/gpg-agent-info-$(hostname)"
+    export GPG_AGENT_INFO
+    export SSH_AUTH_SOCK
+    export SSH_AGENT_PID
+fi
+GPG_TTY=$(tty)
+export GPG_TTY
+
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 alias bfg="java -jar ~/bin/bfg.jar"
-alias composer="~/bin/composer.phar"
-alias artisan="php artisan"
 alias muf="mu find -u -f 'i d f s'"
 
 alias rake='noglob rake'
@@ -52,7 +60,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git bundler common-aliases cp ant cake coffee composer git-extras git-flow git-remote-branch github gnu-utils go golang history node npm perl phing python rails rake ssh-agent themes zsh-syntax-highlighting gem rbenv heroku jira mosh nyan redis-cli rsync sudo vagrant)
+plugins=(git bundler common-aliases cp ant cake coffee git-extras git-flow git-remote-branch github gnu-utils go golang history node npm perl python rails rake ssh-agent themes zsh-syntax-highlighting gem rbenv heroku mosh nyan redis-cli rsync sudo vagrant)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -81,8 +89,8 @@ bindkey -e '\eW' x-copy-region-as-kill
 bindkey -e '^W' x-kill-region
 bindkey -e '^Y' x-yank
 
-key_file=~/.ssh/github_rsa
-[[ -z $(ssh-add -L | grep $key_file) ]] && ssh-add $key_file
+#key_file=~/.ssh/github_rsa
+#[[ -z $(ssh-add -L | grep $key_file) ]] && ssh-add $key_file
 
 #eval "$(grunt --completion=zsh)"
 
