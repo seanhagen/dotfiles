@@ -19,14 +19,14 @@
 (setq-default indent-tabs-mode nil)
 (setq c-basic-offset 2)
 
-;(set-face-attribute 'default nil :height 90)
 (set-face-attribute 'default nil :foreground "white smoke")
 
 (show-paren-mode 1)
 (setq create-lockfiles nil)
 
+
 ;; Set region background colour
-(set-face-background 'region "grey")
+;;(set-face-background 'region "grey")
 
 ;; Set emacs background colour
 (set-background-color "black")
@@ -49,16 +49,16 @@
 
 ;; Emacs package manager!
 (require 'package)
-(setq package-archives '(("ELPA" . "http://tromey.com/elpa/") 
-                          ("gnu" . "http://elpa.gnu.org/packages/")
-                          ("melpa" . "http://melpa.milkbox.net/packages/")
-                          ("marmalade" . "http://marmalade-repo.org/packages/")))
+(setq package-archives 
+      '(("ELPA" . "http://tromey.com/elpa/") 
+	("gnu" . "http://elpa.gnu.org/packages/")
+	("melpa" . "http://melpa.milkbox.net/packages/")
+	("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ; Apparently needed for the package auto-complete (why?)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.milkbox.net/packages/") t)
-
-(load-file "~/.emacs.d/custom-packages.el")
+(add-to-list 
+ 'package-archives
+ '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;;(package-initialize)
 (setq url-http-attempt-keepalives nil)
@@ -89,12 +89,11 @@
   (mapc 'fringe-helper-remove flymake-fringe-overlays)
   (setq flymake-fringe-overlays nil))
 
-;(add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
-
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)
 (autoload 'ack-find-same-file "full-ack" nil t)
 (autoload 'ack-find-file "full-ack" nil t)
+
 ;; on Debian/Ubuntu you'll need to set the executable
 (setq ack-executable (executable-find "ack-grep"))
 
@@ -114,14 +113,15 @@
 (if after-init-time (sml/setup)
   (add-hook 'after-init-hook 'sml/setup))
 
-(defadvice vc-git-mode-line-string (after plus-minus (file) compile activate)
+(defadvice vc-git-mode-line-string 
+  (after plus-minus (file) compile activate)
   (setq ad-return-value
-    (concat ad-return-value
-            (let ((plus-minus (vc-git--run-command-string
-                               file "diff" "--numstat" "--")))
-              (and plus-minus
-                   (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus)
-                   (format " +%s-%s" (match-string 1 plus-minus) (match-string 2 plus-minus)))))))
+	(concat ad-return-value
+		(let ((plus-minus (vc-git--run-command-string
+				   file "diff" "--numstat" "--")))
+		  (and plus-minus
+		       (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus)
+		       (format " +%s-%s" (match-string 1 plus-minus) (match-string 2 plus-minus)))))))
 
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Code/PHP/BBTV" ":BBTV:") )
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Code/DevOps" ":DevOps:") )
@@ -131,16 +131,9 @@
 
 (setq oauth-nonce-function 'oauth-internal-make-nonce)
 
-(require 'tramp)
-;(add-to-list 'tramp-default-proxies-alist '(".*" "\`root\'" "/ssh:%h:"))
-;(add-to-list 'tramp-default-proxy-alist ("sudo-integration" nil "/ssh:integration"))
-
-(require 'multi-term)
-
-;;(set-default-font "Bitstream Vera Sans Mono-8")
-;(when (string= system-name "SeanDevBBTV")
-;  (set-default-font "Unifont 12"))
-
 (set-default-font "Bitstream Vera Sans Mono-10")
-;(set-default-font "Unifont 11")
+
+(require 'tramp)
+(require 'multi-term)
+(require 'rainbow-delimiters)
 

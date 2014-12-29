@@ -1,4 +1,0 @@
-# name: <button... ></button>
-# key: btn
-# --
-<button type="$1"${2: id="${3:some_id}"}${4: class="${5:some_class}"}>$0</button>

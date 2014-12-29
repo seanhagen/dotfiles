@@ -1,5 +1,3 @@
-;; Sean's Emacs Config!
-
 (add-to-list 'load-path "~/.emacs.d/el-get/el-get")
 (unless (require 'el-get nil 'noerror)
   (with-current-buffer
@@ -9,31 +7,22 @@
     (eval-print-last-sexp)))
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
-(setq
- el-get-sources
- '(el-get
-   wanderlust
-   calfw
-   php+-mode))
 
-(setq my:el-get-packages
-      '(wanderlust
-        calfw))
+;; store passwords and whatnot outside the emacs folder
+(load-file "~/.secure-emacs")
 
-(el-get 'sync my:el-get-packages)
+;; load up packages that i want to make sure they're installed
+(load-file "~/.emacs.d/custom-packages.el")
+
+;; ;; load up some miscleanious settings
+(load-file "~/.emacs.d/misc.el" )
 
 ;; Let's save all the changes we make to "custom.el", 
 ;;  instead of this file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
 
-;; store passwords and whatnot outside the emacs folder
-(load-file "~/.secure-emacs")
-
-;; ;; load up some miscleanious settings
-(load-file "~/.emacs.d/misc.el" )
-
-;; ;; Add some load paths
+;; Add some load paths
 (add-to-list 'load-path "~/.emacs.d")
 (add-to-list 'load-path "~/.emacs.d/modes")
 (add-to-list 'load-path "~/.emacs.d/downloads")

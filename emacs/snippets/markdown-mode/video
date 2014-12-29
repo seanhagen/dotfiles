@@ -1,3 +1,0 @@
-# name: Video
-# --
-{% video ${1:video_url} ${2:width} ${3:height} ${4:url/to/poster} %}

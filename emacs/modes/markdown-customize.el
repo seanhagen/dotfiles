@@ -4,27 +4,7 @@
 (add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.text\\'" . markdown-mode))
 (add-to-list 'auto-mode-alist '("\\.txt\\'" . markdown-mode))
-(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
-
-;; (defadvice markdown-cycle (around indent-active-region-rigidly (&optional arg shift) activate)
-;;	(if (use-region-p)
-;;			(save-excursion
-;;				(let ((rb (region-beginning))
-;;							(re (region-end)))
-;;					(goto-char rb)
-;;					(beginning-of-line)
-;;					(indent-rigidly (point)
-;;													re
-;;													(if shift (- tab-width) tab-width))
-;;					(setq deactivate-mark nil)))
-;;		ad-do-it))
-
-;; (add-hook 'markdown-mode-hook
-;;					(lambda ()
-;;						(fset 'markdown-shifttab
-;;									(lambda ()
-;;										(interactive)
-;;										(markdown-cycle t t)))))
+;(add-to-list 'auto-mode-alist '("README\\.md\\'" . markdown-mode))
 
 (defun traditional-indent ()
   (interactive)
@@ -51,3 +31,4 @@
 (add-hook 'markdown-mode-hook 'turn-on-flyspell)
 
 (provide 'markdown-customize)
+

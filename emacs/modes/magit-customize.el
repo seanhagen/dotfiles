@@ -1,5 +1,5 @@
 ;; Magit setup!
-(require 'magit)
+(autoload 'magit "magit" "Magit Git" t)
 
 (defadvice magit-status
   (around magit-fullscreen activate)
@@ -13,13 +13,11 @@
   (kill-buffer)
   (jump-to-register :magit-fullscreen))
 
-(define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
-
-(add-hook 'git-commit-mode-hook 'turn-on-flyspell)
+(eval-after-load 'magit
+  '(progn
+     (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+     (add-hook 'git-commit-mode-hook 'turn-on-flyspell)))
 
 (setq vc-handled-backends nil)
-
-;;(setenv "EDITOR" "emacsclient")
-;;(message (getenv "DISPLAY"))
 
 (provide 'magit-customize)

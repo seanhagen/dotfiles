@@ -1,6 +1,0 @@
-# name: define
-# key: def
-# --
-def ${e}
-    $0
-end

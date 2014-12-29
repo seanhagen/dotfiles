@@ -5,12 +5,21 @@
 (require 'dired-toggle-sudo)
 (require 'image+)
 (require 'look-mode)
+(require 'dired-rainbow)
 
 (eval-after-load 'image-dired '(require 'image-dired+))
 
 (dired-details-install)
 ;; '(' hides details
 ;; ')' shows details
+
+
+(defconst my-dired-media-files-extensions
+  '("mp3" "mp4" "MP3" "MP4" "avi" "mpg" "flv" "ogg")
+  "Media files.")
+
+(dired-rainbow-define html "#4e9a06" ("htm" "html" "xhtml"))
+(dired-rainbow-define media "#ce5c00" my-dired-media-files-extensions)
 
 
 (define-key dired-mode-map (kbd "C-c C-s") 'dired-toggle-sudo)

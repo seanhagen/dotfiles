@@ -9,8 +9,6 @@
 (setq org-agenda-include-diary t)  
 (setq org-agenda-include-all-todo t)
 (setq org-clock-persist 'history)
-(setq org-agenda-skip-unavailable-files t)
-(setq org-agenda-files '("~/Dropbox/Org"))
 (org-clock-persistence-insinuate)
 
 (setq org-fontify-done-headline t)

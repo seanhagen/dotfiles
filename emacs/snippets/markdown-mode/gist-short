@@ -1,9 +1,0 @@
-# -*- mode: snippet require-final-newline: nil -*-
-# name: Gist Import - simple
-# key: gists
-# contributor: Abizer Nasir abizern@junglecandy.com
-# group: Octopress
-# --
-{% gist ${1:gist-id} %}
-
-$0

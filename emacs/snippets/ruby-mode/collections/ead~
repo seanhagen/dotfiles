@@ -1,6 +1,0 @@
-# name: each do |...| ...
-# key: ea
-# --
-each do |${e}|
-     $0
-end

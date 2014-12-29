@@ -5,6 +5,9 @@
  ;; If there is more than one, they won't work right.
  '(ac-etags-requires 1)
  '(ac-menu-height 20)
+ '(canlock-password "38f7ec4ad5e7b3b1c3196ee48f674d1f73ae100d")
+ '(cider-lein-command "lein")
+ '(cider-repl-display-in-current-window nil)
  '(coffee-command "/usr/local/node/bin/coffee")
  '(custom-safe-themes (quote ("756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(dired-details-hidden-string "[...] ")
@@ -12,6 +15,7 @@
  '(display-time-day-and-date t)
  '(enh-ruby-check-syntax (quote errors))
  '(exec-path (quote ("/home/sean/bin" "/usr/lib/lightdm/lightdm" "/usr/local/sbin" "/usr/local/bin" "/usr/sbin" "/usr/bin" "/sbin" "/bin" "/usr/games" "/usr/local/libexec/emacs/24.3/x86_64-unknown-linux-gnu" "/usr/local/node/bin")))
+ '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
  '(flymake-allowed-file-name-masks (quote (("\\.el$" erefactor-flymake-init erefactor-flymake-cleanup erefactor-flymake-get-real-file-name) ("\\.jade\\'" flymake-jade-init) (".+\\.js$" flymake-jshint-init flymake-simple-cleanup flymake-get-real-file-name) (".+\\.scss$" flymake-scss-init) ("\\.php[345s]?$" flymake-phpcs-init flymake-simple-cleanup flymake-get-real-file-name my-flymake-php-init) ("\\.l?hs\\'" haskell-flymake-init) (".+\\.css$" flymake-csslint-init flymake-simple-cleanup flymake-get-real-file-name) ("\\.\\(?:c\\(?:pp\\|xx\\|\\+\\+\\)?\\|CC\\)\\'" flymake-simple-make-init) ("\\.xml\\'" flymake-xml-init) ("\\.html?\\'" flymake-xml-init) ("\\.cs\\'" flymake-simple-make-init) ("\\.p[ml]\\'" flymake-perl-init) ("\\.php[345]?\\'" flymake-php-init) ("\\.js\\'" flymake-javascript-init) ("\\.css\\'" flymake-css-init) ("\\.h\\'" flymake-master-make-header-init flymake-master-cleanup) ("\\.java\\'" flymake-simple-make-java-init flymake-simple-java-cleanup) ("[0-9]+\\.tex\\'" flymake-master-tex-init flymake-master-cleanup) ("\\.tex\\'" flymake-simple-tex-init) ("\\.idl\\'" flymake-simple-make-init) ("\\.spec\\'" flymake-specfile-init) ("\\.po\\'" flymake-pofile-init))))
  '(flymake-no-changes-timeout 2)
  '(flymake-number-of-errors-to-display 5)
@@ -64,7 +68,7 @@
  '(send-mail-function (quote sendmail-send-it))
  '(term-unbind-key-list (quote ("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>" "C-p" "C-n")))
  '(tidy-temp-directory "/tmp")
- '(tumblesocks-blog "seanhagen.tumblr.com")
+ '(tumblesocks-blog "seanhagen.tumblr.com" t)
  '(user-mail-address "sean.hagen@gmail.com")
  '(wl-draft-always-delete-myself t)
  '(wl-summary-incorporate-marks (quote ("N" "U" "!" "A" "A" "F" "$" "S")))
@@ -75,7 +79,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(circe-highlight-nick-face ((t (:foreground "orange red" :weight bold))))
+ '(circe-highlight-nick-face ((t (:foreground "orange red" :weight bold))) t)
  '(ediff-even-diff-A ((t (:background "cyan" :foreground "Black"))) t)
  '(ediff-even-diff-Ancestor ((t (:background "black" :foreground "White"))) t)
  '(ediff-even-diff-B ((t (:background "green" :foreground "black"))) t)
@@ -84,7 +88,7 @@
  '(ediff-odd-diff-C ((t (:background "turquoise" :foreground "dark green"))) t)
  '(eshell-ls-directory ((t (:foreground "deep sky blue" :weight bold))) t)
  '(eshell-ls-executable ((t (:foreground "lime green" :weight normal))) t)
- '(flymake-errline ((t (:background "orange" :foreground "red"))))
+ '(flymake-errline ((t (:background "orange" :foreground "red"))) t)
  '(font-lock-builtin-face ((t (:foreground "light sky blue"))))
  '(font-lock-function-name-face ((t (:foreground "cyan"))))
  '(font-lock-keyword-face ((t (:foreground "magenta"))))

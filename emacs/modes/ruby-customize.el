@@ -1,32 +1,12 @@
-(require 'rinari)
-(require 'rbenv)
-(require 'ruby-additional)
-(require 'enh-ruby-mode)
-(require 'ruby-block)
-(require 'ruby-compilation)
-(require 'rsense)
-(require 'yari)
+(autoload 'enh-ruby-mode "enh-ruby-mode" "Enhanced Ruby Mode" t)
 
-(require 'ruby-electric)
+(autoload 'global-rbenv-mode "rbenv")
+(autoload 'global-rinari-mode "rinari")
+(autoload 'ruby-block-mode "ruby-block")
+(autoload 'company-robe "robe")
+(autoload 'ruby-style "ruby-style")
+(autoload 'ruby-block-mode "ruby-block")
 
-;(require 'ruby-end)
-
-(require 'ruby-tools)
-(require 'rhtml-mode)
-(require 'rspec-mode)
-(require 'ruby-test-mode)
-(require 'inf-ruby)
-
-(require 'robe)
-
-(setq rbenv-installation-dir "~/.rbenv")
-(setq ruby-block-highlight-toggle t)
-(setq rinari-tags-file-name "TAGS")
-(setq rsense-home "/home/sean/opt/rsense")
-
-;; rbenv stuff
-(setenv "PATH" (concat (getenv "HOME") "/.rbenv/shims:" (getenv "HOME") "/.rbenv/bin:" (getenv "PATH")))
-(setq exec-path (cons (concat (getenv "HOME") "/.rbenv/shims") (cons (concat (getenv "HOME") "/.rbenv/bin") exec-path)))
 
 (autoload 'enh-ruby-mode "enh-ruby-mode" "Major mode for ruby files" t)
 (autoload 'ruby-mode "ruby-mode" "Mode for editing ruby source files" t)
@@ -39,57 +19,73 @@
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.ru$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("Gemfile$" . enh-ruby-mode))
-(add-to-list 'auto-mode-alist '("Vagrantfile$" . setup-ruby-mode)) 
+(add-to-list 'auto-mode-alist '("Vagrantfile$" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("Capfile$" . enh-ruby-mode))
 
 (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
-(add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
-(add-hook 'enh-ruby-mode-hook 'robe-mode)
-(add-hook 'enh-ruby-mode-hook 'ruby-tools-mode)
-(add-hook 'enh-ruby-mode-hook 'rinari-minor-mode)
-(add-hook 'enh-ruby-mode-hook 'ruby-end-mode)
+(eval-after-load "enh-ruby-mode"
+  '(progn
+     ;;(require 'ruby-additional)
+     (add-to-list 'interpreter-mode-alist '("ruby" . ruby-mode))
+     (add-to-list 'interpreter-mode-alist '("ruby" . enh-ruby-mode))
 
-(add-hook 'enh-ruby-mode-hook
-					(lambda ()
-						(add-to-list 'ac-sources 'ac-source-rsense-method)
-						(add-to-list 'ac-sources 'ac-source-rsense-constant)))
-(add-hook 'enh-ruby-mode-hook
-					(lambda ()
-						(local-set-key (kbd "C-c .") 'rsense-complete)))
+     (add-hook 'ruby-mode-hook 'inf-ruby-minor-mode)
+     (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
+     (add-hook 'ruby-mode-hook 'turn-on-font-lock)
+     (add-hook 'ruby-mode-hook 'robe-mode)
+     (add-hook 'enh-ruby-mode-hook 'robe-mode)
+     ;(add-hook 'enh-ruby-mode-hook 'ruby-electric-mode)
 
-(setq ruby-program "/home/sean/.rbenv/shims/ruby")
-(setq enh-ruby-program "/home/sean/.rbenv/shims/ruby")
-(setq flymake-ruby-executable "/home/sean/.rbenv/shims/ruby")
+     (global-rbenv-mode)
+     (global-rinari-mode)
 
-(add-to-list 'load-path (concat rsense-home "/etc"))
+     (setq ruby-program "/home/sean/.rbenv/shims/ruby")
+     (setq enh-ruby-program "/home/sean/.rbenv/shims/ruby")
 
+     (setq rbenv-installation-dir "~/.rbenv")     
+
+     (ruby-block-mode t)
+     ;(ruby-style-c-mode)
+
+     (setq ruby-block-highlight-toggle t)
+     (setq rinari-tags-file-name "TAGS")
+
+     (push 'company-robe company-backends)
+     
+     (require 'rake-autoloads)
+
+     (add-to-list 'hs-special-modes-alist
+                  '(enh-ruby-mode
+                    "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
+                    (lambda (arg) (ruby-end-of-block)) nil))
+
+     (setenv "PATH" 
+             (concat (getenv "HOME") "/.rbenv/shims:" 
+                     (getenv "HOME") "/.rbenv/bin:" 
+                     "/usr/local/node/bin"
+                     (getenv "PATH")))
+
+     (setq exec-path 
+           (cons 
+            (concat 
+             (getenv "HOME") "/.rbenv/shims") 
+            (cons 
+             (concat 
+              (getenv "HOME") "/.rbenv/bin")
+             (cons
+              (concat "/usr/local/node/bin")
+              exec-path))))
+
+     ))
+
+(eval-after-load "rbenv"
+  '(progn
+     (setq rbenv-installation-dir "~/.rbenv")))
+     
 (add-to-list 'hs-special-modes-alist
              '(ruby-mode
                "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
                (lambda (arg) (ruby-end-of-block)) nil))
-
-(push '("^\\(.*\\):\\([0-9]+\\): \\(.*\\)$" 1 2 nil 3) flymake-err-line-patterns)
-
-(defun my-ruby-toggle-block ()
-  "Toggle block type from do-end to braces or back.
-The block must begin on the current line or above it and end after the point.
-If the result is do-end block, it will always be multiline."
-  (interactive)
-  (let ((start (point)) beg end)
-    (end-of-line)
-    (unless
-        (if (and (re-search-backward "\\({\\)\\|\\_<do\\(\\s \\|$\\||\\)")
-                 (progn
-                   (setq beg (point))
-                   (save-match-data (ruby-forward-sexp))
-                   (setq end (point))
-                   (> end start)))
-            (if (match-beginning 1)
-                (ruby-brace-to-do-end beg end)
-              (ruby-do-end-to-brace beg end)))
-      (goto-char start))))
-
-(define-key enh-ruby-mode-map (kbd "C-c {") 'my-ruby-toggle-block)
-
 
 (provide 'ruby-customize)

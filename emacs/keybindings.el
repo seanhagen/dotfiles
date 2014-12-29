@@ -7,6 +7,8 @@
 (global-set-key (kbd "C-+") 'hs-show-block)
 (global-set-key (kbd "C-\\") 'hs-hide-block)
 
+(global-set-key (kbd "C-c r r") 'inf-ruby)
+
 (add-hook 'term-mode-hook 
           (lambda()
             (add-to-list 'term-unbind-key-list "C-p")
@@ -66,7 +68,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c b") 'org-iswitchb)
-(global-set-key (kbd "C-c r") 'org-remember)
+(global-set-key (kbd "C-c r") 'org-capture)
 
 
 (provide 'keybindings)

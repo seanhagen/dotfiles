@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# contributor : Sean Hagen <sean.hagen@gmail.com>
-# name : class ...
-# key : class
-# --
-class ${class_name} extends ${extends_name} {
-    $0
-}
