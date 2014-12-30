@@ -13,7 +13,6 @@ I might look at converting this into a Puppet usable set of configs, so that I c
 
 ## Other Things To Install
 ### Else I Can't Work.
-* rsense: http://cx4a.org/software/rsense/
 * nodejs => /usr/local/nodejs-v.v.v ( symlink latest to /usr/local/nodejs )
 * arduino => /usr/local/arduino-v.v.v ( symlink latest to /usr/local/arduino )
 * processing => /usr/local/processing-v.v.v ( symlink latest to /usr/local/processing )
@@ -23,8 +22,7 @@ I might look at converting this into a Puppet usable set of configs, so that I c
 * https://github.com/holman/boom
 * https://github.com/holman/gifme
 * https://github.com/holman/noted
-* 
+*
 
 ## Stuff To Incorporate
 * https://github.com/holman/dotfiles
-* 
