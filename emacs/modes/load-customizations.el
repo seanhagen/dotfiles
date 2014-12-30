@@ -32,6 +32,7 @@
 (require 'javascript-customize)
 (require 'lisp-customize)
 (require 'magit-customize)
+(require 'misc-setup)
 (require 'org-customize)
 (require 'org-remember-customize)
 (require 'paredit-customize)
