@@ -4,39 +4,37 @@
 ## C-u C-u C-c C-c  "???" -> "* ???"
 ## To switch templates, use `M-x org-remember'.
 ## To start remembering something: C-c r t
-* Things To Do [/]
+* Things To Do
      :PROPERTIES:
      :COOKIE_DATA: checkbox recursive
      :END:
-** Things To Do In Emacs [7/134]
+** Things To Do In Emacs [21/143]
      :PROPERTIES:
      :COOKIE_DATA: checkbox recursive
      :END:
-- [ ] make sure all the ruby stuff is set up and working properly :important:
-- [ ] get flymake working for ruby, css/sass/scss, coffee, and javascript
-- [ ] decide if I'm going to keep using org-remember, or switch to org-capture
+- [X] make sure all the ruby stuff is set up and working properly :important:
+- [X] get flymake working for ruby, css/sass/scss, coffee, and javascript
+     NOTE: using flycheck instead
+- [X] decide if I'm going to keep using org-remember, or switch to org-capture
 - [ ] learn how to use the calculator
 - [ ] learn how to use tumblesocks
 - [ ] learn how to use openwith
 - [ ] learn how to use the web browser
 - [ ] learn how to compare windows
 - [ ] learn how to diff files
-- [ ] setup flymake for ruby and php files
-- [ ] get geben working for php
+- [X] setup flymake for ruby and php files
 - [ ] install and setup and learn how to use a ruby debugger
  - get it working with rails, too
 - [ ] learn what 'glasses' is
  - it's a minor mode to change stuff that's displayed withVariableNamesLikeThis to with_variable_names_like_this
-- [ ] memorize commands for code folding [0/3]
+- [ ] memorize commands for code folding [0/2]
  - [ ] make sure it works in ruby
  - [ ] and javascript
- - [ ] and php
-- [ ] find a mongo shell mode
-- [ ] find a mode that will let me run apache or a php server from emacs
+- [X] find a mongo shell mode
 - [ ] find a good mode for monitoring logs
-- [ ] merge work and home emacs setups
-- [ ] setup rsense ( ruby tool ) and learn what it does
-- [ ] make sure auto-complete is set up for ruby
+- [X] merge work and home emacs setups
+- [X] setup rsense ( ruby tool ) and learn what it does
+- [X] make sure auto-complete is set up for ruby
  - and make sure that it's picking up stuff from within the project
 - [X] make sure that auto-mode-alist stuff is working [6/6]
  - [X] coffeescript
@@ -45,7 +43,7 @@
  - [X] ruby
  - [X] yaml
  - [X] sass/scss/css
-- [ ] setup and learn how to use these modes [0/85]
+- [-] setup and learn how to use these modes [1/88]
  - [ ] malabar-mode
  - [ ] ob-sml
  - [ ] sml-mode
@@ -70,7 +68,6 @@
  - [ ] wtf
  - [ ] xmlgen
  - [ ] xlicense
- - [ ] achievements
  - [ ] keyfreq
  - [ ] mongo
  - [ ] eredis
@@ -82,16 +79,11 @@
  - [ ] pomodoro
  - [ ] projectile
  - [ ] robe
- - [ ] ruby-hash-syntax
- - [ ] ruby-interpolation
- - [ ] ruby-mdoe
- - [ ] sparkline
  - [ ] sudo-ext
  - [ ] tea-time
  - [ ] web-mode
  - [ ] web-beautify
  - [ ] weather
- - [ ] org-trello
  - [ ] doc-mode
  - [ ] dired-rainbow
  - [ ] diff-hl
@@ -103,7 +95,7 @@
  - [ ] xkcd
  - [ ] writegood-mode
  - [ ] writeroom-mode
- - [ ] yard-mode
+ - [X] yard-mode
  - [ ] calfw
  - [ ] calfw-gcal
  - [ ] css-eldoc
@@ -140,8 +132,8 @@
  - [ ] c-eldoc
  - [ ] dtrt-indent
  - [ ] editorconfig
-- [ ] learn more about how to use dired
-- [ ] learn more about helm
+- [X] learn more about how to use dired
+- [X] learn more about helm
 - [ ] find a spreadsheet mode for emacs
 - [ ] set up music [0/2]
  - [ ] get some music on dropbox to play when not connected to the internet
@@ -155,16 +147,17 @@
  - [ ] contacts
  - [ ] translate
  - [ ] 'google-this'
-- [ ] set up html5 flycheck style stuff
-- [ ] set up slime and clojure stuff
+- [-] set up slime and clojure stuff
+ - [ ] slime
+ - [X] clojure/cider
 - [ ] make sure yasnippets has plenty of vagrant, ruby, coffee, and js snippets
-- set up / configure / look into these things for wanderlust [/]
+- set up / configure / look into these things for gnus [2/8]
  - [ ] signatures ( possibly multiple templates )
- - [ ] add sean@seanhagen.ca account [/]
-  - [ ] offlineimap multiple accounts
-  - [ ] wanderlust read second account
+ - [-] add sean@seanhagen.ca account [2/4]
+  - [X] offlineimap multiple accounts
+  - [X] gnus read second account
   - [ ] postfix setup to send as multiple accounts ( might not be possible with current setup )
-  - [ ] wanderlust reply from "To:" email
+  - [ ] gnus reply from "To:" email
  - [ ] contact database
  - [ ] contact autocomplete
 ** Project Ideas!
@@ -217,7 +210,7 @@
      - [ ] give sprite a name
      - [ ] group sprites by type ( with subgroups )
       - ie, characters -> npc -> bob -> walking sprite, environment -> snow -> tree -> big tree 1, etc
-     - [ ] saving sprite does the following 
+     - [ ] saving sprite does the following
       - save all inserted images into proper folder ( defined by group/subgroups )
      - [ ] while editing sprite, show preview window of what the sprite will look like
      - [ ] also editable: delay between sprites if more than one image
@@ -228,7 +221,7 @@
       - [ ] both of these files are saved into a zip ( or some sort of archive file )
     - [ ] entity creator [0/19]
      - [ ] create entities for use in world editor
-     - [ ] can be anything 
+     - [ ] can be anything
       - door, player, npc, enemy, house, map tile, weapon, item
      - [ ] can define restrictions for placement, or
      - [ ] will have an 'entity script', a script that defines the basic properties of [0/4]
@@ -245,7 +238,7 @@
         - possibly even other entities ( ie, need to have some sort of player process flagset [ enemy x defeated, area y found, etc ]  to help drive conversations )
       - [ ] can be used to define how the entity behaves in general
       - [ ] scripts can control switching between animation states
-      - [ ] scripts can also act as triggers 
+      - [ ] scripts can also act as triggers
        - ie, player moves over this tile, warp them somewhere. enemy health < 50%? quaff potion. etc, etc.
       - [ ] can move the character around on the world map, or in the battle screen
      - [ ] entities will have several functions in the game engine that are proxied into the scripts that allow them to interact with other entities
@@ -294,29 +287,29 @@
     - [ ] demo url
     - [ ] description
   - [ ] view project
-** Things To Learn [0/21]
+** Things To Learn [1/21]
      :PROPERTIES:
      :COOKIE_DATA: checkbox recursive
      :END:
 - [ ] Dart!
-- [ ] Check out AngularJS
-- [ ] Really learn Knockback [0/2]
-  - [ ] take things learned while integrating it into Acqurate and try to make Knockback better
-  - [ ] ie, arrays that are built from plucking values from a CollectionObservable, but are kept updated
+- [X] Check out AngularJS
+ - [ ] do some projects using AngularJS
+  - [ ] rails backend
+  - [ ] nodejs backend
+  - [ ] clojure backend
 - [ ] Go
 - [ ] Clojure
 - [ ] Erlang
+  - Learn You A Haskell For Great Good!
 - [ ] Haskell
   - Learn You A Haskell For Great Good!
 - [ ] Processing [0/3]
   - [ ] Get a better handle on it
   - [ ] Figure out how to do the 'growing vine' thing
   - [ ] Finally do that 'love vs hate' idea I have
-- [ ] Python
-  - don't really need to 'learn' it, per say, but I definitely need to do more stuff with it
 - [ ] Racket
 - [ ] Command Line
-  - [ ] gcalcli 
+  - [ ] gcalcli
   - [ ] cloudprint
   - [ ] googlecl
   - [ ] grive
