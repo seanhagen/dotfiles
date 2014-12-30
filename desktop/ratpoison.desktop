@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Ratpoison
+Comment=This session logs you into Ratpoison
+Exec=/usr/bin/ratpoison
+TryExec=ratpoison
+Icon=
+Type=Application
+X-LightDM-DesktopName=Ratpoison
+X-Ubuntu-Gettext-Domain=gnome-session-3.0

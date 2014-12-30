@@ -9,7 +9,7 @@
 
 (global-set-key (kbd "C-c r r") 'inf-ruby)
 
-(add-hook 'term-mode-hook 
+(add-hook 'term-mode-hook
           (lambda()
             (add-to-list 'term-unbind-key-list "C-p")
             (add-to-list 'term-unbind-key-list "C-n")))
@@ -50,26 +50,22 @@
 (global-set-key [(shift f3)] 'highlight-symbol-prev)
 (global-set-key [(meta f3)] 'highlight-symbol-query-replace)
 
-(define-key (current-global-map) "\C-c!" 'shell-here)
+(global-set-key (kbd "C-c h n") 'highlight-symbol-next)
+(global-set-key (kbd "C-c h p") 'highlight-symbol-prev)
+(global-set-key (kbd "C-c h q") 'highlight-symbol-query-replace)
 
-;; (global-set-key "\C-cec" 'evernote-create-note)
-;; (global-set-key "\C-ceo" 'evernote-open-note)
-;; (global-set-key "\C-ces" 'evernote-search-notes)
-;; (global-set-key "\C-ceS" 'evernote-do-saved-search)
-;; (global-set-key "\C-cew" 'evernote-write-note)
-;; (global-set-key "\C-cep" 'evernote-post-region)
-;; (global-set-key "\C-ceb" 'evernote-browser)
+(define-key (current-global-map) "\C-c!" 'shell-here)
 
 (global-set-key (kbd "C-c /") 'hide-lines)
 
 (global-set-key (kbd "M-n") 'org-do-demote)
 (global-set-key (kbd "M-p") 'org-do-promote)
 
-(global-set-key (kbd "C-c l") 'org-store-link)
-(global-set-key (kbd "C-c a") 'org-agenda)
-(global-set-key (kbd "C-c b") 'org-iswitchb)
-(global-set-key (kbd "C-c r") 'org-capture)
+(global-set-key (kbd "C-c o l") 'org-store-link)
+(global-set-key (kbd "C-c o a") 'org-agenda)
+(global-set-key (kbd "C-c o b") 'org-iswitchb)
+(global-set-key (kbd "C-c o r") 'org-capture)
 
+(global-set-key (kbd "C-=") 'er/expand-region)
 
 (provide 'keybindings)
-

@@ -1,5 +1,6 @@
 (require 'yasnippet)
 (require 'dropdown-list)
+(require 'yasnippet-bundle)
 
 (yas-global-mode 1)
 
@@ -9,5 +10,6 @@
                              yas-ido-prompt
                              yas-completing-prompt))
 
+(add-to-list 'yas-snippet-dirs "~/.emacs.d/downloads/yasnippet-coffee-script-snippets")
 
 (provide 'yasnippet-setup)

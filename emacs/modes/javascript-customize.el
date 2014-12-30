@@ -4,6 +4,8 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 (add-hook 'js2-mode-hook 'skewer-mode)
+(add-hook 'js2-mode-hook 'projectile-mode)
+(add-hook 'js2-mode-hook 'flycheck-mode)
 
 (eval-after-load "js2-mode"
   '(progn
@@ -11,6 +13,10 @@
      (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
      (define-key js2-mode-map (kbd "C-a") nil)
      (define-key js2-mode-map (kbd "C-c C-n") 'js2-next-error)
+     (define-key js2-mode-map (kbd "{") 'paredit-open-curly)
+     (define-key js2-mode-map (kbd "}") 'paredit-close-curly)
+
+     (angular-snippets-initialize)
 
      (local-set-key "\C-x\C-e" 'js-send-last-sexp)
      (local-set-key "\C-\M-x" 'js-send-last-sexp-and-go)

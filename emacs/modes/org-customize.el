@@ -6,7 +6,7 @@
 (require 'org-install)
 (require 'org-present)
 
-(setq org-agenda-include-diary t)  
+(setq org-agenda-include-diary t)
 (setq org-agenda-include-all-todo t)
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
@@ -41,7 +41,7 @@
 						(org-present-small)
 						(org-remove-inline-images)))
 
-(setq org-capture-templates 
+(setq org-capture-templates
       '(
         ;; basic todo template
         ("t" "Todo" entry
@@ -95,5 +95,18 @@
 
 (setq org-directory "~/Dropbox/Org/")
 (setq org-default-notes-file "~/.notes")
+
+(defun myorg-update-parent-cookie ()
+  (when (equal major-mode 'org-mode)
+    (save-excursion
+      (ignore-errors
+        (org-back-to-heading)
+        (org-update-parent-todo-statistics)))))
+
+(defadvice org-kill-line (after fix-cookies activate)
+  (myorg-update-parent-cookie))
+
+(defadvice kill-whole-line (after fix-cookies activate)
+  (myorg-update-parent-cookie))
 
 (provide 'org-customize)

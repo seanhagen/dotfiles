@@ -1,17 +1,44 @@
 (require 'jabber)
 (require 'netrc)
 ;(require 'autosmiley)
-;(add-hook 'jabber-chat-mode-hook 'autosmiley-mode)
+;; (add-hook 'jabber-chat-mode-hook 'autosmiley-mode)
+
+;; (defvar hipchat-number "182296")
+;; (defvar hipchat-nickname "Sean Hagen")
+
+;; (defun hipchat-join (room)
+;;   (interactive "sRoom name: ")
+;;   (jabber-groupchat-join
+;;    (jabber-read-account)
+;;    (concat hipchat-number "_" room "@conf.hipchat.com")
+;;    hipchat-nickname
+;;    t))
+
+;; (defun hipchat-mention (nickname)
+;;   (interactive
+;;    (list (jabber-muc-read-nickname jabber-group "Nickname: ")))
+;;   (insert (concat "@\"" nickname "\" ")))
 
 (setq cred (netrc-machine (netrc-parse "~/.authinfo") "jabber" t))
+(setq bcred (netrc-machine (netrc-parse "~/.authinfo") "bjabber" t))
+;(setq hipcred (netrc-machine (netrc-parse "~/.authinfo") "hipchat" t))
 
-(message (format "%s" cred))
 (setq jabber-account-list
       `((,(netrc-get cred "login")
          (:password . ,(netrc-get cred "password"))
-         (:network-server . "talk.google.com")
+         (:network-server . "localhost")
          (:connection-type . ssl)
-         (:port . 5223))))
+         (:port . 5000))
+        (,(netrc-get bcred "login")
+         (:password . ,(netrc-get bcred "password"))
+         (:network-server . "localhost")
+         (:connection-type . ssl)
+         (:port . 5000))))
+        ;; (,(netrc-get hipcred "login")
+        ;;  (:password . ,(netrc-get hipcred "password"))
+        ;;  (:network-server . "chat.hipchat.com")
+        ;;  (:connection-type . ssl)
+        ;;  (:port . 5223))))
 
 (setq
   jabber-history-enabled t
@@ -31,21 +58,21 @@
 
 (add-hook 'jabber-chat-mode-hook 'goto-address)
 
-(setq jabber-chat-header-line-format
-      '(" " (:eval (jabber-jid-displayname jabber-chatting-with))
-    	" " (:eval (jabber-jid-resource jabber-chatting-with)) "\t";
-    	(:eval (let ((buddy (jabber-jid-symbol jabber-chatting-with)))
-                 (propertize
-                  (or
-                   (cdr (assoc (get buddy 'show) jabber-presence-strings))
-                   (get buddy 'show))
-                  'face
-                  (or (cdr (assoc (get buddy 'show) jabber-presence-faces))
-                     'jabber-roster-user-online))))
-    	"\t" (:eval (get (jabber-jid-symbol jabber-chatting-with) 'status))
-    	(:eval (unless (equal "" *jabber-current-show*)
-                 (concat "\t You're " *jabber-current-show*
-                         " (" *jabber-current-status* ")")))))
+;; (setq jabber-chat-header-line-format
+;;       '(" " (:eval (jabber-jid-displayname jabber-chatting-with))
+;;     	" " (:eval (jabber-jid-resource jabber-chatting-with)) "\t";
+;;     	(:eval (let ((buddy (jabber-jid-symbol jabber-chatting-with)))
+;;                  (propertize
+;;                   (or
+;;                    (cdr (assoc (get buddy 'show) jabber-presence-strings))
+;;                    (get buddy 'show))
+;;                   'face
+;;                   (or (cdr (assoc (get buddy 'show) jabber-presence-faces))
+;;                      'jabber-roster-user-online))))
+;;     	"\t" (:eval (get (jabber-jid-symbol jabber-chatting-with) 'status))
+;;     	(:eval (unless (equal "" *jabber-current-show*)
+;;                  (concat "\t You're " *jabber-current-show*
+;;                          " (" *jabber-current-status* ")")))))
 
 (define-key jabber-chat-mode-map (kbd "RET") 'newline)
 (define-key jabber-chat-mode-map [C-return] 'jabber-chat-buffer-send)
@@ -86,4 +113,5 @@
 ;;      (interactive) 
 ;;      (jabber-send-presence "xa" "" 10)))
   
+
 (provide 'jabber-customize)

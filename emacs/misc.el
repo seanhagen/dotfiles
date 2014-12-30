@@ -1,9 +1,12 @@
 ;; General Stuff
-(server-start)
+(load "server")
+(unless (server-running-p) (server-start))
 (put 'downcase-region 'disabled nil)
 (put 'upcase-region 'disabled nil)
 (setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
+
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
 
 (display-time-mode 1)
 
@@ -23,7 +26,6 @@
 
 (show-paren-mode 1)
 (setq create-lockfiles nil)
-
 
 ;; Set region background colour
 ;;(set-face-background 'region "grey")
@@ -49,16 +51,17 @@
 
 ;; Emacs package manager!
 (require 'package)
-(setq package-archives 
-      '(("ELPA" . "http://tromey.com/elpa/") 
-	("gnu" . "http://elpa.gnu.org/packages/")
-	("melpa" . "http://melpa.milkbox.net/packages/")
-	("marmalade" . "http://marmalade-repo.org/packages/")))
+(setq package-archives
+      '(
+        ;("ELPA" . "http://tromey.com/elpa/")
+        ("gnu" . "http://elpa.gnu.org/packages/")
+        ("melpa" . "http://melpa.milkbox.net/packages/")
+        ("marmalade" . "http://marmalade-repo.org/packages/")))
 
 ; Apparently needed for the package auto-complete (why?)
-(add-to-list 
- 'package-archives
- '("melpa" . "http://melpa.milkbox.net/packages/") t)
+;; (add-to-list
+;;  'package-archives
+;;  '("melpa" . "http://melpa.milkbox.net/packages/") t)
 
 ;;(package-initialize)
 (setq url-http-attempt-keepalives nil)
@@ -113,7 +116,7 @@
 (if after-init-time (sml/setup)
   (add-hook 'after-init-hook 'sml/setup))
 
-(defadvice vc-git-mode-line-string 
+(defadvice vc-git-mode-line-string
   (after plus-minus (file) compile activate)
   (setq ad-return-value
 	(concat ad-return-value
@@ -133,7 +136,11 @@
 
 (set-default-font "Bitstream Vera Sans Mono-10")
 
+(setenv "PATH"
+        (concat "/usr/local/java/bin"
+                (getenv "PATH")))
+
+
 (require 'tramp)
 (require 'multi-term)
 (require 'rainbow-delimiters)
-
