@@ -21,6 +21,7 @@
 (require 'css-customize)
 (require 'dired-customize)
 (require 'email-customize)
+(require 'emms-customize)
 (require 'flycheck-customize)
 (require 'flyspell-customize)
 (require 'git-customize)

@@ -47,6 +47,7 @@
      (define-key enh-ruby-mode-map (kbd "C-c C-H") 'ruby-toggle-hash-syntax)
      (define-key enh-ruby-mode-map (kbd "TAB") 'ruby-indent-line)
      (define-key enh-ruby-mode-map (kbd "RET") 'newline)
+     (define-key enh-ruby-mode-map (kbd "C-c g m") 'rails-gen-migration)
 
      (setq ruby-program "/home/sean/.rbenv/shims/ruby")
      (setq enh-ruby-program "/home/sean/.rbenv/shims/ruby")
@@ -110,5 +111,21 @@
     (when indent
       (indent-line-to indent)
       (when (> offset 0) (forward-char offset)))))
+
+(defun rails-gen-migration (args)
+  "Runs 'rails g migration ARGS' and opens the new migration in a buffer."
+  (interactive
+   (list (read-string "generate migration: ")))
+  (let
+      ((command (format "%sbin/rails generate migration %s" (rinari-root) args))
+       (result nil))
+    (message "calling: %s" command)
+    (setq result (shell-command-to-string command))
+    (if (string-match "^ *create *\\(db/migrate/.*\\.rb\\)$" result)
+        (find-file (format "%s%s" (rinari-root) (substring result (match-beginning 1) (match-end 1))))
+      (progn
+        (message "failure to create migration: %s" result)
+        (get-buffer "*Messages*")
+        (message "command failed: %s" command)))))
 
 (provide 'ruby-customize)

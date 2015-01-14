@@ -58,60 +58,59 @@
 
 (add-hook 'jabber-chat-mode-hook 'goto-address)
 
-;; (setq jabber-chat-header-line-format
-;;       '(" " (:eval (jabber-jid-displayname jabber-chatting-with))
-;;     	" " (:eval (jabber-jid-resource jabber-chatting-with)) "\t";
-;;     	(:eval (let ((buddy (jabber-jid-symbol jabber-chatting-with)))
-;;                  (propertize
-;;                   (or
-;;                    (cdr (assoc (get buddy 'show) jabber-presence-strings))
-;;                    (get buddy 'show))
-;;                   'face
-;;                   (or (cdr (assoc (get buddy 'show) jabber-presence-faces))
-;;                      'jabber-roster-user-online))))
-;;     	"\t" (:eval (get (jabber-jid-symbol jabber-chatting-with) 'status))
-;;     	(:eval (unless (equal "" *jabber-current-show*)
-;;                  (concat "\t You're " *jabber-current-show*
-;;                          " (" *jabber-current-status* ")")))))
+(setq jabber-chat-header-line-format
+      '(" " (:eval (jabber-jid-displayname jabber-chatting-with))
+    	" " (:eval (jabber-jid-resource jabber-chatting-with)) "\t";
+    	(:eval (let ((buddy (jabber-jid-symbol jabber-chatting-with)))
+                 (propertize
+                  (or
+                   (cdr (assoc (get buddy 'show) jabber-presence-strings))
+                   (get buddy 'show))
+                  'face
+                  (or (cdr (assoc (get buddy 'show) jabber-presence-faces))
+                     'jabber-roster-user-online))))
+    	"\t" (:eval (get (jabber-jid-symbol jabber-chatting-with) 'status))
+    	(:eval (unless (equal "" *jabber-current-show*)
+                 (concat "\t You're " *jabber-current-show*
+                         " (" *jabber-current-status* ")")))))
 
 (define-key jabber-chat-mode-map (kbd "RET") 'newline)
 (define-key jabber-chat-mode-map [C-return] 'jabber-chat-buffer-send)
 (define-key jabber-chat-mode-map [escape] 'my-jabber-chat-delete-or-bury)
 
 ;; (define-key mode-specific-map "jr"
-;;   (lambda () 
-;;     (interactive) 
+;;   (lambda ()
+;;     (interactive)
 ;;     (switch-to-buffer "*-jabber-*")))
 
 ;; (define-key mode-specific-map "jc"
-;;   '(lambda () 
-;;      (interactive) 
+;;   '(lambda ()
+;;      (interactive)
 ;;      (call-interactively 'jabber-connect)))
 
 ;; (define-key mode-specific-map "jd"
-;;   '(lambda () 
-;;      (interactive) 
+;;   '(lambda ()
+;;      (interactive)
 ;;      (call-interactively 'jabber-disconnect)))
 
 ;; (define-key mode-specific-map "jj"
-;;   '(lambda () 
-;;      (interactive) 
+;;   '(lambda ()
+;;      (interactive)
 ;;      (call-interactively 'jabber-chat-with)))
 
 ;; (define-key mode-specific-map "ja"
-;;   '(lambda () 
-;;      (interactive) 
+;;   '(lambda ()
+;;      (interactive)
 ;;      (jabber-send-presence "away" "" 10)))
 
 ;; (define-key mode-specific-map "jo"
-;;   '(lambda () 
-;;      (interactive) 
+;;   '(lambda ()
+;;      (interactive)
 ;;      (jabber-send-presence "" "" 10)))
 
 ;; (define-key mode-specific-map "jx"
-;;   '(lambda () 
-;;      (interactive) 
+;;   '(lambda ()
+;;      (interactive)
 ;;      (jabber-send-presence "xa" "" 10)))
-  
 
 (provide 'jabber-customize)
