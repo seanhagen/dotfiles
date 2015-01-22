@@ -43,6 +43,10 @@
 
 (setq org-capture-templates
       '(
+        ;; code stuff ( resources, gists, etc )
+        ("C" "Code" entry
+         (file+headline "~/Dropbox/Org/code.org" "Code")
+         "* %^{Brief Description} \n%x\n%?" :prepend t)
         ;; basic todo template
         ("t" "Todo" entry
          (file+headline "~/Dropbox/Org/mygtd.org" "Tasks")

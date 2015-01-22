@@ -20,6 +20,7 @@
 (require 'company-customize)
 (require 'css-customize)
 (require 'dired-customize)
+(require 'ediff-customize)
 (require 'email-customize)
 (require 'emms-customize)
 (require 'flycheck-customize)

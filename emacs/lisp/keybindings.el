@@ -7,7 +7,7 @@
 (global-set-key (kbd "C-+") 'hs-show-block)
 (global-set-key (kbd "C-\\") 'hs-hide-block)
 
-(global-set-key (kbd "C-c r r") 'inf-ruby)
+(global-set-key (kbd "C-c C-r r") 'inf-ruby)
 
 (add-hook 'term-mode-hook
           (lambda()
@@ -67,5 +67,51 @@
 (global-set-key (kbd "C-c o r") 'org-capture)
 
 (global-set-key (kbd "C-=") 'er/expand-region)
+
+(global-set-key (kbd "C-x C-r") 'rename-file-and-buffer)
+(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
+
+(global-set-key (kbd "C-s-c C-s-c") 'mc/edit-lines)
+(global-set-key (kbd "C-s-c C-e") 'mc/edit-ends-of-lines)
+(global-set-key (kbd "C-s-c C-a") 'mc/edit-beginnings-of-lines)
+
+(global-set-key (kbd "C-z") 'multi-term)
+(global-set-key (kbd "C-x M-z") 'suspend-frame)
+
+(global-set-key (kbd "C-x M-f") 'ido-find-file-other-window)
+(global-set-key (kbd "C-c y") 'bury-buffer)
+(global-set-key (kbd "C-c r") 'revert-buffer)
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
+(global-set-key (kbd "C-x g") 'webjump)
+(global-set-key (kbd "C-x M-g") 'browse-url-at-point)
+
+(global-set-key (kbd "C-s-n") (lambda (ignore-errors (next-line 5))))
+(global-set-key (kbd "C-s-p") (lambda (ignore-errors (previous-line 5))))
+(global-set-key (kbd "C-s-f") (lambda (ignore-errors (forward-char 5))))
+(global-set-key (kbd "C-s-b") (lambda (ignore-errors (backward-char 5))))
+
+(global-set-key (kbd "C-c c") 'comment-or-uncomment-region)
+(global-set-key (kbd "C-c u") 'uncomment-region)
+
+(global-set-key (kbd "C-x m") 'magit-status)
+
+(global-set-key (kbd "M-m") 'iy-go-to-char)
+(global-set-key (kbd "M-a") 'back-to-indentation)
+
+(global-set-key (kbd "M-p") 'ace-window)
+
+(global-set-key (kbd "M-x") 'helm-M-x)
+
+;; The default "C-x c" is quite close to "C-x C-c", which quits Emacs.
+;; Changed to "C-c h". Note: We must set "C-c h" globally, because we
+;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
+(global-set-key (kbd "C-c h") 'helm-command-prefix)
+(global-unset-key (kbd "C-x c"))
+
+;; (global-set-key (kbd "C-x 8 t m") (lambda (insert "™")))
+;; (global-set-key (kbd "C-x 8 ( c )") (lambda (insert "©")))
+;; (global-set-key (kbd "C-x 8 - >") (lambda (insert "→")))
+;; (global-set-key (kbd "C-x 8 8") (lambda (insert "∞")))
 
 (provide 'keybindings)

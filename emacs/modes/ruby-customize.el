@@ -37,6 +37,8 @@
 (add-hook 'enh-ruby-mode-hook 'pretty-mode)
 (add-hook 'enh-ruby-mode-hook 'smartparens-mode)
 (add-hook 'enh-ruby-mode-hook 'projectile-rails-on)
+(add-hook 'enh-ruby-mode-hook
+          (lambda () (flyspell-prog-mode)))
 
 (eval-after-load "enh-ruby-mode"
   '(progn
@@ -67,12 +69,6 @@
                     "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
                     (lambda (arg) (ruby-end-of-block)) nil))
 
-     (setenv "PATH"
-             (concat (getenv "HOME") "/.rbenv/shims:"
-                     (getenv "HOME") "/.rbenv/bin:"
-                     "/usr/local/node/bin"
-                     (getenv "PATH")))
-
      (setq exec-path
            (cons
             (concat
@@ -82,11 +78,7 @@
               (getenv "HOME") "/.rbenv/bin")
              (cons
               (concat "/usr/local/node/bin")
-              exec-path))))
-
-
-
-     ))
+              exec-path))))))
 
 (eval-after-load "rbenv"
   '(progn
