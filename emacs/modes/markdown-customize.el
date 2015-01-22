@@ -25,8 +25,7 @@
             (setq indent-tabs-mode nil)
             (setq tab-width 4)
             (define-key markdown-mode-map (kbd "<tab>") 'traditional-indent)
-            (define-key markdown-mode-map (kbd "S-<tab>") 'traditional-outdent)
-            (define-key markdown-mode-map (kbd "M-p") 'ace-window)))
+            (define-key markdown-mode-map (kbd "S-<tab>") 'traditional-outdent)))
 
 (defun turn-on-flyspell () (flyspell-mode 1))
 (add-hook 'markdown-mode-hook 'turn-on-flyspell)

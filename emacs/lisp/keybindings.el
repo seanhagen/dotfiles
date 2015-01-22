@@ -99,7 +99,8 @@
 (global-set-key (kbd "M-m") 'iy-go-to-char)
 (global-set-key (kbd "M-a") 'back-to-indentation)
 
-(global-set-key (kbd "M-p") 'ace-window)
+(global-unset-key (kbd "M-o"))
+(global-set-key (kbd "M-o") 'ace-window)
 
 (global-set-key (kbd "M-x") 'helm-M-x)
 
