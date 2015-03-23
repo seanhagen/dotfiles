@@ -97,3 +97,13 @@ bindkey -e '^Y' x-yank
 export ARDUINO_DIR=/usr/local/arduino
 export ARDMK_DIR=/usr/share/arduino
 export AVR_TOOLS_DIR=/usr
+
+settitle() {
+    printf "\033k$1\033\\"
+}
+
+ssh() {
+    settitle "$*"
+    command ssh "$@"
+    settitle "zsh"
+}
