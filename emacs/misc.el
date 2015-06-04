@@ -137,9 +137,22 @@
 (set-default-font "Bitstream Vera Sans Mono-10")
 
 (setenv "PATH"
-        (concat "/usr/local/java/bin"
+        (concat (getenv "HOME") "/.rbenv/shims:"
+                (getenv "HOME") "/.rbenv/bin:"
+                "/usr/local/java/bin:"
+                "/usr/local/node/bin:"
                 (getenv "PATH")))
 
+(setq exec-path
+      (cons
+       (concat (getenv "HOME") "/.rbenv/shims")
+       (cons
+        (concat (getenv "HOME") "/.rbenv/bin")
+        (cons
+         (concat "/usr/local/java/bin")
+         (cons
+          (concat "/usr/local/node/bin")
+          exec-path)))))
 
 (require 'tramp)
 (require 'multi-term)

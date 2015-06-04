@@ -1,5 +1,7 @@
 (setq twittering-use-master-password t)
 
-(define-key twittering-mode-map (kbd "C-c c r") 'twittering-reply-to-user)
+(add-hook 'twittering-mode-hook
+          (lambda ()
+             (define-key twittering-mode-map (kbd "C-c c r") 'twittering-reply-to-user)))
 
 (provide 'twitter-customize)

@@ -11,15 +11,20 @@
  '(coffee-command "/usr/local/node/bin/coffee")
  '(custom-safe-themes
    (quote
-    ("756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
+    ("a27c00821ccfd5a78b01e4f35dc056706dd9ede09a8b90c6955ae6a390eb1c1e" "756597b162f1be60a12dbd52bab71d40d6a2845a3e3c2584c6573ee9c332a66e" default)))
  '(dired-details-hidden-string "[...] ")
  '(dired-details-hide-link-targets nil)
  '(display-time-day-and-date t)
+ '(enh-ruby-bounce-deep-indent nil)
  '(enh-ruby-check-syntax (quote errors))
+ '(enh-ruby-deep-indent-paren nil)
+ '(enh-ruby-deep-indent-paren-style nil)
+ '(enh-ruby-hanging-brace-indent-level 2)
  '(exec-path
    (quote
     ("/home/sean/bin" "/usr/lib/lightdm/lightdm" "/usr/local/sbin" "/usr/local/bin" "/usr/sbin" "/usr/bin" "/sbin" "/bin" "/usr/games" "/usr/local/libexec/emacs/24.3/x86_64-unknown-linux-gnu" "/usr/local/node/bin")))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(flycheck-ruby-rubocop-executable "~/.rbenv/shims/rubocop")
  '(flymake-allowed-file-name-masks
    (quote
     (("\\.el$" erefactor-flymake-init erefactor-flymake-cleanup erefactor-flymake-get-real-file-name)
@@ -71,8 +76,12 @@
  '(multi-term-dedicated-select-after-open-p t)
  '(multi-term-program nil)
  '(nxml-child-indent nil)
- '(octomacs-workdir-alist (quote (("Blog" . "/home/sean/Code/Ruby/blog/octopress"))))
+ '(octomacs-workdir-alist (quote (("Blog" . "/home/sean/Code/Ruby/octopress"))))
  '(offlineimap-command "offlineimap -o -u basic")
+ '(org-agenda-files
+   (quote
+    ("~/Dropbox/Org/trip_planning.org" "~/Dropbox/Org/trello.org" "~/Dropbox/Org/organizer.org" "~/Dropbox/Org/mygtd.org" "~/Dropbox/Org/journal.org" "~/Dropbox/Org/index.org" "~/Dropbox/Org/finances.org" "~/Dropbox/Org/code.org" "~/Dropbox/Org/agenda.org")))
+ '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-show-all-dates nil)
  '(org-agenda-sticky t)
  '(org-archive-location "~/Dropbox/Org/archive.org::* From %s")
@@ -139,4 +148,5 @@
  '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:strike-through t))))
  '(region ((t (:background "grey" :foreground "black"))))
  '(show-paren-match ((t (:background "medium blue"))))
+ '(sp-pair-overlay-face ((t (:underline "deep sky blue"))))
  '(trailing-whitespace ((t (:background "black" :foreground "orange red" :underline t)))))

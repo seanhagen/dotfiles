@@ -17,6 +17,7 @@
 (autoload 'rubydb "rubydb3x" "Ruby debugger" t)
 
 (add-to-list 'auto-mode-alist '("\\.rb$" . enh-ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.rabl$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.rake$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . enh-ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.gemspec$" . enh-ruby-mode))
@@ -47,6 +48,7 @@
      (global-rinari-mode)
 
      (define-key enh-ruby-mode-map (kbd "C-c C-H") 'ruby-toggle-hash-syntax)
+     (define-key enh-ruby-mode-map (kbd "<backtab>") 'enh-ruby-indent-exp)
      (define-key enh-ruby-mode-map (kbd "TAB") 'ruby-indent-line)
      (define-key enh-ruby-mode-map (kbd "RET") 'newline)
      (define-key enh-ruby-mode-map (kbd "C-c g m") 'rails-gen-migration)
@@ -68,6 +70,9 @@
                   '(enh-ruby-mode
                     "\\(def\\|do\\|{\\)" "\\(end\\|end\\|}\\)" "#"
                     (lambda (arg) (ruby-end-of-block)) nil))
+     (setq enh-ruby-use-encoding-map nil
+           ;; don't deep indent arrays and hashes
+           enh-ruby-deep-indent-paren nil)
 
      (setq exec-path
            (cons

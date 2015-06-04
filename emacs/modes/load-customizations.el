@@ -42,6 +42,7 @@
 (require 'processing-customize)
 (require 'ruby-customize)
 (require 'smartparen-customize)
+(require 'tramp-customize)
 (require 'tumblr-customize)
 (require 'twitter-customize)
 (require 'uniquify-setup)
