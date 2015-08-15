@@ -34,13 +34,13 @@
 (set-background-color "black")
 
 ;; auto-save stuff
-(make-directory "~/tmp/emacs" t)
-(defvar backup-dir (expand-file-name "~/tmp/emacs"))
-(defvar autosave-dir (expand-file-name "~/tmp/emacs"))
+(make-directory "/tmp/emacs" t)
+(defvar backup-dir (expand-file-name "/tmp/emacs"))
+(defvar autosave-dir (expand-file-name "/tmp/emacs"))
 (setq backup-directory-alist (list (cons ".*" backup-dir)))
 (setq auto-save-list-file-prefix autosave-dir)
 (setq auto-save-file-name-transforms `((".*" ,autosave-dir t)))
-(setq temporary-file-directory "~/tmp/emacs")
+(setq temporary-file-directory "/tmp/emacs")
 
 (setq
    backup-by-copying t      ; don't clobber symlinks
@@ -58,6 +58,11 @@
         ("melpa" . "http://melpa.milkbox.net/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")))
 
+; Apparently needed for the package auto-complete (why?)
+;; (add-to-list
+;;  'package-archives
+;;  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 ;;(package-initialize)
 (setq url-http-attempt-keepalives nil)
 
@@ -67,6 +72,25 @@
              [mouse-4] [down-mouse-4] [drag-mouse-4] [double-mouse-4] [triple-mouse-4]
              [mouse-5] [down-mouse-5] [drag-mouse-5] [double-mouse-5] [triple-mouse-5]))
   (global-unset-key k))
+
+;; (defvar flymake-fringe-overlays nil)
+;; (make-variable-buffer-local 'flymake-fringe-overlays)
+
+;; (defadvice flymake-make-overlay (after add-to-fringe first
+;;                                  (beg end tooltip-text face mouse-face)
+;;                                  activate compile)
+;;   (push (fringe-helper-insert-region
+;;          beg end
+;;          (fringe-lib-load (if (eq face 'flymake-errline)
+;;                               fringe-lib-exclamation-mark
+;;                             fringe-lib-question-mark))
+;;          'left-fringe 'font-lock-warning-face)
+;;         flymake-fringe-overlays))
+
+;; (defadvice flymake-delete-own-overlays (after remove-from-fringe activate
+;;                                         compile)
+;;   (mapc 'fringe-helper-remove flymake-fringe-overlays)
+;;   (setq flymake-fringe-overlays nil))
 
 (autoload 'ack-same "full-ack" nil t)
 (autoload 'ack "full-ack" nil t)

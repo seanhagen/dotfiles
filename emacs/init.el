@@ -17,7 +17,7 @@
 ;; ;; load up some miscleanious settings
 (load-file "~/.emacs.d/misc.el" )
 
-;; Let's save all the changes we make to "custom.el",
+;; Let's save all the changes we make to "custom.el", 
 ;;  instead of this file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
@@ -31,3 +31,15 @@
 (require 'keybindings)
 
 (require 'load-customizations)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(paradox-automatically-star t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

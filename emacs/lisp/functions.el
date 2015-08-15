@@ -107,6 +107,9 @@ Including indent-buffer, which should not be called automatically on save."
                          (ido-read-file-name "Find file(as root): ")))
     (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
 
+(defun yas-load-directory (arg)
+  (yas/load-directory arg))
+
 (defun delete-current-buffer-file ()
   "Removes file connected to current buffer and kills buffer."
   (interactive)

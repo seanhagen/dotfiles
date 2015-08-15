@@ -60,6 +60,7 @@
 
 (global-set-key (kbd "M-n") 'org-do-demote)
 (global-set-key (kbd "M-p") 'org-do-promote)
+(global-set-key (kbd "C-c a t") 'org-todo-list)
 
 (global-set-key (kbd "C-c o l") 'org-store-link)
 (global-set-key (kbd "C-c o a") 'org-agenda)
