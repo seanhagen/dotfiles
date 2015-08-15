@@ -11,3 +11,5 @@ These are just keybindings I want to try and remember.
 ## Stuff To Figure Out
 
 - Figure out a good way to read email in Emacs. Wanderlust was okay, GNUS was okay, but neither works well with Inbox.
+- need a better way of setting the env PATH `(setenv 'PATH')` and exec-path in misc
+-
