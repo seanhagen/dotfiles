@@ -3,8 +3,7 @@ Desktop
 
 ## Installation
 * Copy ratpoisonrc to ~/.ratpoisonrc
-* Copy Xmodmap to ~/.Xmodmap
-
+* Copy ratpoison.desktop to /usr/share/xsessions/ratpoison.desktop
 
 ## Notes
-Need to update ratpoisonrc to actually use Xmodmap when logging in, so that Caps gets switched with Esc.
+Nothing so far.
