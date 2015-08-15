@@ -5,7 +5,7 @@ My Emacs
 
 These are just keybindings I want to try and remember.
 
-    C-c r   org-remember   Remember something into a specific journal
+    C-c o r   org-capture   Remember something into a specific journal
     C-x C-j C-c jabber-connect
 
 ## Stuff To Figure Out
