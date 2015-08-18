@@ -20,8 +20,9 @@ Copy tmux-powerlinerc to ~/.tmux-powerlinerc
 ### ZSH
 See [zsh/README.md](zsh/README.md)
 
-### Byobu
-* Copy bybou to ~/.byobu
+### Tmux
+* Copy tmux.conf to ~/.tmux.conf
+* Copy tmuxrc to ~/.tmuxrc
 
 ### Emacs
 * Copy secure emails file to ~/.secure-emacs

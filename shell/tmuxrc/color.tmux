@@ -1,0 +1,5 @@
+DARK=black
+LIGHT=white
+ACCENT=magenta
+HIGHLIGHT=red
+MONOCHROME=0
