@@ -44,11 +44,12 @@ function set_right_on_laptop(){
 function set_left_elsewhere(){
     if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
         TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
-            #"tmux_session_info 148 234" \
+            # "tmux_session_info 148 234" \
             "hostname 33 0" \
-            #"lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-            "load 237 167" \
             "wan_ip 24 255" \
+            #"lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
+            "vcs_branch 33 0" \
+            "vcs_modified 24 34" \
         )
     fi
 }
@@ -59,10 +60,10 @@ function set_right_elsewhere(){
             #"mailcount 9 255" \
             #"now_playing 33 37" \
             #"cpu 240 136" \
-            "date_day 33 0" \
+            "rainbarf 118 0" \
+            "load 0 167" \
             "date 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
             "time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-            "rainbarf 118 0" \
         )
     fi
 }
