@@ -113,8 +113,8 @@
                 (background-color . "black"))))
 
 
-(if after-init-time (sml/setup)
-  (add-hook 'after-init-hook 'sml/setup))
+;; (if after-init-time (sml/setup)
+;;   (add-hook 'after-init-hook 'sml/setup))
 
 (defadvice vc-git-mode-line-string
   (after plus-minus (file) compile activate)
@@ -134,7 +134,7 @@
 
 (setq oauth-nonce-function 'oauth-internal-make-nonce)
 
-(set-default-font "Bitstream Vera Sans Mono-10")
+(set-default-font "Bitstream Vera Sans Mono-14")
 
 (setenv "PATH"
         (concat (getenv "HOME") "/.rbenv/shims:"

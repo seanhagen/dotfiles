@@ -17,8 +17,7 @@ set-option -g visual-activity on
 
 set -g default-terminal "xterm-256color"
 
-# set-window-option -g window-status-current-format "#[fg=colour235, bg=colour27]⮀#[fg=colour255, bg=colour27] #I ⮁ #W #[fg=colour27, bg=colour235]⮀"
-# set-window-option -g window-status-current-format "#{pane_current_path | sed -e 's/\/home\/sean/\~/'}"
+set-window-option -g window-status-current-format "#[fg=colour235, bg=colour27]⮀#[fg=colour255, bg=colour27] #I ⮁ #W #[fg=colour27, bg=colour235]⮀"
 
 set -g status-left '#(~/bin/tmux-powerline/powerline.sh left)'
 set -g status-right '#(~/bin/tmux-powerline/powerline.sh right)'

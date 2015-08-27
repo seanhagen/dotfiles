@@ -12,6 +12,7 @@
 (org-clock-persistence-insinuate)
 
 (setq org-fontify-done-headline t)
+(setq org-hierarchical-todo-statistics nil)
 (custom-set-faces
  '(org-done ((t (:weight normal
                  :strike-through t))))
