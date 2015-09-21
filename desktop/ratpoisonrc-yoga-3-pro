@@ -1,0 +1,45 @@
+chdir
+
+startup_message off
+
+bind x nextscreen
+bind z prevscreen
+bind l exec gnome-screensaver-command -l
+
+unbind plus
+unbind equal
+unbind minus
+unbind underscore
+
+bind plus exec synclient TouchpadOff=1
+bind equal exec synclient TouchpadOff=0
+bind minus exec xbacklight -dec 10
+bind underscore exec xbacklight -inc 10
+
+definekey top XF86AudioRaiseVolume exec amixer set Master 5%+ && amixer get Master | egrep -o "[0-9]+%.*"
+definekey top XF86AudioLowerVolume exec amixer set Master 5%- && amixer get Master | egrep -o "[0-9]+%.*"
+definekey top XF86AudioMute exec amixer -D pulse set Master 1+ toggle && amixer get Master | egrep -o "[0-9]+%.*"
+
+definekey top XF86AudioPlay exec emacsclient --eval "(my-emms-play-pause)"
+definekey top XF86AudioNext exec emacsclient --eval "(emms-next)"
+definekey top XF86AudioPrev exec emacsclient --eval "(emms-prev)"
+
+set border 0
+set barpadding 0 0
+set padding 0 0 0 40
+
+unmanage trayer
+unmanage panel
+unmanage tint2
+
+exec gnome-settings-daemon
+exec tint2
+exec nm-applet
+exec gnome-sound-applet
+exec rpws init 3 -k
+exec nitrogen --restore
+exec start-keyring
+exec dropbox start
+exec setxkbmap -option caps:swapescape
+exec ~/bin/xdbus.sh
+bind W windows

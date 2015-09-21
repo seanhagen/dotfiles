@@ -24,7 +24,12 @@ else
     fi
 fi
 
+export PATH=./bin:/usr/local/java/bin:/usr/local/java/jre/bin:/usr/local/emacs/bin:/usr/local/phantomjs/bin:/usr/local/casperjs/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/bin:~/bin/boris/bin:~/bin/rainbarf:/usr/local/node/bin:~/.rbenv/bin:/usr/local/eqntott/bin:/usr/local/gearman/bin:/usr/local/gearman/sbin:/usr/local/adt/sdk/platform-tools:/usr/local/adt/sdk/tools:/usr/local/arduino:/usr/local/processing:/usr/local/android-sdk-linux/tools:/usr/local/gradle-2.3/bin:/usr/local/go/bin:/usr/local/bin
+
+
 eval "$(rbenv init -)"
+
+GOPATH=~/Code/Go
 
 #------------------------------
 # ShellFuncs

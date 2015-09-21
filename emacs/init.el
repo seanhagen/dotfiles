@@ -8,6 +8,8 @@
 
 (add-to-list 'el-get-recipe-path "~/.emacs.d/el-get-user/recipes")
 
+(require 'ert)
+
 ;; store passwords and whatnot outside the emacs folder
 (load-file "~/.secure-emacs")
 
@@ -17,7 +19,7 @@
 ;; ;; load up some miscleanious settings
 (load-file "~/.emacs.d/misc.el" )
 
-;; Let's save all the changes we make to "custom.el", 
+;; Let's save all the changes we make to "custom.el",
 ;;  instead of this file
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 (load custom-file)
