@@ -16,11 +16,13 @@ else
     if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
         ZSH_THEME="amuse"
     else
-        ZSH_THEME="jonathan"
+        #ZSH_THEME="jonathan" # not so much a fan of this one any more
+        #ZSH_THEME="smt" # <== this one so far
+        #ZSH_THEME="gnzh" # not bad
+        # ZSH_THEME="rkj-repos" # also not bad
+        ZSH_THEME="ys"
     fi
 fi
-
-export PATH=./bin:/usr/local/java/bin:/usr/local/java/jre/bin:/usr/local/phantomjs/bin:/usr/local/casperjs/bin:/usr/lib/lightdm/lightdm:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:~/bin:~/bin/boris/bin:~/bin/rainbarf:/usr/local/node/bin:~/.rbenv/bin:/usr/local/eqntott/bin:/usr/local/gearman/bin:/usr/local/gearman/sbin:/usr/local/adt/sdk/platform-tools:/usr/local/adt/sdk/tools:/usr/local/arduino:/usr/local/processing:/usr/local/android-sdk-linux/tools:/usr/local/gradle-2.3/bin:/usr/local/go/bin:/usr/local/bin
 
 eval "$(rbenv init -)"
 
@@ -45,3 +47,28 @@ export DISABLE_AUTO_TITLE=true
 plugins=()
 
 source $ZSH/oh-my-zsh.sh
+
+bindkey -e
+bindkey "^?"    backward-delete-char
+bindkey "^H"    backward-delete-char
+bindkey "^[[3~" backward-delete-char
+bindkey "^[[1~" beginning-of-line
+bindkey "^[[4~" end-of-line
+
+bindkey '^r' history-incremental-search-backward
+bindkey "^[[5~" up-line-or-history
+bindkey "^[[6~" down-line-or-history
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^W" backward-delete-word
+bindkey "^k" kill-line
+bindkey ' ' magic-space    # also do history expansion on space
+bindkey '^I' complete-word # complete on tab, leave expansion to _expand
+bindkey -r '^j' #unbind ctrl-j, I hit it all the time accidentaly
+bindkey -r '^[x' # remove M-x for emacs-things
+
+# HTTP verbs
+alias get='curl -s -XGET'
+alias post='curl -s -XPOST'
+alias put='curl -s -XPUT'
+alias delete='curl -s -XDELETE'
