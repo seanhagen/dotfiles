@@ -18,7 +18,6 @@
   '(progn
      (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
      (add-hook 'git-commit-mode-hook 'turn-on-flyspell)
-     (set-face-background 'magit-item-highlight "#121212")
      (set-face-background 'diff-file-header "#121212")
      (set-face-foreground 'diff-context "#666666")
      (set-face-foreground 'diff-added "#00cc33")
