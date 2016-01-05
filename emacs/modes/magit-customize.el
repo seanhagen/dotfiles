@@ -2,6 +2,10 @@
 (autoload 'magit "magit" "Magit Git" t)
 (autoload 'magit-status "magit" "Magit Git" t)
 
+(setq magit-last-seen-setup-instructions "1.4.0")
+(setq vc-handled-backends nil)
+(setq magit-auto-revert-mode 1)
+
 (defadvice magit-status
   (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
@@ -26,9 +30,7 @@
      (set-default 'magit-stage-all-confirm nil)
      (set-default 'magit-unstage-all-confirm nil)))
 
-
 (setq vc-handled-backends nil)
-
 
 (eval-after-load 'ediff
   '(progn

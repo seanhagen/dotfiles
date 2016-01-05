@@ -6,6 +6,7 @@
 (add-hook 'js2-mode-hook 'skewer-mode)
 (add-hook 'js2-mode-hook 'projectile-mode)
 (add-hook 'js2-mode-hook 'flycheck-mode)
+(add-hook 'js2-mode-hook 'electric-pair-mode)
 
 (eval-after-load "js2-mode"
   '(progn

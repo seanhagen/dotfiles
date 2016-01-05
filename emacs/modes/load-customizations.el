@@ -46,5 +46,8 @@
 (require 'tumblr-customize)
 (require 'twitter-customize)
 (require 'uniquify-setup)
+(require 'yasnippet-setup)
+(require 'text-customize)
+(require 'go-customize)
 
 (provide 'load-customizations)
