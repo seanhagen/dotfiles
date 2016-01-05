@@ -10,7 +10,7 @@
 (eval-after-load "js2-mode"
   '(progn
      (setq inferior-js-program-command "/usr/local/node/bin/node -i")
-     (define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
+     ;;(define-key js2-mode-map (kbd "TAB") 'js2-tab-properly)
      (define-key js2-mode-map (kbd "C-a") nil)
      (define-key js2-mode-map (kbd "C-c C-n") 'js2-next-error)
      (define-key js2-mode-map (kbd "{") 'paredit-open-curly)
