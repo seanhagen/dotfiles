@@ -40,6 +40,8 @@
 (add-hook 'enh-ruby-mode-hook 'projectile-rails-on)
 (add-hook 'enh-ruby-mode-hook
           (lambda () (flyspell-prog-mode)))
+(add-hook 'enh-ruby-mode-hook
+          (lambda () (ruby-tools-mode)))
 
 (eval-after-load "enh-ruby-mode"
   '(progn
