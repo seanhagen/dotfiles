@@ -7,19 +7,23 @@
 ;;      (setq w3m-default-display-inline-images t)
 
 ;;      (setq browse-url-browser-function 'browse-url-generic)
-;;      (setq browse-url-generic-program "/usr/bin/firefox")))
 
-;; (defun choose-browser (url &rest args)
-;;   (interactive "sURL: ")
-;;   (if (y-or-n-p "Use external browser?")
-;;       (browse-url-generic url)
-;;     (w3m-browse-url url)))
+(setq browse-url-generic-program "/usr/bin/firefox")
 
-;; (setq browse-url-browser-function 'choose-browser)
+(defun choose-browser (url &rest args)
+  (interactive "sURL: ")
+  (if (y-or-n-p "Use external browser?")
+      (browse-url-generic url)
+    (w3m-browse-url url)))
+
+(setq browse-url-browser-function 'choose-browser)
 
 (require 'eww)
 
 (defvar gcs-shr-width 110)
+
+(setq w3m-default-display-inline-images t)
+
 
 
 ;; eww stupidly overrides shr-width before calling shr-insert-document to render a page. So,
