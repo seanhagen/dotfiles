@@ -16,7 +16,6 @@
 (add-to-list 'mu4e-view-actions
              '("in browser" . mu4e-action-view-in-browser) t)
 
-
 (add-hook 'mu4e-compose-mode-hook 'flyspell-mode)
 ;; gpg
 (add-hook 'mu4e-compose-mode-hook 'epa-mail-mode)
@@ -43,19 +42,6 @@
 ;; use imagemagick, if available
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
-
-;; >
-;; (setq mu4e-html2text-command "html2text -utf8 -width 150")
-;; <
-
-;; >
-;; (setq mu4e-html2text-command "w3m -T text/html")
-;; <
-
-;; >
-;; (require 'mu4e-contrib)
-;; (setq mu4e-html2text-command 'mu4e-shr2text)
-;; <
 
 ;; >
 (defun my-render-html-message ()
