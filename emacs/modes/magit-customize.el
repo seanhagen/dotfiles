@@ -7,7 +7,7 @@
 (setq magit-auto-revert-mode 1)
 
 (defadvice magit-status
-  (around magit-fullscreen activate)
+    (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
   ad-do-it
   (delete-other-windows))
