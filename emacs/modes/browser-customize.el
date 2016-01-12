@@ -8,7 +8,7 @@
 
 ;;      (setq browse-url-browser-function 'browse-url-generic)
 
-(setq browse-url-generic-program "/usr/bin/firefox")
+(setq browse-url-generic-program "/home/sean/bin/google-chrome-open-url")
 
 (defun choose-browser (url &rest args)
   (interactive "sURL: ")
