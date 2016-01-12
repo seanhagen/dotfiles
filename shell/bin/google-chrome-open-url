@@ -1,0 +1,7 @@
+#!/usr/bin/env python
+import chrome_remote_shell
+import sys, json
+
+shell = chrome_remote_shell.Shell(host='localhost', port=9222)
+shell.connect(0,True)
+shell.open_url(sys.argv[-1])
