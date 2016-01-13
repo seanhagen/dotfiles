@@ -21,6 +21,24 @@
 (add-hook 'mu4e-compose-mode-hook 'epa-mail-mode)
 (add-hook 'mu4e-view-mode-hook 'epa-mail-mode)
 
+;; attachments
+(require 'gnus-dired)
+;; make the `gnus-dired-mail-buffers' function also work on
+;; message-mode derived modes, such as mu4e-compose-mode
+(defun gnus-dired-mail-buffers ()
+  "Return a list of active message buffers."
+  (let (buffers)
+    (save-current-buffer
+      (dolist (buffer (buffer-list t))
+        (set-buffer buffer)
+        (when (and (derived-mode-p 'message-mode)
+                (null message-sent-message-via))
+          (push (buffer-name buffer) buffers))))
+    (nreverse buffers)))
+
+(setq gnus-dired-mail-mode 'mu4e-user-agent)
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+
 ;; set this to nil so signature is not included by default
 ;; you can include in message with C-c C-w
 (setq mu4e-compose-signature-auto-include t)
@@ -43,14 +61,12 @@
 (when (fboundp 'imagemagick-register-types)
   (imagemagick-register-types))
 
-;; >
 (defun my-render-html-message ()
   (let ((dom (libxml-parse-html-region (point-min) (point-max))))
     (erase-buffer)
     (shr-insert-document dom)
     (goto-char (point-min))))
 (setq mu4e-html2text-command 'my-render-html-message)
-;; <
 
 (defvar mu4e-bookmarks
   '(("date:1d..now flag:unread AND NOT flag:trashed" "Unread from last 24h messages"      ?r)

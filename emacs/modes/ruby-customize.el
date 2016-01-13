@@ -33,15 +33,15 @@
 (add-hook 'enh-ruby-mode-hook 'robe-mode)
 (add-hook 'enh-ruby-mode-hook 'flycheck-mode)
 (add-hook 'enh-ruby-mode-hook 'yard-mode)
-(add-hook 'enh-ruby-mode-hook 'yard-mode)
 (add-hook 'enh-ruby-mode-hook 'eldoc-mode)
 (add-hook 'enh-ruby-mode-hook 'pretty-mode)
 (add-hook 'enh-ruby-mode-hook 'smartparens-mode)
 (add-hook 'enh-ruby-mode-hook 'projectile-rails-on)
 (add-hook 'enh-ruby-mode-hook
-          (lambda () (flyspell-prog-mode)))
-(add-hook 'enh-ruby-mode-hook
-          (lambda () (ruby-tools-mode)))
+          (lambda ()
+            (flyspell-prog-mode)
+            (ruby-tools-mode)
+            (rubocop-mode)))
 
 (eval-after-load "enh-ruby-mode"
   '(progn
@@ -61,7 +61,7 @@
      (setq rbenv-installation-dir "~/.rbenv")
 
      (ruby-block-mode t)
-     ;(ruby-style-c-mode)
+                                        ;(ruby-style-c-mode)
 
      (setq ruby-block-highlight-toggle t)
      (setq rinari-tags-file-name "TAGS")
