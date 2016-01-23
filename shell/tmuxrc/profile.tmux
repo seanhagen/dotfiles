@@ -12,8 +12,8 @@ set -g message-fg white
 
 # set-option -g allow-rename off
 
-set-option -g monitor-activity on
-set-option -g visual-activity on
+# set-option -g monitor-activity on
+# set-option -g visual-activity on
 
 set -g default-terminal "xterm-256color"
 
