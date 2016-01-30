@@ -1,8 +1,3 @@
-;; happens once
-;; (eval-after-load "go-mode"
-;;   '(progn
-;;      (require 'company-go)))
-
 (require 'company-go)
 (setenv "GOPATH" "/home/sean/Code/Go")
 
@@ -17,7 +12,6 @@
                               (set (make-local-variable 'compile-command)
                                    "go generate && go build -v && go test -v && go vet"))
                           (electric-pair-mode +1)))
-
 
 (defun my-go-mode-hook ()
   ;; Call Gofmt before saving

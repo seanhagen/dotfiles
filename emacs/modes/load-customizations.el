@@ -49,5 +49,7 @@
 (require 'yasnippet-setup)
 (require 'text-customize)
 (require 'go-customize)
+(require 'sql-customize)
+(require 'elfeed-customize)
 
 (provide 'load-customizations)

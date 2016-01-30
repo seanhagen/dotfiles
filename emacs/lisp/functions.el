@@ -69,7 +69,9 @@
 Does not indent buffer, because it is used for a before-save-hook, and that
 might be bad."
   (interactive)
-  (delete-trailing-whitespace))
+  (if (not (equal major-mode 'markdown-mode))
+      (delete-trailing-whitespace)
+    (message "In markdown mode!")))
 
 (defun cleanup-buffer ()
   "Perform a bunch of operations on the whitespace content of a buffer.

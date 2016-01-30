@@ -1,5 +1,6 @@
 ;; mu4e stuff
 (require 'mu4e)
+(require 'org-mu4e)
 
 ;; tell message-mode how to send mail
 (setq message-send-mail-function 'smtpmail-send-it)

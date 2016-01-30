@@ -43,6 +43,11 @@
             (ruby-tools-mode)
             (rubocop-mode)))
 
+(add-hook 'enh-ruby-mode-hook
+          (lambda ()
+            (set (make-local-variable 'compile-command)
+                 (concat "ruby -W1 " buffer-file-name))))
+
 (eval-after-load "enh-ruby-mode"
   '(progn
      (require 'smartparens-ruby)

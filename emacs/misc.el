@@ -6,7 +6,7 @@
 (setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
 
-(add-hook 'before-save-hook 'delete-trailing-whitespace)
+(add-hook 'before-save-hook 'cleanup-buffer-safe)
 
 (display-time-mode 1)
 
@@ -23,6 +23,7 @@
 (setq c-basic-offset 2)
 
 (set-face-attribute 'default nil :foreground "white smoke")
+(set-language-environment "UTF-8")
 
 (show-paren-mode 1)
 (setq create-lockfiles nil)
@@ -113,18 +114,18 @@
                 (background-color . "black"))))
 
 
-;; (if after-init-time (sml/setup)
-;;   (add-hook 'after-init-hook 'sml/setup))
+(if after-init-time (sml/setup)
+  (add-hook 'after-init-hook 'sml/setup))
 
 (defadvice vc-git-mode-line-string
-  (after plus-minus (file) compile activate)
+    (after plus-minus (file) compile activate)
   (setq ad-return-value
-	(concat ad-return-value
-		(let ((plus-minus (vc-git--run-command-string
-				   file "diff" "--numstat" "--")))
-		  (and plus-minus
-		       (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus)
-		       (format " +%s-%s" (match-string 1 plus-minus) (match-string 2 plus-minus)))))))
+        (concat ad-return-value
+                (let ((plus-minus (vc-git--run-command-string
+                                   file "diff" "--numstat" "--")))
+                  (and plus-minus
+                       (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus)
+                       (format " +%s-%s" (match-string 1 plus-minus) (match-string 2 plus-minus)))))))
 
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Code/PHP/BBTV" ":BBTV:") )
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Code/DevOps" ":DevOps:") )
@@ -141,6 +142,7 @@
                 (getenv "HOME") "/.rbenv/bin:"
                 "/usr/local/java/bin:"
                 "/usr/local/node/bin:"
+                "/usr/local/go/bin:"
                 (getenv "PATH")))
 
 (setq exec-path
@@ -153,6 +155,10 @@
          (cons
           (concat "/usr/local/node/bin")
           exec-path)))))
+(setq exec-path
+      (cons
+       (concat (getenv "HOME") "/usr/local/go/bin")
+       exec-path))
 
 (require 'tramp)
 (require 'multi-term)

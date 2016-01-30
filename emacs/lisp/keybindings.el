@@ -111,6 +111,8 @@
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
 
+(global-set-key (kbd "C-M-SPC") 'ispell-word)
+
 ;; (global-set-key (kbd "C-x 8 t m") (lambda (insert "™")))
 ;; (global-set-key (kbd "C-x 8 ( c )") (lambda (insert "©")))
 ;; (global-set-key (kbd "C-x 8 - >") (lambda (insert "→")))
