@@ -12,6 +12,7 @@
 (add-hook 'sh-mode-hook         'hs-minor-mode)
 (add-hook 'ruby-mode-hook       'hs-minor-mode)
 (add-hook 'php-mode-hook        'hs-minor-mode)
+(add-hook 'go-mode-hook         'hs-minor-mode)
 
 (require 'browser-customize)
 (require 'blog-customize)

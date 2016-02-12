@@ -10,6 +10,7 @@
  '(cider-repl-display-in-current-window nil)
  '(coffee-command "/usr/local/node/bin/coffee")
  '(company-go-gocode-command "/home/sean/Code/Go/bin/gocode")
+ '(company-go-show-annotation t)
  '(company-quickhelp-delay 0.2)
  '(custom-safe-themes
    (quote
@@ -59,7 +60,10 @@
  '(geben-show-breakpoints-debugging-only nil)
  '(geben-temporary-file-directory "/home/sean/.geben")
  '(gnus-use-full-window nil)
+ '(go-command "/usr/local/go/bin/go")
  '(go-eldoc-gocode "/home/sean/Code/Go/bin/gocode")
+ '(go-oracle-command "/home/sean/Code/Go/bin/oracle")
+ '(go-rename-command "/home/sean/Code/Go/bin/gorename")
  '(godef-command "/home/sean/Code/Go/bin/godef")
  '(gofmt-command "/usr/local/go/bin/gofmt")
  '(grep-highlight-matches (quote auto))
