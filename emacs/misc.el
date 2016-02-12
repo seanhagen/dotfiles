@@ -130,6 +130,7 @@
                 "/usr/local/java/bin:"
                 "/usr/local/node/bin:"
                 "/usr/local/go/bin:"
+                "/home/sean/Code/Go/bin:"
                 (getenv "PATH")))
 
 (setq exec-path
@@ -145,6 +146,10 @@
 (setq exec-path
       (cons
        (concat (getenv "HOME") "/usr/local/go/bin")
+       exec-path))
+(setq exec-path
+      (cons
+       (concat (getenv "HOME") "/home/sean/Code/Go/bin")
        exec-path))
 
 (require 'tramp)
