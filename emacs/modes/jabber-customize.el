@@ -4,12 +4,6 @@
 ;; (setq cred (netrc-machine (netrc-parse "~/.authinfo") "jabber" t))
 ;; (setq cred (netrc-machine (netrc-parse "~/.authinfo") "bjabber" t))
 
-;; (setq jabber-account-list
-;;       `(("sean.hagen@gmail.com"
-;;          (:password . "iwriofgxharsgkub")
-;;          (:network-server . "talk.google.com")
-;;          (:connection-type . ssl))))
-
 ;; (setq
 ;;  jabber-history-enabled t
 ;;  jabber-use-global-history nil
