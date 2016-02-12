@@ -52,5 +52,6 @@
 (require 'go-customize)
 (require 'sql-customize)
 (require 'elfeed-customize)
+(require 'slack-customize)
 
 (provide 'load-customizations)
