@@ -22,17 +22,10 @@
 (setq-default indent-tabs-mode nil)
 (setq c-basic-offset 2)
 
-(set-face-attribute 'default nil :foreground "white smoke")
 (set-language-environment "UTF-8")
 
 (show-paren-mode 1)
 (setq create-lockfiles nil)
-
-;; Set region background colour
-;;(set-face-background 'region "grey")
-
-;; Set emacs background colour
-(set-background-color "black")
 
 ;; auto-save stuff
 (make-directory "/tmp/emacs" t)
@@ -107,12 +100,6 @@
 (set-keyboard-coding-system 'utf-8) ; pretty
 (set-selection-coding-system 'utf-8) ; please
 (prefer-coding-system 'utf-8) ; with sugar on top
-
-(setq default-frame-alist
-      (append default-frame-alist
-              '((foreground-color . "white")
-                (background-color . "black"))))
-
 
 (if after-init-time (sml/setup)
   (add-hook 'after-init-hook 'sml/setup))
