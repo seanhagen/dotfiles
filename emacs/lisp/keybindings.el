@@ -14,8 +14,8 @@
             (add-to-list 'term-unbind-key-list "C-p")
             (add-to-list 'term-unbind-key-list "C-n")))
 
-(global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
-(global-set-key (kbd "C-x C-y") 'git-gutter:clear)
+;; (global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
+;; (global-set-key (kbd "C-x C-y") 'git-gutter:clear)
 
 (global-set-key (kbd "C-c <right>") 'emms-next)
 (global-set-key (kbd "C-c <left>") 'emms-previous)
@@ -117,5 +117,7 @@
 ;; (global-set-key (kbd "C-x 8 ( c )") (lambda (insert "©")))
 ;; (global-set-key (kbd "C-x 8 - >") (lambda (insert "→")))
 ;; (global-set-key (kbd "C-x 8 8") (lambda (insert "∞")))
+
+(global-set-key (kbd "C-c s") 'projectile-switch-project)
 
 (provide 'keybindings)

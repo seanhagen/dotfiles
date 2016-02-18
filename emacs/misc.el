@@ -122,7 +122,7 @@
 
 (setq oauth-nonce-function 'oauth-internal-make-nonce)
 
-(set-default-font "Bitstream Vera Sans Mono-14")
+(set-default-font "Bitstream Vera Sans Mono-12")
 
 (setenv "PATH"
         (concat (getenv "HOME") "/.rbenv/shims:"
