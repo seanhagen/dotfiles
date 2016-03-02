@@ -81,4 +81,31 @@ form (QUERY DESCRIPTION KEY), where QUERY is a string with a mu
 query, DESCRIPTION is a short description of the query (this
 shows up in the UI), and KEY is a shortcut key for the query.")
 
+(setq mu4e-contexts
+      `( ,(make-mu4e-context
+           :name "SeanHagen.ca"
+           :enter-func (lambda () (mu4e-message "SeanHagen.ca EMail"))
+           :match-func (lambda (msg)
+                         (when msg (mu4e-message-contact-field-matches msg :to "*@seanhagen.ca")))
+           :vars '( ( mail-reply-to     . "sean@seanhagen.ca" )
+                    ( user-mail-address . "sean@seanhagen.ca" )
+                    ( user-full-name    . "Sean Patrick Hagen")))
+         ,(make-mu4e-context
+           :name "Gmail"
+           :enter-func (lambda () (mu4e-message "Private EMail"))
+           ;; no leave-func
+           :match-func (lambda (msg)
+                         (when msg (mu4e-message-contact-field-matches msg :to "sean.hagen*@gmail.com")))
+           :vars '(  ( mail-reply-to          . "sean.hagen@gmail.com" )
+                     ( user-mail-address      . "sean.hagen@gmail.com" )
+                     ( user-full-name         . "Sean Patrick Hagen" )))
+         ,(make-mu4e-context
+           :name "Work"
+           :enter-func (lambda () (message "Work EMail"))
+           :match-func (lambda (msg)
+                         (when msg (mu4e-message-contact-field-matches msg :to "shagen@bardel.ca")))
+           :vars '(  ( mail-reply-to          . "shagen@bardel.ca" )
+                     ( user-mail-address      . "shagen@bardel.ca" )
+                     ( user-full-name         . "Sean Patrick Hagen" )))))
+
 (provide 'email-customize)
