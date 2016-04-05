@@ -53,5 +53,6 @@
 (require 'sql-customize)
 (require 'elfeed-customize)
 (require 'slack-customize)
+(require 'scratch-customize)
 
 (provide 'load-customizations)
