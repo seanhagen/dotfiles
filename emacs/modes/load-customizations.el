@@ -54,5 +54,6 @@
 (require 'elfeed-customize)
 (require 'slack-customize)
 (require 'scratch-customize)
+(require 'irc-customize)
 
 (provide 'load-customizations)

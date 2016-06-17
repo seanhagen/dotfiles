@@ -7,30 +7,34 @@
 ;; (require 'go-oracle)
 (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
 
-;; happens every time a go buffer is loaded
-(eval-after-load "go-mode"
-  '(progn
-     (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
-     (local-set-key (kbd "C-c i") 'go-goto-imports)
-     (set (make-local-variable 'company-backends) '(company-go))
-     (company-mode)
+;; (add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/golang/lint/misc/emacs"))
+;; (require 'golint)
 
-     (go-eldoc-setup)
+(eval-after-load 'flycheck
+  '(add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup))
 
-     (define-key go-mode-map (kbd "C-c C-j") 'go-direx-pop-to-buffer)
-     (define-key go-mode-map (kbd "M-.") 'godef-jump)))
+(setq flycheck-gometalinter-vendor t)
+;; Only enable selected linters
+(setq flycheck-gometalinter-disable-all t)
+(setq flycheck-gometalinter-enable-linters '("golint" "gosimple"))
+;; Set different deadline (default: 5s)
+(setq flycheck-gometalinter-deadline "10s")
 
 ;;(add-hook 'go-mode-hook 'go-oracle)
+(define-key go-mode-map (kbd "C-c C-j") 'go-direx-pop-to-buffer)
+(define-key go-mode-map (kbd "M-.") 'godef-jump)
+(define-key go-mode-map (kbd "C-c C-r") 'go-remove-unused-imports)
+(define-key go-mode-map (kbd "C-c i") 'go-goto-imports)
 
 (defun my-go-mode-hook ()
   ;; Call Gofmt before saving
   (add-hook 'before-save-hook 'gofmt-before-save)
-  ;; Customize compile command to run go build
-  ;; (if (not (string-match "go" compile-command))
-  ;;     (set (make-local-variable 'compile-command)
-  ;;          "go generate && go build -v && go test -v && go vet"))
-  ;; Godef jump key binding
-  (local-set-key (kbd "M-.") 'godef-jump))
+
+  (set (make-local-variable 'company-backends) '(company-go))
+  (company-mode)
+
+  (go-eldoc-setup))
+
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
 (provide 'go-customize)
