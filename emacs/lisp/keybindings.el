@@ -14,8 +14,8 @@
             (add-to-list 'term-unbind-key-list "C-p")
             (add-to-list 'term-unbind-key-list "C-n")))
 
-;; (global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
-;; (global-set-key (kbd "C-x C-y") 'git-gutter:clear)
+(global-set-key (kbd "C-x C-g") 'git-gutter:toggle)
+(global-set-key (kbd "C-x C-y") 'git-gutter:clear)
 
 (global-set-key (kbd "C-c <right>") 'emms-next)
 (global-set-key (kbd "C-c <left>") 'emms-previous)
@@ -42,8 +42,8 @@
 (global-set-key (kbd "C-c C-F") 'fold-this)
 (global-set-key (kbd "C-c M-f") 'fold-this-unfold-all)
 
-(global-set-key "\C-ct" 'google-translate-at-point)
-(global-set-key "\C-cT" 'google-translate-query-translate)
+;; (global-set-key "\C-ct" 'google-translate-at-point)
+;; (global-set-key "\C-cT" 'google-translate-query-translate)
 
 (global-set-key [(control f3)] 'highlight-symbol-at-point)
 (global-set-key [f3] 'highlight-symbol-next)
@@ -113,11 +113,11 @@
 
 (global-set-key (kbd "C-M-SPC") 'ispell-word)
 
+(global-set-key (kbd "C-c C-p s") 'projectile-switch-project)
+
 ;; (global-set-key (kbd "C-x 8 t m") (lambda (insert "™")))
 ;; (global-set-key (kbd "C-x 8 ( c )") (lambda (insert "©")))
 ;; (global-set-key (kbd "C-x 8 - >") (lambda (insert "→")))
 ;; (global-set-key (kbd "C-x 8 8") (lambda (insert "∞")))
-
-(global-set-key (kbd "C-c s") 'projectile-switch-project)
 
 (provide 'keybindings)

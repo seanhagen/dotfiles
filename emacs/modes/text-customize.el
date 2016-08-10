@@ -24,5 +24,10 @@ Single Capitals as you type."
 (add-hook 'text-mode-hook #'dubcaps-mode)
 
 
+(add-hook 'text-mode-hook
+          '(lambda()
+             (turn-on-auto-fill)
+             (set-fill-column 80)))
+
 
 (provide 'text-customize)

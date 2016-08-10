@@ -1,3 +1,6 @@
+;;; package -- Summary:
+;;; Commentary:
+;;; Code:
 (require 'org)
 ;;(require 'org-jekyll)
 ;;(require 'org-jira)
@@ -115,3 +118,4 @@
   (myorg-update-parent-cookie))
 
 (provide 'org-customize)
+;;; org-customize.el ends here
