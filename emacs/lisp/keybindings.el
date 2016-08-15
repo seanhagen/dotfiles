@@ -114,7 +114,6 @@
 (global-set-key (kbd "C-c k") 'helm-make)
 (global-set-key (kbd "C-c o") 'helm-flycheck)
 
-
 (global-set-key (kbd "C-M-SPC") 'ispell-word)
 
 (global-set-key (kbd "C-c C-p s") 'projectile-switch-project)
