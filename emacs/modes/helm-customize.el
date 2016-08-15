@@ -1,3 +1,4 @@
+(require 'helm)
 (require 'helm-config)
 (require 'helm-projectile)
 
@@ -12,6 +13,7 @@
       helm-move-to-line-cycle-in-source     t
       helm-ff-search-library-in-sexp        t
       helm-ff-file-name-history-use-recentf t
+      helm-autoresize-mode                  t
       helm-github-stars-username "seanhagen")
 
 (define-key helm-command-map (kbd "o")     'helm-occur)

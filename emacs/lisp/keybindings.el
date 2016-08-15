@@ -110,6 +110,10 @@
 ;; cannot change `helm-command-prefix-key' once `helm-config' is loaded.
 (global-set-key (kbd "C-c h") 'helm-command-prefix)
 (global-unset-key (kbd "C-x c"))
+(global-set-key (kbd "C-x b") 'helm-buffers-list)
+(global-set-key (kbd "C-c k") 'helm-make)
+(global-set-key (kbd "C-c o") 'helm-flycheck)
+
 
 (global-set-key (kbd "C-M-SPC") 'ispell-word)
 
@@ -119,5 +123,7 @@
 ;; (global-set-key (kbd "C-x 8 ( c )") (lambda (insert "©")))
 ;; (global-set-key (kbd "C-x 8 - >") (lambda (insert "→")))
 ;; (global-set-key (kbd "C-x 8 8") (lambda (insert "∞")))
+
+(global-set-key (kbd "C-c C-k") 'compile)
 
 (provide 'keybindings)

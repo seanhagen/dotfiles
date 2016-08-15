@@ -37,4 +37,7 @@
 
 (add-hook 'go-mode-hook 'my-go-mode-hook)
 
+(eval-after-load 'go-mode
+  '(substitute-key-definition 'go-import-add 'helm-go-package go-mode-map))
+
 (provide 'go-customize)

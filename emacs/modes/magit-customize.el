@@ -6,6 +6,9 @@
 (setq vc-handled-backends nil)
 (setq magit-auto-revert-mode 1)
 
+(require 'magit-gh-pulls)
+(add-hook 'magit-mode-hook 'turn-on-magit-gh-pulls)
+
 (defadvice magit-status
     (around magit-fullscreen activate)
   (window-configuration-to-register :magit-fullscreen)
