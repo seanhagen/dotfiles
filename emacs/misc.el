@@ -43,6 +43,10 @@
  kept-old-versions 2
  version-control t)       ; use versioned backups
 
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
+
 ;; Emacs package manager!
 (require 'package)
 (setq package-archives
