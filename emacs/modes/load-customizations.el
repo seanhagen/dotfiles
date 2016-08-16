@@ -55,5 +55,7 @@
 (require 'slack-customize)
 (require 'scratch-customize)
 (require 'irc-customize)
+(require 'compiler-customize)
+(require 'epg-customize)
 
 (provide 'load-customizations)

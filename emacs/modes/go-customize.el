@@ -1,6 +1,7 @@
 (require 'company-go)
 (require 'go-direx)
 (require 'go-projectile)
+(require 'gotests)
 (setenv "GOPATH" "/home/sean/Code/Go")
 
 ;; (add-to-list 'load-path "/home/sean/Code/Go/src/golang.org/x/tools/cmd/oracle")
