@@ -123,6 +123,6 @@
 ;; (global-set-key (kbd "C-x 8 - >") (lambda (insert "→")))
 ;; (global-set-key (kbd "C-x 8 8") (lambda (insert "∞")))
 
-(global-set-key (kbd "C-c C-k") 'compile)
+;; (global-set-key (kbd "C-c C-k") 'compile)
 
 (provide 'keybindings)
