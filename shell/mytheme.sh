@@ -45,10 +45,11 @@ function set_left_elsewhere(){
     if [ -z $TMUX_POWERLINE_LEFT_STATUS_SEGMENTS ]; then
         TMUX_POWERLINE_LEFT_STATUS_SEGMENTS=(
             # "tmux_session_info 148 234" \
-            "hostname 33 0" \
-            "wan_ip 24 255" \
-            #"lan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
-            "vcs_branch 33 0" \
+                "weather 235 136" \
+                    "hostname 33 0 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
+                    "wan_ip 24 255 ${TMUX_POWERLINE_SEPARATOR_RIGHT_THIN}" \
+                    "lan_ip 24 255"  \
+                    "vcs_branch 33 0" \
             "vcs_modified 24 34" \
         )
     fi
@@ -57,14 +58,12 @@ function set_left_elsewhere(){
 function set_right_elsewhere(){
     if [ -z $TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS ]; then
         TMUX_POWERLINE_RIGHT_STATUS_SEGMENTS=(
-            #"mailcount 9 255" \
-            #"now_playing 33 37" \
-            #"cpu 240 136" \
             "rainbarf 118 0" \
+                "mailcount 9 255" \
             "load 0 167" \
             "date 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
             "time 235 136 ${TMUX_POWERLINE_SEPARATOR_LEFT_THIN}" \
-        )
+            )
     fi
 }
 

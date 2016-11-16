@@ -1,5 +1,7 @@
 # set -g default-command $SHELL
 
+set -g default-path "~"
+
 set -g status-bg $DARK
 set -g status-fg $LIGHT
 set -g status-interval 2

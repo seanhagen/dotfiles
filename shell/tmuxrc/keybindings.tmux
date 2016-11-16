@@ -56,3 +56,6 @@ bind -r C-h resize-pane -L
 bind -r C-j resize-pane -D
 bind -r C-k resize-pane -U
 bind -r C-l resize-pane -R
+
+# fix new pane thing
+
