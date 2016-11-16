@@ -4,6 +4,8 @@
 ;;; Code:
 
 (require 'erc)
+(require 'erc-tweet)
+(require 'erc-youtube)
 
 (erc-autojoin-mode t)
 (setq erc-autojoin-channels-alist

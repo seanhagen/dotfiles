@@ -6,6 +6,7 @@
 (require 'image+)
 (require 'look-mode)
 (require 'dired-rainbow)
+(require 'dired-efap)
 
 (eval-after-load 'image-dired '(require 'image-dired+))
 

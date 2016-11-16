@@ -2,11 +2,12 @@
 (require 'go-direx)
 (require 'go-projectile)
 (require 'gotests)
+(require 'go-guru)
 (setenv "GOPATH" "/home/sean/Code/Go")
 
 ;; (add-to-list 'load-path "/home/sean/Code/Go/src/golang.org/x/tools/cmd/oracle")
 ;; (require 'go-oracle)
-(load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
+;; (load "$GOPATH/src/golang.org/x/tools/cmd/oracle/oracle.el")
 
 ;; (add-to-list 'load-path (concat (getenv "GOPATH") "/src/github.com/golang/lint/misc/emacs"))
 ;; (require 'golint)
