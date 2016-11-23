@@ -38,7 +38,8 @@ remotepasseval = get_password("seanhagen.ca")
 realdelete = no
 maxconnections = 3
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda foldername: foldername in ['[Gmail].All Mail']
+folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
+nametrans = lambda foldername: foldername.replace("[Gmail]/","")
 
 [Repository LocalSpace]
 type = Maildir
@@ -51,7 +52,8 @@ remotepasseval = get_password("spacelist.ca")
 realdelete = no
 maxconnections = 3
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda foldername: foldername in ['[Gmail].All Mail']
+folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
+nametrans = lambda foldername: foldername.replace("[Gmail]/","")
 
 [Repository Local]
 type = Maildir
@@ -64,4 +66,5 @@ remotepasseval = get_password("mail.google.com")
 realdelete = no
 maxconnections = 3
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda foldername: foldername in ['[Gmail]/All Mail']
+folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
+nametrans = lambda foldername: foldername.replace("[Gmail]/","")
