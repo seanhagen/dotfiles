@@ -9,7 +9,7 @@ autorefresh = 10
 localrepository = Local
 remoterepository = Remote
 status_backend = sqlite
-synclabels = yes
+synclabels = no
 maxage = 15
 
 [Account Space]
@@ -17,14 +17,14 @@ autorefresh = 5
 localrepository = LocalSpace
 remoterepository = RemoteSpace
 status_backend = sqlite
-synclabels = yes
+synclabels = no
 
 [Account SHCA]
 autorefresh = 20
 localrepository = LocalSeanHagenCA
 remoterepository = RemoteSeanHagenCA
 status_backend = sqlite
-synclabels = yes
+synclabels = no
 maxage = 15
 
 [Repository LocalSeanHagenCA]
