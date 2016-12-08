@@ -6,7 +6,8 @@
 (autoload 'ruby-block-mode "ruby-block")
 (autoload 'robe-mode "robe")
 (autoload 'company-robe "company-robe")
-;; (autoload 'ruby-style "ruby-style")
+(autoload 'ruby-style "ruby-style")
+(autoload 'ruby-block-mode "ruby-block")
 (autoload 'toggle-ruby-hash-syntax "ruby-hash-syntax")
 (autoload 'yard-mode "yard-mode")
 

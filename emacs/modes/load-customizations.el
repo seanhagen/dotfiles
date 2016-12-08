@@ -57,5 +57,6 @@
 (require 'irc-customize)
 (require 'compiler-customize)
 (require 'epg-customize)
+(require 'html-customize)
 
 (provide 'load-customizations)

@@ -15,4 +15,7 @@
 
 (global-company-mode 1)
 
+(with-eval-after-load "company"
+  (global-set-key (kbd "S-SPC") 'company-complete))
+
 (provide 'company-customize)

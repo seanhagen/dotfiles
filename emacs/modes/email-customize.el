@@ -22,6 +22,21 @@
 (add-hook 'mu4e-compose-mode-hook 'epa-mail-mode)
 (add-hook 'mu4e-view-mode-hook 'epa-mail-mode)
 
+(defun mu4e-start (orign &rest args)
+  (window-configuration-to-register :mu4e-fullscreen)
+  (delete-other-windows))
+
+(defun mu4e-quit-session ()
+  (interactive)
+  (kill-buffer)
+  (jump-to-register :mu4e-fullscreen))
+
+(advice-add 'mu4e :after #'mu4e-start)
+
+(eval-after-load 'mu4e
+  '(progn
+     (define-key mu4e-main-mode-map (kbd "q") 'mu4e-quit-session)))
+
 ;; attachments
 (require 'gnus-dired)
 ;; make the `gnus-dired-mail-buffers' function also work on
@@ -103,9 +118,9 @@ shows up in the UI), and KEY is a shortcut key for the query.")
            :name "Work"
            :enter-func (lambda () (message "Work EMail"))
            :match-func (lambda (msg)
-                         (when msg (mu4e-message-contact-field-matches msg :to "shagen@bardel.ca")))
-           :vars '(  ( mail-reply-to          . "shagen@bardel.ca" )
-                     ( user-mail-address      . "shagen@bardel.ca" )
+                         (when msg (mu4e-message-contact-field-matches msg :to "sean@spacelist.ca")))
+           :vars '(  ( mail-reply-to          . "sean@spacelist.ca" )
+                     ( user-mail-address      . "sean@spacelist.ca" )
                      ( user-full-name         . "Sean Patrick Hagen" )))))
 
 (provide 'email-customize)

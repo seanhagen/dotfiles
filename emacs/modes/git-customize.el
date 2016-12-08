@@ -1,6 +1,6 @@
 (require 'yagist)
 (require 'git-gutter)
-;;(require 'git-blame)
+(require 'git-blame)
 (require 'gh)
 (require 'gitconfig-mode)
 (require 'git-dwim)
