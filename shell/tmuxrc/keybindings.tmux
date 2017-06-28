@@ -46,16 +46,3 @@ bind + delete-buffer
 bind C-p run "tmux set-buffer \"$(xclip -o)\"; tmux paste-buffer"
 # move tmux copy buffer into x clipboard
 bind C-y run "tmux save-buffer - | xclip -i"
-
-#unbind-key C-b
-#set-option -g prefix C-a
-#bind-key C-z send-prefix
-
-# keybindings to make resizing easier
-bind -r C-h resize-pane -L
-bind -r C-j resize-pane -D
-bind -r C-k resize-pane -U
-bind -r C-l resize-pane -R
-
-# fix new pane thing
-
