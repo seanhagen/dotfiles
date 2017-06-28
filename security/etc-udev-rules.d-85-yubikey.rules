@@ -1,0 +1,6 @@
+# Yubikey Udev Rule: running a bash script in case your Yubikey is removed
+# ACTION=="remove", ENV{ID_VENDOR_ID}=="1050", ENV{ID_MODEL_ID}=="0111", ENV{ID_SERIAL}=="Yubico_Yubikey_NEO_OTP+CCID", RUN+="/usr/local/bin/yubikey-lock"
+
+#ACTION=="remove|add", ATTRS{idVendor}=="1050", ATTRS={idProduct}=="0016", ATTRS{name}=="Yubikey NEO OTP+U2F+CCID", RUN+="/usr/local/bin/yubikey-lock"
+
+ACTION=="remove|add|change", ENV{ID_VENDOR_ID}=="1050", ENV{ID_MODEL_ID}=="0116", ATTRS{name}=="Yubico Yubikey NEO OTP+U2F+CCID", RUN+="/usr/local/bin/yubikey-lock"

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+USERNAME="sean"
+result=$(lsusb |grep -e Yubico)
+
+if [ $? -ne 0 ]; then
+    logger "YubiKey Removed or Changed"
+
+    running=$(ps aux |grep cinnamon |grep screensaver |grep bin)
+
+    if [ $? -ne 0 ]; then
+        logger "Screensaver already running"
+    else
+        /bin/su $USERNAME -c "DISPLAY=:0 /usr/bin/cinnamon-screensaver-command --lock && xset dpms force off"
+    fi
+else
+    logger "YubiKey Found, unlocking!"
+     /bin/su $USERNAME -c "DISPLAY=:0 /usr/bin/cinnamon-screensaver-command -d"
+fi
