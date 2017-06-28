@@ -2,31 +2,52 @@
 ;;; Commentary:
 ;;; Code:
 
-;; dired
-;; dired+
-;; dired-details
-;; dired-details+
+(use-package dired
+  :config
+  (use-package dired-hide-dotfiles))
+
+
+(use-package dired+)
+
+(use-package dired-details
+  :config
+  (dired-details-install))
+
+(use-package dired-details+)
+
+(use-package dired-rainbow)
+
+(use-package image+)
+
+(use-package image-dired+)
+
+(use-package dired-efap
+  :bind (:map dired-mode-map
+              ("r" . dired-efap)))
+
+(use-package dired-subtree
+  :ensure t
+  :after dired
+  :config
+  (bind-key "<tab>" #'dired-subtree-toggle dired-mode-map)
+  (bind-key "<backtab>" #'dired-subtree-cycle dired-mode-map))
+
+;; (define-key dired-mode-map [f2] 'dired-efap)
+;; ;;; Only if you want to control rename with the mouse...
+;; (define-key dired-mode-map [down-mouse-1] 'dired-efap-click)
+
 ;; dired-filetype-face
 ;; dired-filter
 ;; dired-open
-;; dired-rainbow
 ;; dired-single
 ;; dired-toggle
 ;; dired-toggle-sudo
-;; dired-efap
 
-;; (use-package dired+
-;;   )
 
-;; (require 'dired+)
-;; (require 'dired-details)
-;; (require 'dired-details+)
 ;; (require 'dired-single)
 ;; (require 'dired-toggle-sudo)
 ;; (require 'image+)
 ;; (require 'look-mode)
-;; (require 'dired-rainbow)
-;; (require 'dired-efap)
 
 ;; (eval-after-load 'image-dired '(require 'image-dired+))
 

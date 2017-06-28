@@ -1,5 +1,5 @@
 (use-package markdown-mode
-  :mode "\\.md$" "\\.markdown$"
+  :mode "\\.md\\'" "\\.markdown\\'"
   :init
   (add-hook 'markdown-mode-hook
           (lambda ()

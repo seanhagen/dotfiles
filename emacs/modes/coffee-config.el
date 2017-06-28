@@ -1,2 +1,2 @@
 (use-package coffee-mode
-  :mode "\\.coffee$")
+  :mode "\\.coffee\\'")

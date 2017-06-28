@@ -5,41 +5,67 @@
 (setenv "GOPATH" "/home/sean/Code/Go")
 
 (use-package go-mode
-  :mode ".go"
+  :mode "\\.go\\'"
   :bind (:map go-mode-map
               ("C-c C-j" . go-direx-pop-to-buffer)
               ("C-c i" . go-goto-imports)
               ("C-c C-r" . go-remove-unused-imports)
+              ("C-c C-t" . go-test-current-file)
               ("M-." . godef-jump))
   :config
-  (setq flycheck-gometalinter-vendor t
-        flycheck-gometalinter-disable-all t
-        flycheck-gometalinter-enable-linters '("golint" "gosimple")
-        flycheck-gometalinter-deadline "10s")
-  )
+  (add-hook 'before-save-hook 'gofmt-before-save)
+  (add-hook 'go-mode-hook
+            (lambda ()
+              (set (make-local-variable 'company-backends) '(company-go))))
+  (go-eldoc-setup)
 
+  (use-package godoc
+    :bind (:map go-mode-map
+                ("C-c C-k" . godoc-at-point)))
 
-;; (use-package go-guru
-;;   :commands go-guru-hl-identifier-mode
-;;   :init
-;;   (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+  (use-package company-go
+    :ensure t
+    :defer t
+    :config
+    (push 'company-go company-backends))
 
-(use-package go-eldoc
-  :init
-  (add-hook 'go-mode-hook 'go-eldoc-setup))
+  (use-package go-add-tags
+    :bind (:map go-mode-map
+                ("C-c C-o" . go-add-tags))
+    :commands go-add-tags)
 
-(use-package go-add-tags
-  :commands go-add-tags)
+  (use-package go-errcheck
+    :bind (:map go-mode-map
+                ("C-c g" . go-errcheck))
+    :commands go-errcheck)
 
-;; (use-package go-complete)
-(use-package go-errcheck
-  :bind (:map go-mode-map
-         ("C-c r" . go-errcheck))
-  :commands go-errcheck)
+  (use-package flycheck-gometalinter
+    :config
+    (add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup)
+    (setq flycheck-gometalinter-vendor t
+          flycheck-gometalinter-disable-all t
+          flycheck-gometalinter-enable-linters '("golint" "gosimple")
+          flycheck-gometalinter-deadline "10s"))
+
+  (use-package go-eldoc
+    :init
+    (add-hook 'go-mode-hook 'go-eldoc-setup))
+
+  (use-package helm-go-package
+    :config
+    (substitute-key-definition 'go-import-add 'helm-go-package go-mode-map))
+
+  (use-package go-guru
+    :commands go-guru-hl-identifier-mode
+    :init
+    (add-hook 'go-mode-hook #'go-guru-hl-identifier-mode))
+
+  (use-package go-complete
+    :init
+    (add-hook 'completion-at-point-functions 'go-complete-at-point)))
+
 
 ;; (use-package golint)
-
-
 ;; go-direx
 ;; go-playground
 ;; go-scratch

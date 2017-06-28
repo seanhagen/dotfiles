@@ -7,13 +7,17 @@
   :init
   (add-hook 'js2-mode-hook 'projectile-mode)
   :config
-  (projectile-global-mode)
+  (projectile-mode)
   (setq projectile-indexing-method 'native
         projectile-enable-caching t))
 
 (use-package projectile-rails
+  :bind (:map projectile-rails-mode-map
+              ("C-c p C-r E" . hydra-projectile-rails/body))
   :commands 'projectile-rails-on
+  :diminish ""
   :init
+  (setq projectile-rails-keymap-prefix (kbd "C-c p C-r"))
   (add-hook 'enh-ruby-mode-hook 'projectile-rails-on))
 
 (use-package go-projectile

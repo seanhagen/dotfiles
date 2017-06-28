@@ -2,9 +2,10 @@
 ;;; Commentary:
 ;;; Code:
 
-(use-package lisp-mode :mode ".el")
+(use-package lisp-mode :mode "\\.el\\'")
 
-(use-package elisp-mode
+(use-package emacs-lisp-mode
+  :mode "\\.emacs.d/.*el\\'"
   :commands emacs-lisp-mode
   :init
   (add-to-list 'auto-mode-alist '("/home/sean/.emacs.d" . emacs-lisp-mode)))
@@ -28,5 +29,6 @@
 
 ;; cider
 ;; slime
+(use-package slime :mode "\\.lisp\\'")
 ;; slime-company
 ;;

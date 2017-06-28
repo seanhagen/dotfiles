@@ -1,3 +1,7 @@
+(require 'tramp)
+(require 'multi-term)
+(require 'rainbow-delimiters)
+
 ;; Emacs package manager!
 (require 'package)
 (setq package-archives
@@ -8,6 +12,8 @@
         ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
+(diminish 'auto-revert-mode)
+
 ;; General Stuff
 (load "server")
 (unless (server-running-p) (server-start))
@@ -15,7 +21,6 @@
 (put 'upcase-region 'disabled nil)
 (setq inhibit-startup-message t)
 (fset 'yes-or-no-p 'y-or-n-p)
-
 (add-hook 'before-save-hook 'cleanup-buffer-safe)
 
 (display-time-mode 1)
@@ -28,22 +33,12 @@
 (column-number-mode 1)
 (setq-default tab-width 2)
 (setq-default indent-tabs-mode nil)
-(setq c-basic-offset 2)
+(setq-default indicate-empty-lines t)
+(when (not indicate-empty-lines)
+  (toggle-indicate-empty-lines))
 
-(set-language-environment "UTF-8")
 
 (show-paren-mode 1)
-(defadvice show-paren-function
-    (after show-matching-paren-offscreen activate)
-  "If the matching paren is offscreen, show the matching line in the echo area.  Has no effect if the character before point is not of the syntax class ')'.  "
-  (interactive)
-  (let* ((cb (char-before (point)))
-         (matching-text (and cb
-                             (char-equal (char-syntax cb) ?\) )
-                             (blink-matching-open))))
-    (when matching-text (message matching-text))))
-
-(setq create-lockfiles nil)
 
 ;; auto-save stuff
 (make-directory "/tmp/emacs" t)
@@ -51,6 +46,8 @@
 (defvar autosave-dir (expand-file-name "/tmp/emacs"))
 
 (setq
+ c-basic-offset 2
+ create-lockfiles nil
  backup-directory-alist (list (cons ".*" backup-dir))
  auto-save-list-file-prefix autosave-dir
  auto-save-file-name-transforms `((".*" ,autosave-dir t))
@@ -63,11 +60,9 @@
  url-http-attempt-keepalives nil
  ack-executable (executable-find "ack-grep")
  locale-coding-system 'utf-8
- oauth-nonce-function 'oauth-internal-make-nonce)
-
-(setq-default indicate-empty-lines t)
-(when (not indicate-empty-lines)
-  (toggle-indicate-empty-lines))
+ oauth-nonce-function 'oauth-internal-make-nonce
+ shr-color-visible-luminance-min 80
+ auth-sources '((:source "~/.emacs.d/secrets/.authinfo.gpg")))
 
 (dolist (k '([mouse-1] [down-mouse-1] [drag-mouse-1] [double-mouse-1] [triple-mouse-1]
              [mouse-2] [down-mouse-2] [drag-mouse-2] [double-mouse-2] [triple-mouse-2]
@@ -82,23 +77,15 @@
 (autoload 'ack-find-file "full-ack" nil t)
 
 ;; UTF-8 please
+(set-language-environment "UTF-8")
 (set-terminal-coding-system 'utf-8) ; pretty
 (set-keyboard-coding-system 'utf-8) ; pretty
 (set-selection-coding-system 'utf-8) ; please
 (prefer-coding-system 'utf-8) ; with sugar on top
 
+
 ;; (if after-init-time (sml/setup)
 ;;   (add-hook 'after-init-hook 'sml/setup))
-
-(defadvice vc-git-mode-line-string
-    (after plus-minus (file) compile activate)
-  (setq ad-return-value
-        (concat ad-return-value
-                (let ((plus-minus (vc-git--run-command-string
-                                   file "diff" "--numstat" "--")))
-                  (and plus-minus
-                       (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus)
-                       (format " +%s-%s" (match-string 1 plus-minus) (match-string 2 plus-minus)))))))
 
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Code/PHP/BBTV" ":BBTV:") )
 ;; (add-to-list 'sml/replacer-regexp-list '("^~/Code/DevOps" ":DevOps:") )
@@ -139,9 +126,3 @@
       (cons
        (concat (getenv "HOME") "/usr/local/go/bin")
        exec-path))
-
-(require 'tramp)
-(require 'multi-term)
-(require 'rainbow-delimiters)
-
-(setq shr-color-visible-luminance-min 80)

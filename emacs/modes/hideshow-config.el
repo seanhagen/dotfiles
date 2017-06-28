@@ -1,4 +1,19 @@
 
+(use-package hideshow
+  :diminish hs-minor-mode
+  :init
+  (add-hook 'ruby-mode-hook 'hs-minor-mode)
+  (setq hs-set-up-overlay 'display-code-line-counts)
+  :config
+  (add-to-list 'hs-special-modes-alist
+               '(ruby-mode
+                 "\\(def\\|do\\)"
+                 "end"
+                 "#"
+                 (lambda (arg) (ruby-end-of-block))
+                 nil ))
+  )
+
      (require 'hideshow)
 
 ;; (eval-after-load "hideshow"
@@ -13,13 +28,7 @@
 ;;                    ;; ,(rx (or "#" "=begin"))                   ; Comment start
 ;;                    ;; ruby-forward-sexp nil)))
 
-(add-to-list 'hs-special-modes-alist
-             '(ruby-mode
-               "\\(def\\|do\\)"
-               "end"
-               "#"
-               (lambda (arg) (ruby-end-of-block))
-               nil ))
+
 
 ;; (add-to-list 'hs-special-modes-alist
 ;; 	     '(ruby-mode
@@ -46,12 +55,10 @@
 ;; (global-set-key (kbd "C-+") 'toggle-hiding)
 ;; (global-set-key (kbd "C-\\") 'toggle-selective-display)
 
-(add-hook 'ruby-mode-hook 'hs-minor-mode)
+
 
 (defun display-code-line-counts (ov)
   (when (eq 'code (overlay-get ov 'hs))
     (overlay-put ov 'help-echo
                  (buffer-substring (overlay-start ov)
                                    (overlay-end ov)))))
-
-(setq hs-set-up-overlay 'display-code-line-counts)

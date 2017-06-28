@@ -3,6 +3,13 @@
                 'set-default)
             ',variable ,value))
 
+(defun get-above-makefile ()
+  (expand-file-name
+   "Makefile" (loop as d = default-directory then
+                    (expand-file-name
+                     ".." d) if (file-exists-p (expand-file-name "Makefile" d)) return
+                     (shell-quote-argument d))))
+
 ;;rename current buffer and file
 (defun rename-file-and-buffer (new-name)
   "Renames both current buffer and file it's visiting to NEW-NAME."
@@ -140,6 +147,59 @@ Including indent-buffer, which should not be called automatically on save."
                         (switch-to-prev-buffer (get-buffer-window buf) 'kill))
                       buffer)))
 (add-hook 'compilation-finish-functions 'bury-compile-buffer-if-successful)
+
+(defun xah-insert-random-uuid ()
+  "Insert a UUID. This uses a simple hashing of variable data.
+Example of a UUID: 1df63142-a513-c850-31a3-535fc3520c3d
+
+Note: this code uses https://en.wikipedia.org/wiki/Md5 , which is not cryptographically safe. I'm not sure what's the implication of its use here.
+
+Version 2015-01-30
+URL `http://ergoemacs.org/emacs/elisp_generate_uuid.html'
+"
+  ;; by Christopher Wellons, 2011-11-18. Editted by Xah Lee.
+  ;; Edited by Hideki Saito further to generate all valid variants for "N" in xxxxxxxx-xxxx-Mxxx-Nxxx-xxxxxxxxxxxx format.
+  (interactive)
+  (let ((myStr (md5 (format "%s%s%s%s%s%s%s%s%s%s"
+                            (user-uid)
+                            (emacs-pid)
+                            (system-name)
+                            (user-full-name)
+                            (current-time)
+                            (emacs-uptime)
+                            (garbage-collect)
+                            (buffer-string)
+                            (random)
+                            (recent-keys)))))
+
+    (insert (format "%s-%s-4%s-%s%s-%s"
+                    (substring myStr 0 8)
+                    (substring myStr 8 12)
+                    (substring myStr 13 16)
+                    (format "%x" (+ 8 (random 4)))
+                    (substring myStr 17 20)
+                    (substring myStr 20 32)))))
+
+(defadvice vc-git-mode-line-string
+    (after plus-minus (file) compile activate)
+  (setq ad-return-value
+        (concat ad-return-value
+                (let ((plus-minus (vc-git--run-command-string
+                                   file "diff" "--numstat" "--")))
+                  (and plus-minus
+                       (string-match "^\\([0-9]+\\)\t\\([0-9]+\\)\t" plus-minus)
+                       (format " +%s-%s" (match-string 1 plus-minus) (match-string 2 plus-minus)))))))
+
+(defadvice show-paren-function
+    (after show-matching-paren-offscreen activate)
+  "If the matching paren is offscreen, show the matching line in the echo area.  Has no effect if the character before point is not of the syntax class ')'.  "
+  (interactive)
+  (let* ((cb (char-before (point)))
+         (matching-text (and cb
+                             (char-equal (char-syntax cb) ?\) )
+                             (blink-matching-open))))
+    (when matching-text (message matching-text))))
+
 
 (provide 'functions)
 ;;; functions.el ends here

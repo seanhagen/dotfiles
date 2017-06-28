@@ -1,8 +1,0 @@
-# -*- mode: snippet -*-
-# contributer: Sean Patrick Hagen <sean.hagen@gmail.com>
-# name: case
-# key: case
-# description: case snippet
-# --
-case ${1:value}:
-  $0

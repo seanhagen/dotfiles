@@ -4,6 +4,7 @@
 
 (use-package magit
   :defer t
+  :diminish magit-auto-revert-mode
   :no-require t
   :commands magit-status
   :bind (("C-x m" . magit-status)

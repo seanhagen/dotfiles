@@ -5,10 +5,16 @@
  ;; If there is more than one, they won't work right.
  '(ac-etags-requires 1)
  '(ac-menu-height 20)
+ '(aw-scope (quote frame))
  '(canlock-password "38f7ec4ad5e7b3b1c3196ee48f674d1f73ae100d")
  '(cider-lein-command "lein")
  '(cider-repl-display-in-current-window nil)
  '(coffee-command "/usr/local/node/bin/coffee")
+ '(company-backends
+   (quote
+    (company-go company-irony-c-headers company-c-headers company-arduino company-tern company-irony-c-headers company-c-headers company-arduino company-bbdb company-nxml company-css company-eclim company-semantic company-clang company-xcode company-cmake company-capf company-files
+                (company-dabbrev-code company-gtags company-etags company-keywords)
+                company-oddmuse)))
  '(company-go-gocode-command "/home/sean/Code/Go/bin/gocode")
  '(company-go-show-annotation t)
  '(company-quickhelp-delay 0.2)
@@ -19,19 +25,15 @@
  '(dired-details-hidden-string "[...] ")
  '(dired-details-hide-link-targets nil)
  '(display-time-day-and-date t)
- '(elfeed-feeds
-   (quote
-    ("https://theiddm.wordpress.com/feed/" "https://theshedm.com/feed/" "http://upandoutcomic.tumblr.com/rss" "http://www.marycagle.com/rss.php" "http://www.cssbeauty.com/rss/news/" "http://snook.ca/jonathan/index.rdf" "http://benno.id.au/blog/feed/" "http://html5doctor.com/feed/" "http://blog.ircmaxell.com/feeds/posts/default" "http://www.codinghorror.com/blog/index.xml" "http://lemonodor.com/rss10-full.xml" "https://hacks.mozilla.org/feed/" "http://www.hackaday.com/rss.xml" "http://martinfowler.com/bliki/bliki.atom" "http://feeds.feedburner.com/html5rocks" "http://feeds.feedburner.com/HighScalability" "http://lispy.wordpress.com/feed/" "http://lukego.livejournal.com/data/rss" "http://lambda-the-ultimate.org/rss.xml" "http://feeds2.feedburner.com/tympanus" "http://net.tutsplus.com/feed/" "http://steve-yegge.blogspot.com/feeds/posts/default" "http://endlessparentheses.com/atom.xml" "http://www.alistapart.com/rss.xml" "http://feeds.feedburner.com/blogspot/hsDu" "http://www.masteringemacs.org/feed/" "http://feeds.feedburner.com/dailyjs" "http://feeds.feedburner.com/CssTricks" "http://feeds.feedburner.com/toddmotto" "http://christianheilmann.com/feed/" "http://feeds.feedburner.com/cssremix" "http://davanum.wordpress.com/feed/" "http://www.helloandroid.com/rss.xml" "http://whattheemacsd.com/atom.xml" "http://www.cssdrive.com/index.php/main/rss_2.0/" "http://emacsblog.org/feed/" "http://feeds.feedburner.com/brad-frosts-blog" "http://nullprogram.com/feed/" "http://feeds.feedburner.com/holman" "http://codebetter.com/blogs/MainFeed.aspx" "http://p-cos.blogspot.com/feeds/posts/default" "http://www.freedom-to-tinker.com/?feed=rss2" "http://www.reddit.com/r/emacs/.rss" "http://feeds.feedburner.com/csswizardrycom" "http://www.csszengarden.com/zengarden.xml" "http://blog.webplatform.org/feed/" "http://thenittygritty.co/feed" "http://thedailywtf.com/rss.aspx" "http://feeds.feedburner.com/bendiken" "http://stonebreakercomic.com/feed/" "http://skadicomic.com/feed/" "http://www.awkwardzombie.com/awkward.php" "http://www.alicegrove.com/rss" "http://www.mfkcomic.com/feed/" "http://www.vgcats.com/super/se.rdf.xml" "http://fanboys-online.com/rss/comic.xml" "http://feeds.feedburner.com/DuelingAnalogs" "http://feeds.feedburner.com/Multiplex" "http://www.dumbingofage.com/feed/" "http://broodhollow.chainsawsuit.com/feed/" "http://www.johnnywander.com/feed" "https://penny-arcade.com/feed" "http://thepunchlineismachismo.com/feed" "http://feeds.feedburner.com/LICD" "http://threepanelsoul.com/rss.php" "http://feeds.feedburner.com/Chainsawsuit" "http://feeds.feedburner.com/NotInventedHere" "http://pbfcomics.com/feed/feed.xml" "http://www.vgcats.com/vgcats.rdf.xml" "http://www.biggercheese.com/feed.xml" "http://www.theglassscientists.com/?feed=rss2" "http://sufficientlyremarkable.com/main/rss" "http://feeds.feedburner.com/WastedTalentRss" "http://fluffernutters.thecomicseries.com/rss" "http://feeds.feedburner.com/omaketheater" "http://platinumblackcomic.com/feed" "http://www.cad-comic.com/rss/" "http://feeds2.feedburner.com/rsspect/fJur" "http://loldwell.com/?feed=rss2" "http://www.questionablecontent.net/QCRSS.xml" "http://campcomic.com/rss" "http://www.escapistmagazine.com/rss/articles/comicsandcosplay/comics/critical-miss" "http://dord.horse/rss" "http://xkcd.com/rss.xml" "http://www.hejibits.com/feed/" "http://theoatmeal.com/feed/rss" "http://feeds2.feedburner.com/thebrads" "http://madderermen.bitedaily.com/feeds/posts/default" "http://shortpacked.com/feed/" "http://www.marecomic.com/feed/" "http://feeds2.feedburner.com/virtualshackles" "http://tjandamal.com/comic/inc/feed.php" "http://www.darthsanddroids.net/rss.xml" "http://trenchescomic.com/feed" "http://www.commitstrip.com/en/feed/" "http://www.brawlinthefamily.com/?feed=rss2" "http://feeds.feedburner.com/leftycartoons" "http://www.ndecomic.com/rss.php" "http://www.ma3comic.com/comic.rss" "http://www.sandraontherocks.com/comic.rss" "http://www.dangerouslychloe.com/comic.rss" "http://oglaf.com/feeds/rss/" "http://www.ohjoysextoy.com/feed/" "http://buttsmithy.com/?feed=rss2" "http://blog.humblebundle.com/rss" "http://thetyee.ca/rss2.xml" "http://www.bizstone.com/feeds/posts/default" "http://cellar.org/external.php?type=rss2&forumids=10" "http://feeds.feedburner.com/DigitalPhotographySchool" "http://feeds.feedburner.com/CrackedRSS" "http://www.feministfrequency.com/?feed=rss2" "http://postsecret.blogspot.com/feeds/posts/default" "http://condohype.wordpress.com/feed/" "http://everyday-carry.com/rss" "http://suddenlyelephants.blogspot.com/feeds/posts/default" "http://www.joelonsoftware.com/rss.xml" "http://stephenrees.wordpress.com/feed/" "http://planet.emacsen.org/atom.xml" "http://www.markbakker.ca/blog/feed/" "http://www.billnye.com/feed/" "http://what-if.xkcd.com/feed.atom" "http://feeds.feedburner.com/TestedAll" "http://www.booksofadam.com/feeds/posts/default" "http://www.escapistmagazine.com/rss/videos/list/1.xml" "http://www.urbanvancouver.com/rss.xml" "http://feeds.feedburner.com/20bits" "http://io9.com/index.xml" "http://hucksblog.blogspot.com/feeds/posts/default" "http://lifehacker.com/index.xml" "http://ialwayswondered.jarrettgreen.com/feed/" "http://feeds.gawker.com/Jezebel/full" "http://ridenorth.tumblr.com/rss" "http://feeds.boingboing.net/boingboing/iBag" "http://superuseless.blogspot.com/feeds/posts/default" "http://www.tendernuggets.com/feeds/posts/default" "http://ch00ftech.com/feed/" "http://matthewrobertson.org/atom.xml" "http://www.chocolatehammer.org/?feed=rss2" "http://feeds.feedburner.com/warpspire" "http://blog.okcupid.com/index.php/feed/" "http://cabooseshouse.blogspot.com/feeds/posts/default" "http://feeds.feedburner.com/Darrenbarefoot" "http://feeds.feedburner.com/Hyperbole-and-a-half" "http://www.shamusyoung.com/twentysidedtale/?feed=rss2" "http://www.straight.com/content/rss/news-and-views" "http://thelastpsychiatrist.com/atom.xml" "http://blog.flickr.net/en/feed/atom/" "http://debaday.debian.net/feed/" "http://feeds.feedburner.com/PhotoCompetitions" "http://www.paulromein.ca/blog/feed/" "http://feeds.feedburner.com/disdain/shiftcodes/pc" "http://www.keegan.org/reprapblog/feed" "http://www.volpinprops.com/feed/atom/" "http://seanhagen.ca/rss/" "http://blog.deliciousjuice.com/feed" "http://slyflourish.com/index.xml")))
- '(elfeed-sort-order (quote ascending))
  '(enh-ruby-bounce-deep-indent nil)
  '(enh-ruby-check-syntax (quote errors))
  '(enh-ruby-deep-indent-paren nil)
  '(enh-ruby-deep-indent-paren-style nil)
  '(enh-ruby-hanging-brace-indent-level 2)
- '(enh-ruby-program "/home/sean/.rbenv/shims/ruby")
+ '(epa-popup-info-window nil)
  '(epg-debug t)
  '(epg-gpg-home-directory "/media/secure/gpghome")
- '(epg-gpg-program "/usr/bin/gpg")
+ '(epg-gpg-program "/usr/bin/gpg2")
  '(erc-mode-hook
    (quote
     (erc-munge-invisibility-spec erc-move-to-prompt-setup pcomplete-erc-setup erc-button-setup erc-imenu-setup)))
@@ -40,14 +42,17 @@
    (quote
     ("/home/sean/bin" "/usr/lib/lightdm/lightdm" "/usr/local/sbin" "/usr/local/bin" "/usr/sbin" "/usr/bin" "/sbin" "/bin" "/usr/games" "/usr/local/libexec/emacs/24.3/x86_64-unknown-linux-gnu" "/usr/local/node/bin")))
  '(flycheck-display-errors-function (function flycheck-pos-tip-error-messages))
+ '(flycheck-go-build-executable "/usr/local/go/bin/go")
+ '(flycheck-go-errcheck-executable "/home/sean/Code/Go/bin/errcheck")
+ '(flycheck-go-gofmt-executable "/usr/local/go/bin/gofmt")
  '(flycheck-go-golint-executable "/home/sean/Code/Go/bin/golint")
- '(flycheck-gometalinter-deadline "30s" t)
- '(flycheck-gometalinter-disable-all t t)
- '(flycheck-gometalinter-enable-linters
-   (quote
-    ("golint" "gosimple" "gotype" "gocyclo" "varcheck" "structcheck" "aligncheck" "errcheck" "dupl" "interfacer" "unconvert" "goconst" "gosimple" "staticcheck")) t)
+ '(flycheck-go-unconvert-executable "/home/sean/Code/Go/bin/unconvert")
+ '(flycheck-gometalinter-deadline "30s")
+ '(flycheck-gometalinter-disable-all t)
+ '(flycheck-gometalinter-enable-linters (quote ("golint" "gosimple")))
  '(flycheck-gometalinter-executable "/home/sean/Code/Go/bin/gometalinter")
- '(flycheck-gometalinter-vendor t t)
+ '(flycheck-gometalinter-fast t)
+ '(flycheck-gometalinter-vendor t)
  '(flycheck-ruby-rubocop-executable "~/.rbenv/shims/rubocop")
  '(geben-display-window-function (quote switch-to-buffer))
  '(geben-show-breakpoints-debugging-only nil)
@@ -55,8 +60,11 @@
  '(gnus-fetch-old-headers nil)
  '(gnus-use-full-window nil)
  '(go-command "/usr/local/go/bin/go")
+ '(go-complete-gocode-command "/home/sean/Code/Go/bin/gocode")
  '(go-eldoc-gocode "/home/sean/Code/Go/bin/gocode")
- '(go-mode-hook (quote (my-go-mode-hook go-projectile-mode hs-minor-mode)))
+ '(go-mode-hook
+   (quote
+    (go-eldoc-setup go-guru-hl-identifier-mode go-projectile-mode hs-minor-mode)))
  '(go-oracle-command "/home/sean/Code/Go/bin/oracle")
  '(go-rename-command "/home/sean/Code/Go/bin/gorename")
  '(godef-command "/home/sean/Code/Go/bin/godef")
@@ -74,17 +82,19 @@
  '(ispell-highlight-face (quote flyspell-incorrect))
  '(jabber-roster-line-format " %c %-25n %u %-8s  %S (%r)")
  '(jabber-show-offline-contacts nil)
- '(js2-basic-offset 2)
+ '(js-indent-level 2)
  '(lui-fill-column 140)
  '(magit-diff-section-arguments (quote ("--no-ext-diff")))
  '(magit-push-always-verify nil)
  '(max-specpdl-size 5000)
- '(mm-text-html-renderer nil)
+ '(message-send-mail-function (quote smtpmail-send-it))
+ '(mm-text-html-renderer (quote gnus-w3m))
  '(mu4e-decryption-policy (quote ask))
  '(mu4e-maildir "/home/sean/Mail")
  '(mu4e-mu-binary "/usr/local/bin/mu")
  '(multi-term-dedicated-select-after-open-p t)
  '(multi-term-program nil)
+ '(notmuch-always-prompt-for-sender t)
  '(notmuch-command "~/Downloads/notmuch-0.23/notmuch")
  '(notmuch-show-text/html-blocked-images nil)
  '(nxml-child-indent nil)
@@ -92,7 +102,7 @@
  '(offlineimap-command "offlineimap -o -u basic")
  '(org-agenda-files
    (quote
-    ("~/Dropbox/Org/trip_planning.org" "~/Dropbox/Org/trello.org" "~/Dropbox/Org/organizer.org" "~/Dropbox/Org/mygtd.org" "~/Dropbox/Org/journal.org" "~/Dropbox/Org/index.org" "~/Dropbox/Org/finances.org" "~/Dropbox/Org/code.org" "~/Dropbox/Org/agenda.org")))
+    ("~/Dropbox/Org/JIRA/SL2.org" "~/Dropbox/Org/mygtd.org" "~/Dropbox/Org/journal.org" "~/Dropbox/Org/finances.org" "~/Dropbox/Org/code.org")))
  '(org-agenda-restore-windows-after-quit t)
  '(org-agenda-show-all-dates nil)
  '(org-agenda-sticky t)
@@ -105,7 +115,7 @@
     (org-bbdb org-bibtex org-docview org-info org-irc org-mhe org-w3m)))
  '(package-selected-packages
    (quote
-    (clojure-snippets writegood-mode writeroom-mode what-the-commit web-beautify web-mode w3 weather weather-metno sunshine tabula-rasa transmission tumble screenshot slime slime-company roguel-ike rsense runner sauron restclient-helm ranger rails-log-mode rainbow-blocks pretty-lambdada pomodoro podcaster offlineimap notmuch-labeler nanowrimo nginx-mode mode-icons markdown-preview-mode json jade jasmin heroku hide-comnt hide-region hl-anything hl-indent hlinum html5-schema httpcode helm-aws helm-bbdb helm-rage google-maps hacker-typer hackernews gnugo go-scratch github-pullrequest fontawesome ereader erc-nick-notify erc-yt elfeed-web dired-details dired-filetype-face dired-filter dired-open dired-toggle csv-nav bbdb auto-indent-mode haml-mode markdown-mode markdown-toc forecast ruby-additional ruby-mode google-contacts google-this google-translate js2-highlight-vars js2-mode js2-refactor tj-mode irony yari go-complete go-errcheck golint ido-vertical-mode helm-google flycheck-haskell yara-mode ido-at-point hydra use-package ibuffer-tramp ace-flyspell ace-jump-helm-line ace-jump-mode emms emms-mode-line-cycle fold-dwim geben geben-helm-projectile git-gutter git-gutter+ go-eldoc go-guru go-mode helm helm-firefox helm-ispell helm-make helm-rubygems-local helm-tramp helm-w3m hide-lines how-many-lines-in-project ibuffer-git ibuffer-projectile inf-mongo inf-ruby magit magit-filenotify magit-find-file magit-gerrit multi-project org org-bullets org-journal projectile shell-here yaml-mode csv-mode w3m helm-notmuch company-erlang csv discourse docker docker-api docker-tramp dockerfile-mode flappymacs flymd fountain-mode geeknote go-add-tags http-twiddle jist js-doc pretty-mode-plus projectile-git-autofetch flycheck-status-emoji pivotal-tracker projectile-rails font-lock+ pretty-mode browse-url-dwim prodigy tern-context-coloring erc-colorize erc-crypt ercn string-edit string-inflection string-utils company-web helm-rubygems-org minitest realgud-byebug realgud-pry realgud-rdb2 ruby-refactor ruby-tools rubyinterpol show-css flycheck-pos-tip yard-mode yagist xkcd twittering-mode tumblesocks tidy thesaurus synonyms sudo-edit ssh-config-mode ssh sql-indent sparkline smartparens smart-whitespace-comment-fixup smart-tab smart-shift smart-region smart-mode-line-powerline-theme smart-forward smart-comment slime-docker skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-guard rubocop rspec-mode robe rinari rbenv rake rainbow-mode rainbow-delimiters processing-snippets processing-mode pastebin paredit paradox package+ org-present octopress octomacs nodejs-repl multi-term markdown-preview-eww markdown-mode+ magit-gh-pulls lua-mode lorem-ipsum look-mode json-mode jsfmt jade-mode jabber iy-go-to-char irony-eldoc inf-clojure image-dired+ image+ ido-yes-or-no ido-select-window ido-hacks ido-gnus ido-complete-space-or-hyphen ido-better-flex highlight-symbol hideshowvis helm-youtube helm-robe helm-rails helm-projectile helm-package helm-open-github helm-ls-git helm-go-package helm-gitignore helm-github-stars helm-git-grep helm-git-files helm-git helm-flyspell helm-flycheck helm-emms helm-dictionary helm-css-scss helm-company helm-circe helm-cider helm-chrome helm-ack gotests go-snippets go-projectile go-playground go-gopath go-direx github-search github-notifier github-issues github-clone github-browse-file gitconfig-mode gitconfig gitattributes-mode git-gutter-fringe git-gutter-fringe+ git-dwim git-blamed git gist flycheck-irony flycheck-google-cpplint flycheck-gometalinter flycheck-css-colorguard flycheck-clojure erc-youtube erc-twitch erc-tweet erc-image enh-ruby-mode emms-soundcloud elfeed ecb dropdown-list dired-toggle-sudo dired-single dired-rainbow dired-icon dired-efap dired-details+ dired+ company-tern company-shell company-restclient company-quickhelp company-irony-c-headers company-inf-ruby company-go company-emoji company-cmake company-arduino coffee-mode cider-profile cider-hydra auto-dictionary auto-compile aggressive-indent ace-window 2048-game)))
+    (soundcloud soundklaus coin-ticker cheat-sh helpful treemacs yahtzee sokoban sudoku threes helm-ag helm-dash helm-rb helm-swoop helm-words httprepl inline-docs linum-relative navorski netrunner nlinum nlinum-hl nlinum-relative ocodo-svg-modelines picpocket pocket-api pocket-mode poker powerline rainbow-identifiers ranger ruby-test-mode scratch shackle ssh-agency telephone-line term-projectile togetherly unbound vue-html-mode vue-mode slim-mode js-auto-beautify rjsx-mode mingus mastodon dired-hide-dotfiles helm-books helm-clojuredocs helm-codesearch helm-commandlinefu helm-flx helm-lobsters helm-mode-manager helm-org-rifle simple-mpc flycheck-yamllint emoji-fontset emojify dired+ dired-subtree apiwrap js3-mode org-attach-screenshot org-caldav org-download org-jira org-pomodoro org-random-todo ox-jira build-status gnus-alias org-dashboard org-dropbox org-projectile pass passthword password-generator password-store password-vault company-edbi edbi edbi-database-url edbi-minor-mode edbi-sqlite pandoc pandoc-mode realgud all-the-icons-dired hyde jekyll-modes beacon steam clojure-snippets writegood-mode writeroom-mode what-the-commit web-beautify web-mode w3 weather weather-metno sunshine tabula-rasa transmission tumble screenshot slime slime-company roguel-ike rsense runner sauron restclient-helm rails-log-mode rainbow-blocks pretty-lambdada pomodoro podcaster offlineimap nanowrimo nginx-mode mode-icons markdown-preview-mode json jade jasmin heroku hide-comnt hide-region hl-anything hl-indent hlinum html5-schema httpcode helm-aws helm-bbdb helm-rage google-maps hacker-typer hackernews gnugo go-scratch github-pullrequest fontawesome ereader erc-nick-notify erc-yt elfeed-web dired-details dired-filetype-face dired-filter dired-open dired-toggle csv-nav bbdb auto-indent-mode haml-mode markdown-mode markdown-toc forecast ruby-additional ruby-mode google-contacts google-this google-translate js2-highlight-vars js2-mode js2-refactor tj-mode irony yari go-complete go-errcheck golint ido-vertical-mode helm-google flycheck-haskell yara-mode ido-at-point hydra use-package ibuffer-tramp ace-flyspell ace-jump-helm-line ace-jump-mode emms emms-mode-line-cycle fold-dwim geben geben-helm-projectile git-gutter git-gutter+ go-eldoc go-guru go-mode helm helm-firefox helm-ispell helm-make helm-rubygems-local helm-tramp helm-w3m hide-lines how-many-lines-in-project ibuffer-git ibuffer-projectile inf-mongo inf-ruby magit magit-filenotify magit-find-file magit-gerrit multi-project org org-bullets org-journal projectile shell-here yaml-mode csv-mode w3m helm-notmuch company-erlang csv discourse docker docker-api docker-tramp dockerfile-mode flappymacs flymd fountain-mode geeknote go-add-tags http-twiddle jist js-doc pretty-mode-plus projectile-git-autofetch flycheck-status-emoji pivotal-tracker projectile-rails font-lock+ pretty-mode browse-url-dwim prodigy tern-context-coloring erc-colorize erc-crypt ercn string-edit string-inflection string-utils company-web helm-rubygems-org minitest realgud-byebug realgud-pry realgud-rdb2 ruby-refactor ruby-tools rubyinterpol show-css flycheck-pos-tip yard-mode yagist xkcd twittering-mode tumblesocks tidy thesaurus synonyms sudo-edit ssh-config-mode ssh sql-indent sparkline smartparens smart-whitespace-comment-fixup smart-tab smart-shift smart-region smart-mode-line-powerline-theme smart-forward smart-comment slime-docker skewer-mode scss-mode sass-mode ruby-hash-syntax ruby-guard rubocop rspec-mode robe rinari rbenv rake rainbow-mode rainbow-delimiters processing-snippets processing-mode pastebin paredit paradox package+ org-present octopress octomacs nodejs-repl multi-term markdown-preview-eww markdown-mode+ magit-gh-pulls lua-mode lorem-ipsum look-mode json-mode jsfmt jade-mode jabber iy-go-to-char irony-eldoc inf-clojure image-dired+ image+ ido-yes-or-no ido-select-window ido-hacks ido-gnus ido-complete-space-or-hyphen ido-better-flex highlight-symbol hideshowvis helm-youtube helm-robe helm-rails helm-projectile helm-package helm-open-github helm-ls-git helm-go-package helm-gitignore helm-github-stars helm-git-grep helm-git-files helm-git helm-flyspell helm-flycheck helm-emms helm-dictionary helm-css-scss helm-company helm-circe helm-cider helm-chrome helm-ack gotests go-snippets go-projectile go-playground go-gopath go-direx github-search github-notifier github-issues github-clone github-browse-file gitconfig-mode gitconfig gitattributes-mode git-gutter-fringe git-gutter-fringe+ git-dwim git-blamed git gist flycheck-irony flycheck-google-cpplint flycheck-gometalinter flycheck-css-colorguard flycheck-clojure erc-youtube erc-twitch erc-tweet erc-image enh-ruby-mode emms-soundcloud elfeed ecb dropdown-list dired-toggle-sudo dired-single dired-rainbow dired-icon dired-efap dired-details+ company-tern company-shell company-restclient company-quickhelp company-irony-c-headers company-inf-ruby company-go company-emoji company-cmake company-arduino coffee-mode cider-profile cider-hydra auto-dictionary auto-compile aggressive-indent ace-window 2048-game)))
  '(paradox-automatically-star t)
  '(php+-mode-delete-trailing-whitespace t)
  '(php+-mode-protected-underscore t)
@@ -129,7 +139,14 @@
  '(scss-sass-options nil)
  '(send-mail-function (quote sendmail-send-it))
  '(shr-color-visible-luminance-min 40 t)
+ '(simple-mpc-playlist-format "%artist% - %title%")
  '(term-unbind-key-list (quote ("C-z" "C-x" "C-c" "C-h" "C-y" "<ESC>" "C-p" "C-n")))
+ '(text-mode-hook
+   (quote
+    ((lambda nil
+       (turn-on-auto-fill)
+       (set-fill-column 80))
+     dubcaps-mode flyspell-mode text-mode-hook-identify)))
  '(tidy-temp-directory "/tmp")
  '(tramp-default-proxies-alist nil)
  '(tumblesocks-blog "seanhagen.tumblr.com")
@@ -148,15 +165,27 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(elfeed-search-feed-face ((t (:foreground "red"))))
+ '(elfeed-search-tag-face ((t (:foreground "deep sky blue"))))
+ '(elfeed-search-title-face ((t (:foreground "tan"))))
  '(erc-input-face ((t (:foreground "gold"))))
+ '(font-lock-builtin-face ((t (:foreground "LightPink1"))))
+ '(font-lock-constant-face ((t (:foreground "orchid1"))))
+ '(font-lock-function-name-face ((t (:foreground "cyan"))))
+ '(font-lock-keyword-face ((t (:foreground "SteelBlue1"))))
  '(font-lock-string-face ((t (:foreground "orchid"))))
- '(font-lock-type-face ((t (:foreground "magenta"))))
- '(js2-function-call ((t (:inherit default :foreground "yellow"))))
+ '(font-lock-type-face ((t (:foreground "yellow"))))
+ '(font-lock-variable-name-face ((t (:foreground "green"))))
+ '(highlight ((t (:box (:line-width 2 :color "grey75" :style pressed-button)))))
+ '(hl-line ((t (:inherit highlight))))
+ '(js2-function-call ((t (:inherit default :foreground "dark orange"))))
  '(js2-object-property ((t (:inherit default :foreground "cyan"))))
  '(notmuch-search-unread-face ((t (:foreground "deep sky blue"))))
  '(org-done ((t (:weight normal :strike-through t))))
  '(org-headline-done ((((class color) (min-colors 16) (background dark)) (:strike-through t))))
+ '(rjsx-attr ((t (:inherit font-lock-variable-name-face :foreground "deep sky blue"))))
+ '(rjsx-tag ((t (:inherit font-lock-function-name-face :foreground "orange"))))
  '(web-mode-html-attr-custom-face ((t (:foreground "orange"))))
- '(web-mode-html-attr-name-face ((t (:foreground "yellow"))))
- '(web-mode-html-tag-bracket-face ((t (:foreground "green"))))
+ '(web-mode-html-attr-name-face ((t (:foreground "peru"))))
+ '(web-mode-html-tag-bracket-face ((t (:foreground "orange"))))
  '(web-mode-html-tag-face ((t (:foreground "deep sky blue")))))

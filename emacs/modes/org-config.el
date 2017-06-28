@@ -12,11 +12,11 @@
          :mode org-mode
          ("M-n" . org-do-demote)
          ("M-p" . org-do-promote))
-
   :config
   (org-clock-persistence-insinuate)
   (setq org-agenda-include-diary t
         org-agenda-include-all-todo t
+        org-agenda-files '("~/Dropbox/Org")
         org-clock-persist 'history
         org-fontify-done-headline t
         org-hierarchical-checkbox-statistics nil
@@ -31,7 +31,7 @@
                                 ;; code stuff ( resources, gists, etc )
                                 ("C" "Code" entry
                                  (file+headline "~/Dropbox/Org/code.org" "Code")
-                                 "* %^{Brief Description} \n%x\n%?" :prepend t)
+                                 "* TODO %^{Brief Description} \n%x\n%?" :prepend t)
                                 ;; basic todo template
                                 ("t" "Todo" entry
                                  (file+headline "~/Dropbox/Org/mygtd.org" "Tasks")
@@ -61,12 +61,8 @@
                                  (file+headline "~/Dropbox/Org/mygtd.org" "Someday")
                                  "* %^{Someday Heading} %U\n%?\n")
                                 ;; trip planning ( 2016 road trip )
-                                ("o" "2016 Road Trip" entry
-                                 (file+headline "~/Dropbox/Org/mygtd.org" "2016 Road Trip")
-                                 "* %^{Heading} %U\n%?\n")
-                                ;; trip planning ( 2016 road trip )
-                                ("d" "2018 Road Trip" entry
-                                 (file+headline "~/Dropbox/Org/mygtd.org" "2018 Road Trip")
+                                ("o" "Road Trip" entry
+                                 (file+headline "~/Dropbox/Org/mygtd.org" "Road Trip")
                                  "* %^{Heading} %U\n%?\n")
                                 ;; camping stuff
                                 ("a" "Camping Stuff" entry
@@ -83,8 +79,11 @@
                                 )
         org-directory "~/Dropbox/Org/"
         org-default-notes-file "~/.notes"
-
         )
+  (use-package org-jira
+    :init
+    (setq jiralib-url "https://spacelist.atlassian.net"
+          org-jira-working-dir "~/Dropbox/Org/JIRA"))
   )
 
 (use-package org-present

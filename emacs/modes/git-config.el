@@ -22,6 +22,9 @@
 ;;   :bind (("C-x C-g" . git-gutter:toggle)
 ;;          ("C-x C-y" . git-gutter:clear)))
 
+(use-package git-gutter+
+  :diminish git-gutter+-mode)
+
 
 ;; (require 'yagist)
 ;; (require 'git-gutter)

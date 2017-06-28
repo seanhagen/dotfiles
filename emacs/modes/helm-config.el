@@ -17,26 +17,24 @@
          ("C-c C-m" . helm-all-mark-rings))
   :config
   (setq helm-split-window-in-side-p           t
+        helm-mode-fuzzy-match                 t
+        helm-completion-in-region-fuzzy-match t
         helm-buffers-fuzzy-matching           t
         helm-M-x-fuzzy-match                  t
         helm-move-to-line-cycle-in-source     t
         helm-ff-search-library-in-sexp        t
         helm-ff-file-name-history-use-recentf t
         helm-autoresize-mode                  t
-        helm-github-stars-username "seanhagen"))
+        helm-github-stars-username "seanhagen")
 
-(use-package helm-projectile
-  :after helm
-  :init
- (helm-projectile-on))
+  (use-package helm-projectile
+    :init
+    (helm-projectile-on))
+  (use-package helm-cider
+    :init (add-hook 'cider-mode-hook (lambda () (helm-cider-mode 1))))
+  (use-package helm-circe))
 
-
-(use-package helm-cider
-  :after helm
-  :init (add-hook 'cider-mode-hook (lambda () (helm-cider-mode 1))))
-
-(use-package helm-circe
-  :after helm)
+;;(use-package helm-rb)
 
 ;; helm
 ;; helm-ack

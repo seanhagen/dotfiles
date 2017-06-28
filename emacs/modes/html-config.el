@@ -3,7 +3,13 @@
 ;;; Code:
 
 (use-package haml-mode
-  :mode ("\\.haml" "\\.hamlc"))
+  :mode ("\\.haml\\'" "\\.hamlc\\'"))
+
+(use-package slim-mode
+  :mode ("\\.slim\\'"))
+
+(use-package web-mode
+  :mode ("\\.html?\\'" "\\.erb\\'" "\\.gohtml\\'" "\\.gotmpl\\'"))
 
 ;; (use-package web-mode
 ;;   :mode ("\\.html.erb$")

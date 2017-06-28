@@ -3,6 +3,7 @@
 ;;; Code:
 
 (use-package js2-mode
+  :mode "\\.js\\'"
   :bind (:map js2-mode-map
               ("C-c C-n" . js2-next-error)
               ("C-x C-e" . js-send-last-sexp)
@@ -25,19 +26,25 @@
   (add-hook 'js2-mode-hook (lambda () (js2-highlight-vars-mode)))
   :diminish js2-highlight-vars-mode)
 
-(use-package tj-mode
-  :mode "\\.js$"
-  :diminish tj-mode)
+;; (use-package tj-mode
+;;   :mode "\\.js\\'"
+;;   :diminish tj-mode)
 
 (use-package tern
-  :diminish tern)
+  :diminish tern-mode
+  :init
+  (add-hook 'js2-mode-hook 'tern-mode)
+  (add-hook 'web-mode-hook 'tern-mode))
+
+(use-package company-tern
+  :init (add-to-list 'company-backends 'company-tern))
 
 (use-package skewer-mode
+  :diminish skewer-mode
   :init
   (add-hook 'js2-mode-hook 'skewer-mode)
   (add-hook 'css-mode-hook 'skewer-css-mode)
-  (add-hook 'html-mode-hook 'skewer-html-mode)
-  )
+  (add-hook 'html-mode-hook 'skewer-html-mode))
 
 ;; jade
 ;; jade-mode

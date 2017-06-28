@@ -3,7 +3,7 @@
 ;;; Code:
 (use-package company
   :demand
-  :diminish company
+  :diminish company-mode
   :init
   (global-company-mode 1)
   :config
@@ -49,3 +49,8 @@
 (use-package company-tern
   :config
   (push 'company-tern company-backends))
+
+;; slime-company
+;; company-web
+;; company-tern
+;; company-erlang

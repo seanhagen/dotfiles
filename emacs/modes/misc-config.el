@@ -2,6 +2,14 @@
 ;;; Commentary:
 ;;; Code:
 
+(use-package eldoc
+  :diminish ""
+  ;; :config
+  ;; (use-package inline-docs
+  ;;   :config
+  ;;   (setq eldoc-message-function #'inline-docs))
+  )
+
 (use-package ace-window
   :bind (("M-o" . ace-window)))
 
@@ -9,23 +17,51 @@
   :bind (("M-m" . iy-go-to-char)))
 
 (use-package disable-mouse
-  :diminish disable-mouse
+  :diminish (global-diminish-mouse-mode . "")
   :config
-  (global-disable-mouse-mode t))
+  (global-disable-mouse-mode t)
+  (diminish 'global-diminish-mouse-mode ""))
 
-;; (use-package abbrev-mode
-;;   :init
-;;   (add-hook 'enh-ruby-mode-hook (lambda () (abbrev-mode -1)))
-;;   :config
-;;   (setq abbrev-mode -1))
+
+(use-package abbrev
+  :diminish "")
 
 (use-package smartparens
+  :diminish ""
   :config
   (require 'smartparens-config)
   (smartparens-global-mode 1))
-;; (require 'smartparens-config)
 
-;; (smartparens-global-mode t)
+;; (use-package rainbow-identifiers
+;;   :config
+;;   (add-hook 'prog-mode-hook 'rainbod-identifiers-mode))
+
+
+
+(use-package auto-dictionary
+  :diminish "")
+
+
+;; (use-package coin-ticker
+;;   :config
+;;   (setq coin-ticker-api-poll-interval 120
+;;         coin-ticker-syms '("BTC" "ETH")
+;;         coin-ticker-price-convert "CAD")
+;;   (coin-ticker-mode 1))
+
+
+
+
+
+;; ;; for ocodo modeline themes
+;; (defun ocodo-mesh-aqua-buffer-name-style (widget)
+;;   (list :font-weight "normal"
+;;         :font-size "15pt" ;; Change font size to whatever you'd like.
+;;         :font-family "sans-serif"
+;;         :fill (if (smt/window-active-p) "#FFFFFF" "#666666")))
+
+
+
 ;; (show-smartparens-global-mode t)
 
 ;; (define-key sp-keymap (kbd "C-M-f") 'sp-forward-sexp)
@@ -108,12 +144,9 @@
                                              ))
                                            )))
 
-;; (require 'iy-go-to-char)
 
 ;; (autoload 'er/expand-region "expand-region" "Expand Region" t)
-
 ;; (rainbow-mode 1)
-
 ;; ;(beacon-mode 1)
 
 ;; ; https://github.com/Malabarba/aggressive-indent-mode
@@ -136,8 +169,10 @@
 (use-package google)
 
 (use-package auto-indent-mode
+  :diminish (auto-indent-mode . "")
   :config (auto-indent-global-mode))
 
+;; beacon
 ;; ereader
 ;; fontawesome
 ;; gnugo
@@ -145,7 +180,9 @@
 ;; google-maps
 ;; google-this
 ;; google-translate
-;; hackernews
+
+(use-package hackernews)
+
 ;; hacker-typer
 ;; heroku
 ;; hide-comnt
@@ -156,14 +193,23 @@
 ;; mode-icons
 ;; nanowrimo
 ;; nginx-mode
-;; octopress
+
+(use-package octopress)
+(use-package jekyll-modes
+  :init
+  (add-to-list 'auto-mode-alist '("/home/sean/Documents/blog/_posts/.*\\.md$" . jekyll-markdown-mode))
+  (add-to-list 'auto-mode-alist '("/home/sean/Documents/blog/_posts/.*\\.markdown$" . jekyll-markdown-mode)))
+(use-package hyde
+  :config
+  (setq hyde-home "/home/sean/Documents/blog"))
+
 ;; offlineimap
 ;; paradox
 ;; podcaster
 ;; pomodoro
 ;; pretty-lambdada
 ;; pretty-mode
-;; prodigy
+
 ;; rainbow-blocks
 ;; rainbow-mode
 ;; ranger
@@ -174,3 +220,8 @@
 ;; thesaurus
 ;; transmission
 ;; xkcd
+
+;; Games!
+;; 2048-game
+;; steam
+;; roguel-ike

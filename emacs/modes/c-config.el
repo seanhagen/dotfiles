@@ -8,7 +8,7 @@
   (add-hook 'c-mode-hook 'irony-mode))
 
 (use-package arduino-mode
-  :mode "\\.\\(pde\\|ino\\)$"
+  :mode "\\.\\(pde\\|ino\\)\\'"
   :init
   (add-hook 'arduino-mode-hook 'irony-mode))
 

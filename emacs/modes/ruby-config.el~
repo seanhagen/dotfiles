@@ -6,13 +6,13 @@
   :interpreter "ruby"
   :diminish ""
   :mode "\\.rb$" "\\.rabl$" "\\.rake$" "Rakefile$" ".gemspec$" "\\.ru$" "Gemfile$" "Capfile$"
-  :bind (:map enh-ruby-mode-map
-              ("C-c C-H" . ruby-toggle-hash-syntax)
-              ("<backtab>" . enh-ruby-indent-exp)
-              ("TAB" . ruby-indent-line)
-              ("RET" . newline)
-              ("C-c g m" . rails-gen-migration)
-              ("C-c r d" . run-remote-pry))
+  ;; :bind (:map enh-ruby-mode-map
+  ;;             ("C-c C-H" . ruby-toggle-hash-syntax)
+  ;;             ("<backtab>" . enh-ruby-indent-exp)
+  ;;             ("TAB" . ruby-indent-line)
+  ;;             ("RET" . newline)
+  ;;             ("C-c g m" . rails-gen-migration)
+  ;;             ("C-c r d" . run-remote-pry))
   :init
   (add-hook 'enh-ruby-mode-hook 'erm-define-faces)
   (add-hook 'enh-ruby-mode-hook 'inf-ruby-minor-mode)
@@ -23,28 +23,21 @@
             (lambda ()
               (set (make-local-variable 'compile-command)
                    (concat "ruby -W1 " buffer-file-name))))
-
-
+  
+  
   :config
+  (bind-keys :map enh-ruby-mode-map
+             ("C-c C-H" . ruby-toggle-hash-syntax)
+             ("<backtab>" . enh-ruby-indent-exp)
+             ("TAB" . ruby-indent-line)
+             ("RET" . newline)
+             ("C-c g m" . rails-gen-migration)
+             ("C-c r d" . run-remote-pry))
   (setq enh-ruby-use-encoding-map nil
         enh-ruby-deep-indent-paren t
         enh-ruby-hanging-brace-indent-level 2
         enh-ruby-bounce-deep-indent t)
-
-
-  (use-package robe
-    :bind (:map enh-ruby-mode-map
-                ("C-c C-r o" . robe-start))
-    :after company
-    :diminish robe-mode company-robe
-    :commands robe-mode
-    :init (add-hook 'enh-ruby-mode-hook 'robe-mode)
-    :config (push 'company-robe company-backends))
-
-  (use-package yari
-    :commands yari-helm
-    :bind (:map enh-ruby-mode-map
-                ("<f1>" . yari-helm))))
+  )
 
 (defun run-remote-pry (&rest args)
   (interactive)
@@ -100,6 +93,15 @@
   :diminish yard-mode
   :init (add-hook 'enh-ruby-mode-hook 'yard-mode))
 
+(use-package robe
+  :bind (:map enh-ruby-mode-map
+              ("C-c C-r o" . robe-start))
+  :after company
+  :diminish robe-mode company-robe
+  :commands robe-mode
+  :init (add-hook 'enh-ruby-mode-hook 'robe-mode)
+  :config (push 'company-robe company-backends))
+
 (use-package inf-ruby
   :commands inf-ruby-minor-mode inf-ruby
   :bind (("C-c C-r r" . inf-ruby))
@@ -113,9 +115,14 @@
   :commands ruby-tools-mode
   :init (add-hook 'enh-ruby-mode-hook (lambda () (ruby-tools-mode 1))))
 
+(use-package yari
+  :commands yari-helm
+  :bind (:map enh-ruby-mode-map
+              ("<f1>" . yari-helm)))
+
 (use-package rinari
   :commands rinari-minor-mode
-  :diminish (rinari-minor-mode . "")
+  :diminish ""
   :init (add-hook 'enh-ruby-mode-hook 'rinari-minor-mode)
   :config (setq rinari-tags-file-name "TAGS"))
 
