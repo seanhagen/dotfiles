@@ -28,6 +28,12 @@
         helm-github-stars-username "seanhagen")
 
   (use-package helm-projectile
+    :config
+    (defvar helm-source-file-not-found
+      (helm-build-dummy-source
+          "Create file"
+        :action 'find-file))
+    (add-to-list 'helm-projectile-sources-list helm-source-file-not-found t)
     :init
     (helm-projectile-on))
   (use-package helm-cider

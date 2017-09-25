@@ -1,4 +1,5 @@
 (use-package notmuch
+  :load-path "/usr/local/share/emacs/site-lisp"
   ;; :bind (:map notmuch-search-mode-map
   ;;             ("u" .   (lambda ()
   ;;                        "toggle read status for message"
