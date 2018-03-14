@@ -5,6 +5,10 @@
 ;; (eval-after-load "sql"
 ;;   (load-library "sql-indent"))
 
+(use-package sql-mode
+  :mode "\\.sql\\'"
+  :config
+  (use-package sql-indent))
 
 (use-package sql
   :config
@@ -33,8 +37,7 @@
 
   (defun phoney-database ()
     (interactive)
-    (my-sql-connect 'postgres 'phoney))
-  )
+    (my-sql-connect 'postgres 'phoney)))
 
 (use-package edbi
   :commands edbi:open-db-viewer)

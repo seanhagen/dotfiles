@@ -80,10 +80,10 @@
         org-directory "~/Dropbox/Org/"
         org-default-notes-file "~/.notes"
         )
-  (use-package org-jira
-    :init
-    (setq jiralib-url "https://spacelist.atlassian.net"
-          org-jira-working-dir "~/Dropbox/Org/JIRA"))
+  ;; (use-package org-jira
+  ;;   :init
+  ;;   (setq jiralib-url "https://spacelist.atlassian.net"
+  ;;         org-jira-working-dir "~/Dropbox/Org/JIRA"))
   )
 
 (use-package org-present

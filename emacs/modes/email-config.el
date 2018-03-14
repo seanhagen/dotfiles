@@ -1,26 +1,5 @@
 (use-package notmuch
   :load-path "/usr/local/share/emacs/site-lisp"
-  ;; :bind (:map notmuch-search-mode-map
-  ;;             ("u" .   (lambda ()
-  ;;                        "toggle read status for message"
-  ;;                        (interactive)
-  ;;                        (if (member "unread" (notmuch-search-get-tags))
-  ;;                            (notmuch-search-remove-tag "-unread")
-  ;;                          (notmuch-search-add-tag "+unread"))
-  ;;                        ;; (if (member "unread" (notmuch-search-get-tags))
-  ;;                        ;;     (notmuch-show-tag (list "-unread"))
-  ;;                        ;;   (notmuch-show-tag (list "+unread")))
-  ;;                        ))
-  ;;             ("d" . (lambda ()
-  ;;                      "toggle deleted tag for message"
-  ;;                      (interactive)
-  ;;                      (if (member "deleted" (notmuch-search-get-tags))
-  ;;                          (notmuch-show-tag (list "-deleted"))
-  ;;                        (notmuch-show-tag (list "+deleted")))))
-  ;;             ("S" . (lambda ()
-  ;;                      "mark message as spam"
-  ;;                      (interactive)
-  ;;                      (notmuch-show-tag-message "+spam" "-inbox"))))
   :config
   (setq smtpmail-smtp-server "localhost"
         message-send-mail-funciton 'smtpmail-send-it
@@ -87,24 +66,16 @@
            nil ;; No extra body text
            "~/.signature"
            )
-          ("Spacelist"
+          ("Biba"
            nil
-           "Sean Patrick Hagen <sean@spacelist.ca>"
-           nil
-           nil
-           nil
-           "~/.signature-spacelist")
-          ("SHCA"
-           nil
-           "Sean Patrick Hagen <sean@seanhagen.ca>"
+           "Sean Patrick Hagen <sean@playbiba.com>"
            nil
            nil
            nil
-           "~/.signature-shca")))
+           "~/.signature-biba")))
 
   (setq gnus-alias-default-identity "Gmail")
-  (setq gnus-alias-identity-rules
-        '(("Spacelist" ("any" "sean@spacelist.ca" both) "Spacelist")))
+
   )
 
 ;; notmuch-labeler

@@ -11,6 +11,24 @@
 (use-package web-mode
   :mode ("\\.html?\\'" "\\.erb\\'" "\\.gohtml\\'" "\\.gotmpl\\'"))
 
+(use-package cakecrumbs
+  :config
+  (cakecrumbs-auto-setup)
+
+  (setq cakecrumbs-refresh-delay-seconds 0.1)
+
+  ;; Appearances
+  (setq cakecrumbs-separator " | ")
+  (setq cakecrumbs-ellipsis "[...] ")
+
+  ;; Ignore some patterns in selector string
+  ;; (setq cakecrumbs-ignored-patterns '(
+  ;;                                     "[.]col-[a-z][a-z]-[0-9]+"  ; Bootstrap's .col-*
+  ;;                                     ))
+  )
+
+
+
 ;; (use-package web-mode
 ;;   :mode ("\\.html.erb$")
 ;;   :init

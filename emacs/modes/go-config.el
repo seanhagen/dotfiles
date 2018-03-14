@@ -31,7 +31,7 @@
 
   (use-package go-add-tags
     :bind (:map go-mode-map
-                ("C-c C-o" . go-add-tags))
+                ("C-c '" . go-add-tags))
     :commands go-add-tags)
 
   (use-package go-errcheck
@@ -39,13 +39,13 @@
                 ("C-c g" . go-errcheck))
     :commands go-errcheck)
 
-  (use-package flycheck-gometalinter
-    :config
-    (add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup)
-    (setq flycheck-gometalinter-vendor t
-          flycheck-gometalinter-disable-all t
-          flycheck-gometalinter-enable-linters '("golint" "gosimple")
-          flycheck-gometalinter-deadline "10s"))
+  ;; (use-package flycheck-gometalinter
+  ;;   :config
+  ;;   (add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup)
+  ;;   (setq flycheck-gometalinter-vendor t
+  ;;         flycheck-gometalinter-disable-all t
+  ;;         flycheck-gometalinter-enable-linters '("golint" "gosimple")
+  ;;         flycheck-gometalinter-deadline "30s"))
 
   (use-package go-eldoc
     :init
