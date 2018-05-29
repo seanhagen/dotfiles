@@ -1,14 +1,13 @@
 [general]
-accounts = Gmail, SeanHagen, Space
+accounts = Gmail, SeanHagen, Biba
 maxsyncaccounts = 3
 pythonfile = ~/.offlineimap.py
 fsync = False
 
 [Account Gmail]
-autorefresh = 5
+autorefresh = 15
 localrepository = LocalGmail
 remoterepository = RemoteGmail
-status_backend = sqlite
 postsynchook = ~/bin/update-email.sh
 
 [Repository LocalGmail]
@@ -20,7 +19,7 @@ type = Gmail
 remoteusereval = get_username("mail.google.com")
 remotepasseval = get_password("mail.google.com")
 realdelete = no
-maxconnections = 3
+maxconnections = 2
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
 nametrans = lambda foldername: foldername.replace("[Gmail]/","")
@@ -30,7 +29,6 @@ auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
 autorefresh = 30
 localrepository = LocalSeanHagen
 remoterepository = RemoteSeanHagen
-status_backend = sqlite
 
 [Repository LocalSeanHagen]
 type = Maildir
@@ -41,48 +39,27 @@ type = Gmail
 remoteusereval = get_username("seanhagen.ca")
 remotepasseval = get_password("seanhagen.ca")
 realdelete = no
-maxconnections = 3
+maxconnections = 2
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
 nametrans = lambda foldername: foldername.replace("[Gmail]/","")
 auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
 
-[Account Space]
-autorefresh = 10
-localrepository = LocalSpace
-remoterepository = RemoteSpace
-status_backend = sqlite
+[Account Biba]
+autorefresh = 30
+localrepository = LocalBiba
+remoterepository = RemoteBiba
 
-[Repository LocalSpace]
+[Repository LocalBiba]
 type = Maildir
-localfolders = ~/Mail/Space
+localfolders = ~/Mail/Biba
 
-[Repository RemoteSpace]
+[Repository RemoteBiba]
 type = Gmail
-remoteusereval = get_username("spacelist.ca")
-remotepasseval = get_password("spacelist.ca")
+remoteusereval = get_username("playbiba.com")
+remotepasseval = get_password("playbiba.com")
 realdelete = no
-maxconnections = 3
-sslcacertfile = /etc/ssl/certs/ca-certificates.crt
-folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
-nametrans = lambda foldername: foldername.replace("[Gmail]/","")
-auth_mechanisms = GSSAPI, CRAM-MD5, PLAIN, LOGIN
-
-[Account KloudKtrl]
-localrepository = LocalKloud
-remoterepository = RemoteKloud
-status_backend = sqlite
-
-[Repository LocalKloud]
-type = Maildir
-localfolders = ~/Mail/Kloud
-
-[Repository RemoteKloud]
-type = Gmail
-remoteusereval = get_username("kloudktrl.com")
-remotepasseval = get_password("kloudktrl.com")
-realdelete = no
-maxconnections = 3
+maxconnections = 2
 sslcacertfile = /etc/ssl/certs/ca-certificates.crt
 folderfilter = lambda folder: folder in ['[Gmail]/All Mail', '[Gmail]/Sent Mail', '[Gmail]/Drafts', '[Gmail]/Trash', '[Gmail]/Starred']
 nametrans = lambda foldername: foldername.replace("[Gmail]/","")
