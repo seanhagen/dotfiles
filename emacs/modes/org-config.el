@@ -3,15 +3,9 @@
 ;;; Code:
 
 (use-package org
-  :bind (
-         ("C-c a t" . org-todo-list)
-         ("C-c a l" . org-store-link)
-         ("C-c a a" . org-agenda)
-         ("C-c a b" . org-iswitchb)
-         ("C-c a r" . org-capture)
-         :mode org-mode
-         ("M-n" . org-do-demote)
-         ("M-p" . org-do-promote))
+  :bind (:map org-mode-map
+	      ("M-n" . org-do-demote)
+	      ("M-p" . org-do-promote))
   :config
   (org-clock-persistence-insinuate)
   (setq org-agenda-include-diary t
@@ -80,10 +74,10 @@
         org-directory "~/Dropbox/Org/"
         org-default-notes-file "~/.notes"
         )
-  ;; (use-package org-jira
-  ;;   :init
-  ;;   (setq jiralib-url "https://spacelist.atlassian.net"
-  ;;         org-jira-working-dir "~/Dropbox/Org/JIRA"))
+  (use-package org-jira
+    :init
+    (setq jiralib-url "https://spacelist.atlassian.net"
+          org-jira-working-dir "~/Dropbox/Org/JIRA"))
   )
 
 (use-package org-present

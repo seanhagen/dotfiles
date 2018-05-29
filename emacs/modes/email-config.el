@@ -1,5 +1,5 @@
 (use-package notmuch
-  :load-path "/usr/local/share/emacs/site-lisp"
+  :load-path "/usr/share/emacs/site-lisp/elpa-src/notmuch-0.25.1"
   :config
   (setq smtpmail-smtp-server "localhost"
         message-send-mail-funciton 'smtpmail-send-it
@@ -21,8 +21,9 @@
   ;;       epg-debug t)
 
   (setq notmuch-saved-searches
-        '((:name "inbox" :query "tag:inbox AND tag:unread AND NOT tag:social")
-          (:name "work" :query "tag:spacelist AND tag:unread")
+        '((:name "inbox" :query "tag:inbox AND tag:unread AND NOT tag:social AND NOT tag:work AND NOT tag:seanhagenca AND NOT tag:newsletter AND NOT tag:wrong")
+          (:name "wrong" :query "tag:wrong AND tag:unread")
+          (:name "work" :query "tag:work AND tag:unread")
           (:name "seanhagenca" :query "tag:seanhagenca AND tag:unread")
           (:name "freshbooks" :query "tag:freshbooks AND tag:unread")
           (:name "cerberus" :query "tag:cerberus AND tag:unread")
@@ -66,6 +67,13 @@
            nil ;; No extra body text
            "~/.signature"
            )
+          ("SHCA"
+           nil
+           "Sean Patrick Hagen <sean@seanhagen.ca>"
+           nil
+           nil
+           nil
+           "~/.signature-shca")
           ("Biba"
            nil
            "Sean Patrick Hagen <sean@playbiba.com>"
@@ -75,7 +83,8 @@
            "~/.signature-biba")))
 
   (setq gnus-alias-default-identity "Gmail")
-
+  (setq gnus-alias-identity-rules
+        '(("Spacelist" ("any" "sean@spacelist.ca" both) "Spacelist")))
   )
 
 ;; notmuch-labeler

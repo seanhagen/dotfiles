@@ -2,8 +2,6 @@
 ;;; Commentary:
 ;;; Code:
 
-;;(use-package elcord)
-
 (use-package eldoc
   :diminish ""
   ;; :config

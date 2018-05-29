@@ -2,100 +2,111 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'str)
+(use-package ibuffer
+  :ensure t
+  :commands ibuffer
+  :bind (:map ibuffer-mode-map
+         ("M-o" . ace-window)
+         ("P" . ibuffer-projectile-set-filter-groups))
+  :config
+  (progn
+    (setq ibuffer-saved-filter-groups
+          '(("Config" (filename . ".emacs.d/"))
+            ("Shell"  (or
+                       (mode . eshell-mode)
+                       (mode . shell-mode)))
+            ("Dired"  (mode . dired-mode))
+            ("Prose"  (or
+                       (mode . tex-mode)
+                       (mode . plain-tex-mode)
+                       (mode . latex-mode)
+                       (mode . rst-mode)
+                       (mode . markdown-mode)))
+            ("Haskell" (mode . haskell-mode))
+            ("Org"    (mode . org-mode))
+            ("Gnus"   (or
+                       (mode . message-mode)
+                       (mode . gnus-group-mode)
+                       (mode . gnus-summary-mode)
+                       (mode . gnus-article-mode)))
+            ("Emacs"  (name . "^\\*.*\\*$"))
+            ("Weechat" (name . "^freenode\.")))
+          ibuffer-show-empty-filter-groups nil
+          ibuffer-expert t)
 
-(defvar sean:filename-subs
-  '(("/home/sean" . "~")
-    (".*/Go/src/github.com/" . "~gosrc/")
-    ("/home/sean/.emacs.d/" . "~emacs/")
-    ;; ("/home/jpace/proj/org/incava/" . "~incava/")
+    (add-hook 'ibuffer-mode-hook
+              '(lambda ()
+                 (ibuffer-auto-mode 1)))
+
+    (defadvice ibuffer-update-title-and-summary (after remove-column-titles)
+      (with-current-buffer (get-buffer "*Ibuffer*")
+        (read-only-mode 0)
+        (goto-char 1)
+        (search-forward "-\n" nil t)
+        (delete-region 1 (point))
+        (let ((window-min-height 1))
+          ;; save a little screen estate
+          (shrink-window-if-larger-than-buffer))
+        (read-only-mode 1)))
+    (ad-activate 'ibuffer-update-title-and-summary)
+
+    ;; Use human readable Size column instead of original one
+    (define-ibuffer-column size-h
+      (:name "Size" :inline t)
+      (cond
+       ((> (buffer-size) 1000000) (format "%7.1fM" (/ (buffer-size) 1000000.0)))
+       ((> (buffer-size) 100000) (format "%7.0fk" (/ (buffer-size) 1000.0)))
+       ((> (buffer-size) 1000) (format "%7.1fk" (/ (buffer-size) 1000.0)))
+       (t (format "%8d" (buffer-size)))))
+
+    ;; Modify the default ibuffer-formats
+    (setq ibuffer-formats
+          '((mark modified read-only " "
+                  (name 18 18 :left :elide)
+                  " "
+                  (size-h 9 -1 :right)
+                  " "
+                  (mode 16 16 :left :elide)
+                  " "
+                  filename-and-process)))
+
+
+    ;; (use-package ibuffer-vc
+    ;;   :ensure t
+    ;;   :commands ibuffer-vc-generate-filter-groups-by-vc-root
+    ;;   :init
+    ;;   (progn
+    ;;     (defun nox/ibuffer-apply-filter-groups ()
+    ;;       "Combine my saved ibuffer filter groups with those generated
+    ;;  by `ibuffer-vc-generate-filter-groups-by-vc-root'"
+    ;;       (interactive)
+    ;;       (setq ibuffer-filter-groups
+    ;;             (append (ibuffer-vc-generate-filter-groups-by-vc-root)
+    ;;                     ibuffer-saved-filter-groups))
+    ;;       (message "ibuffer-vc: groups set")
+    ;;       (let ((ibuf (get-buffer "*Ibuffer*")))
+    ;;         (when ibuf
+    ;;           (with-current-buffer ibuf
+    ;;             (pop-to-buffer ibuf)
+    ;;             (ibuffer-update nil t)))))
+    ;;     (add-hook 'ibuffer-hook 'nox/ibuffer-apply-filter-groups)))
+
+    (use-package ibuffer-projectile
+      :init
+      (add-hook 'ibuffer-hook
+                (lambda ()
+                  (ibuffer-projectile-set-filter-groups)
+                  (unless (eq ibuffer-sorting-mode 'alphabetic)
+                    (ibuffer-do-sort-by-alphabetic)))))
     ))
 
-(use-package ibuffer
-  :bind (("C-x C-b" . ibuffer)
-         :map ibuffer-mode-map
-         ("s p" . ibuffer-do-sort-by-filename-or-dired))
-  :init
-  (add-hook 'ibuffer-hook-mode
-            (lambda ()
-              (ibuffer-switch-to-saved-filter-groups "default")
-              (ibuffer-auto-mode 1)
-              ))
-  :config
-  (defadvice ibuffer (around ibuffer-point-to-most-recent) ()
-             "Open ibuffer with cursor pointed to most recent buffer name"
-             (let ((recent-buffer-name (buffer-name)))
-               ad-do-it
-               (ibuffer-jump-to-buffer recent-buffer-name)))
-  (define-ibuffer-column dirname
-    (:name "Directory"
-           :inline nil)
-    (buffer-file-name buffer)
-    ;; (if (buffer-file-name buffer)
-    ;;     (str-replace-all (file-name-directory (buffer-file-name buffer)) sean:filename-subs)
-    ;;   (or dired-directory
-    ;;       ""))
-    )
-  (define-ibuffer-sorter filename-or-dired
-    "Sort the buffers by their pathname."
-    (:description "filenames plus dired")
-    (string-lessp
-     (with-current-buffer (car a)
-       (or buffer-file-name
-           (if (eq major-mode 'dired-mode)
-               (expand-file-name dired-directory))
-           ;; so that all non pathnames are at the end
-           "~"))
-     (with-current-buffer (car b)
-       (or buffer-file-name
-           (if (eq major-mode 'dired-mode)
-               (expand-file-name dired-directory))
-           ;; so that all non pathnames are at the end
-           "~"))))
 
-  (setq ibuffer-directory-abbrev-alist
-        '(("/home/sean/Code/Go" . "~go")
-          ("/home/sean/Code/Go/src/github.com/Z2hMedia/biba_services" . "~bibas"))
-        ibuffer-show-empty-filter-groups "default"
-        ibuffer-formats
-        '((mark modified read-only " "
-                (name 30 30 :left :elide)
-                " "
-                (size 9 -1 :right)
-                " " dirname)
-          (mark modified read-only " "
-                (name 30 30 :left :elide)
-                " "
-                (size 9 -1 :right)
-                " " filename)
-          (mark modified read-only " "
-                (name 30 30 :left :elide)
-                " "
-                (size 9 -1 :right)
-                " " filename-and-process)
-          (mark " "
-                (name 30 30 :left :elide)
-                " " filename-and-process))
-        ibuffer-saved-filter-groups (quote (("default"
-                                             ("Org" (mode . org-mode))
-                                             ("Ruby" (mode . enh-ruby-mode))
-                                             ("Go" (mode . go-mode))
-                                             ("ERC" (mode . erc-mode))
-                                             ("Programming"
-                                              (or
-                                               (mode . c-mode)
-                                               (mode . perl-mode)
-                                               (mode . python-mode)
-                                               (mode . emacs-lisp-mode)
-                                               (mode . lisp-mode)))
-                                             ("EMail"
-                                              (or
-                                               (mode . notmuch-mode)
-                                               (mode . notmuch-hello-mode)
-                                               (mode . message-mode)
-                                               (mode . mail-mode)))
-                                             ))
-                                           )))
+;; (defvar sean:filename-subs
+;;   '(("/home/sean" . "~")
+;;     (".*/Go/src/github.com/" . "~gosrc/")
+;;     ("/home/sean/.emacs.d/" . "~emacs/")
+;;     ;; ("/home/jpace/proj/org/incava/" . "~incava/")
+;;     ))
 
 
 (provide 'ibuffer-config)

@@ -37,7 +37,6 @@
 (when (not indicate-empty-lines)
   (toggle-indicate-empty-lines))
 
-
 (show-paren-mode 1)
 
 ;; auto-save stuff
@@ -95,7 +94,7 @@
 
 (set-frame-font "Bitstream Vera Sans Mono-10")
 (set-fontset-font "fontset-default" nil
-                  (font-spec :size 20 :name "Symbola"))
+                  (font-spec :size 15 :name "Symbola"))
 
 (setenv "PATH"
         (concat (getenv "HOME") "/.rbenv/shims:"

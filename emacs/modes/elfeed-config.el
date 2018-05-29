@@ -10,13 +10,11 @@
 (defvar myelfeed-feeds
   (quote
    ("http://spoilerwarning.net/index.php/feed/"
-    ("http://www.outsideonline.com/rss/all/rss.xml" outside)
     ("https://theiddm.wordpress.com/feed/" dnd)
     ("http://feeds.feedburner.com/CrackedRSS" cracked)
     ("https://theshedm.com/feed/" dnd)
     ("http://upandoutcomic.tumblr.com/rss" comic)
     ("http://www.marycagle.com/rss.php" comic)
-    ("http://www.atomic-robo.com/rss.php" comic)
     ("http://www.hackaday.com/rss.xml" news hack)
     ("http://www.masteringemacs.org/feed/" emacs)
     ("http://whattheemacsd.com/atom.xml" emacs)
