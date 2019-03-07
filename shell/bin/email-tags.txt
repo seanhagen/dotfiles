@@ -1,0 +1,85 @@
+# Tagging wrong address
++wrong to:seanhagen@gmail.com
+
+# Tagging CRA
++cra -- from:CRA.DoNotReply-NePasRepondre.ARC@canada.ca OR from:do_not_reply-ne_pas_repondre@cra-arc.gc.ca
+
+# Tagging social
++social +twitter -- from:twitter.com
++social +linkedin -- from:linkedin.com
++social +facebook -- from:facebookmail.com
+
+# Tagging seanhagenca
++seanhagenca -- to:seanhagen.ca
++seanhagenca -- from:seanhagen.ca
+
+# Tagging spacelist
++spacelist +work -- to:spacelist.ca OR from:spacelist.ca
++test +work -- from:test@spacelist.ca
+
+# Tagging biba
++biba +work -- to:*@playbiba.com OR from:*playbiba.com
++biba +z2h +work -- to:*@zeros2heroes.com OR from:*@zeros2heroes.com
+
+# Tagging freshbooks
++freshbooks -- from:freshbooks.com
+# Tagging cerberus
++cerberus -- from:cerberusapp.com
+# Tagging Go newsletter
++newsletter +go -- from:golangweekly.com
+# Tagging Ruby newsletter
++newsletter +ruby -- from:rw@peterc.org
+# Tagging DB newsletter
++newsletter +database -social -linkedin -- from:dbweekly@cooperpress.com
+# Tagging JavaScript newsletter
++newsletter +javascript -- from:jsw@peterc.org
+# Tagging Web Design newsletter
++newsletter +webdesign -- from:wdw@jakebresnehan.com
+# Tagging Polygon newsletter
++newsletter -- from:newsletter@polygon.com
+
+# Tagging Polygon
++polygon -- from:polygon.com
+# Tagging Huckberry
++flyer +huckberry -- from:yo@huckberry.com
+# Tagging Massdrop
++flyer +massdrop -- from:info@i.massdrop.com
++massdrop -- from:massdrop.com OR from:i.massdrop.com
+# Tagging SparkFun
++flyer +sparkfun -linkedin -social -- from:newsletter@sparkfun.com
+# Tagging Kickstarter
++kickstarter -- from:kickstarter.com
++kickstarter +survey +backerkit -- from:s.backerkit.com OR from:backerkit.com
+
+# Tagging Goodreads
++goodreads -- from:mail.goodreads.com OR from:goodreads.com
+# Taging XBox
++xbox +flyer -- from:xboxliverewards@e.helloworldmail.com
+
+# Tagging Comixology
++comixology -- from:no-reply@amazon.com subject:'Comics by comiXology'
++comixology -- from:comixology@e.comixology.com
+
+# Tagging CircleCI
++circleci -- from:circleci.com
+
+# Tagging YouTube
++youtube -- from:youtube.com
+
+# Tagging DriveThru
++drivethru -- from:no-drivethrurpg.com OR from:no-onebookshelf.com
++rpgnow -- from:rpgnow.com
+
+# Tagging GitHub
++github -seanhagenca -- from:github.com
+
+# Tagging Modo
++modo -- from:modo.coop
+
+# Tagging Netflix
++netflix -- from:mailer.netflix.com OR from:netflix.com
+
+# Tagging GDPR
++gdpr -- gdpr
+
+# notify-send Email Updated emails

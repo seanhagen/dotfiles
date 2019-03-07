@@ -7,7 +7,7 @@
 (global-set-key (kbd "M-a") 'back-to-indentation)
 (global-set-key (kbd "<backspace>")
                 '(lambda () (interactive) (backward-delete-char-untabify 1 nil)))
-
+(global-set-key (kbd "C-x C-b") 'ibuffer)
 ;; bind compiling with get-above-makefile to f5
 (global-set-key (kbd "C-c C-k")
                 (lambda () (interactive)

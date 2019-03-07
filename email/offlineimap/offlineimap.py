@@ -42,3 +42,4 @@ def get_password(server):
     keyring = Keyring("offlineimap", server, "imap")
     (username, password) = keyring.get_credentials()
     return password
+

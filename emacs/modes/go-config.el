@@ -47,6 +47,7 @@
   ;;               ("C-c g" . go-errcheck))
   ;;   :commands go-errcheck)
   ;;
+
   ;; (use-package flycheck-gometalinter
   ;;   :config
   ;;   (add-hook 'flycheck-mode-hook #'flycheck-gometalinter-setup)

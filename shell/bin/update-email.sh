@@ -1,4 +1,10 @@
 #!/bin/bash
-source $HOME/.Xdbus
-/usr/bin/offlineimap -o -u ttyui #-a Gmail
-/usr/local/bin/mu index -m /home/sean/Mail
+
+echo "Indexing new mail"
+/usr/bin/notmuch new
+
+echo "Tagging"
+/usr/bin/notmuch tag --input=/home/sean/bin/email-tags.txt
+
+echo "All done"
+#notify-send Email "Updated emails"
