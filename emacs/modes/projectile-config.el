@@ -4,6 +4,7 @@
 
 (use-package projectile
   :demand
+  :bind-keymap ("C-c p" . projectile-command-map)
   :init
   (add-hook 'js2-mode-hook 'projectile-mode)
   :config

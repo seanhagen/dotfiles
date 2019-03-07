@@ -3,8 +3,6 @@ Shell Stuff
 
 ## Installation
 * Copy bin to ~/bin
-* `git clone git@github.com:ieure/php_repl.git ~/bin/php_repl`
-* `git clone git@github.com:d11wtq/boris.git ~/bin/boris`
 * `git clone git@github.com:Lokaltog/powerline.git ~/bin/powerline`
 * `git clone git@github.com:creaktive/rainbarf.git ~/bin/rainbarf`
 * `git clone git@github.com:erikw/tmux-powerline.git ~/bin/tmux-powerline`

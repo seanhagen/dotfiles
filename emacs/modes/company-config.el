@@ -8,14 +8,14 @@
   (global-company-mode 1)
   :config
   (global-company-mode 1)
-  (setq company-idel-delay 0.7
+  (setq company-idle-delay 0.1
         company-tooltip-limit 20
         company-minimum-prefix-length 2
-        company-echo-delay 1
+        company-echo-delay 0
         company-begin-commands '(self-insert-command)
         company-tooltip-flip-when-above t
         company-backends (delete 'company-dabbrev company-backends))
-  :bind ("S-SPC" . company-complete))
+  :bind ("C-<tab>" . company-complete))
 
 (use-package company-arduino
   :init
@@ -36,10 +36,10 @@
   :config
   (push 'company-irony-c-headers company-backends))
 
-(use-package company-go
-  :after go-mode
-  :config
-  (push 'company-go company-backends))
+;; (use-package company-go
+;;   :after go-mode
+;;   :config
+;;   (push 'company-go company-backends))
 
 ;; (use-package company-inf-ruby
 ;;   :after company

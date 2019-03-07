@@ -7,7 +7,7 @@
 (setq package-archives
       '(
         ("gnu" . "http://elpa.gnu.org/packages/")
-        ("melpa" . "http://melpa.milkbox.net/packages/")
+        ("melpa" . "http://stable.melpa.org/packages/")
         ("marmalade" . "http://marmalade-repo.org/packages/")
         ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
@@ -36,7 +36,6 @@
 (setq-default indicate-empty-lines t)
 (when (not indicate-empty-lines)
   (toggle-indicate-empty-lines))
-
 
 (show-paren-mode 1)
 
@@ -95,34 +94,19 @@
 
 (set-frame-font "Bitstream Vera Sans Mono-10")
 (set-fontset-font "fontset-default" nil
-                  (font-spec :size 20 :name "Symbola"))
+                  (font-spec :size 15 :name "Symbola"))
 
 (setenv "PATH"
-        (concat (getenv "HOME") "/.rbenv/shims:"
-                (getenv "HOME") "/.rbenv/bin:"
+        (concat "/home/sean/.rbenv/shims:"
+                "/home/sean/.rbenv/bin:"
                 "/usr/local/java/bin:"
                 "/usr/local/node/bin:"
                 "/usr/local/go/bin:"
                 "/home/sean/Code/Go/bin:"
                 (getenv "PATH")))
 
-(setq exec-path
-      (cons
-       (concat (getenv "HOME") "/.rbenv/shims")
-       (cons
-        (concat (getenv "HOME") "/.rbenv/bin")
-        (cons
-         (concat "/usr/local/java/bin")
-         (cons
-          (concat "/usr/local/node/bin")
-          exec-path)))))
-
-(setq exec-path
-      (cons
-       (concat (getenv "HOME") "/home/sean/Code/Go/bin")
-       exec-path))
-
-(setq exec-path
-      (cons
-       (concat (getenv "HOME") "/usr/local/go/bin")
-       exec-path))
+(add-to-list 'exec-path "/home/sean/.rbenv/shims")
+(add-to-list 'exec-path "/usr/local/java/bin")
+(add-to-list 'exec-path "/usr/local/node/bin")
+(add-to-list 'exec-path "/usr/local/go/bin")
+(add-to-list 'exec-path "/home/sean/Code/Go/bin")

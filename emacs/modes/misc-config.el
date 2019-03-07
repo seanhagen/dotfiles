@@ -113,36 +113,6 @@
 ;; (define-key sp-keymap (kbd "H-s j") 'sp-join-sexp)
 ;; (define-key sp-keymap (kbd "H-s s") 'sp-split-sexp)
 
-(use-package ibuffer
-  :bind (("C-x C-b" . ibuffer))
-  :init
-  (add-hook 'ibuffer-hook-mode
-            (lambda ()
-              (ibuffer-switch-to-saved-filter-groups "default")
-              (ibuffer-auto-mode 1)
-              ))
-  :config
-  (setq ibuffer-show-empty-filter-groups "default"
-        ibuffer-saved-filter-groups (quote (("default"
-                                             ("Org" (mode . org-mode))
-                                             ("Ruby" (mode . enh-ruby-mode))
-                                             ("Go" (mode . go-mode))
-                                             ("ERC" (mode . erc-mode))
-                                             ("Programming"
-                                              (or
-                                               (mode . c-mode)
-                                               (mode . perl-mode)
-                                               (mode . python-mode)
-                                               (mode . emacs-lisp-mode)
-                                               (mode . lisp-mode)))
-                                             ("EMail"
-                                              (or
-                                               (mode . notmuch-mode)
-                                               (mode . notmuch-hello-mode)
-                                               (mode . message-mode)
-                                               (mode . mail-mode)))
-                                             ))
-                                           )))
 
 
 ;; (autoload 'er/expand-region "expand-region" "Expand Region" t)
@@ -172,36 +142,24 @@
   :diminish (auto-indent-mode . "")
   :config (auto-indent-global-mode))
 
-;; beacon
-;; ereader
-;; fontawesome
-;; gnugo
-;; google-contacts
-;; google-maps
-;; google-this
-;; google-translate
-
 (use-package hackernews)
 
-;; hacker-typer
-;; heroku
-;; hide-comnt
-;; hl-anything
-;; hl-indent
-;; hlinum
-;; lorem-ipsum
-;; mode-icons
-;; nanowrimo
-;; nginx-mode
+(use-package tldr)
 
-(use-package octopress)
-(use-package jekyll-modes
+(use-package toggle-quotes
   :init
-  (add-to-list 'auto-mode-alist '("/home/sean/Documents/blog/_posts/.*\\.md$" . jekyll-markdown-mode))
-  (add-to-list 'auto-mode-alist '("/home/sean/Documents/blog/_posts/.*\\.markdown$" . jekyll-markdown-mode)))
-(use-package hyde
-  :config
-  (setq hyde-home "/home/sean/Documents/blog"))
+  (global-set-key (kbd "C-'")  'toggle-quotes))
+
+(use-package treemacs
+  :ensure t)
+
+(use-package tomatinho
+  :ensure t)
+
+(use-package apt-sources-list)
+
+(use-package pocket-reader)
+
 
 ;; offlineimap
 ;; paradox
@@ -210,18 +168,68 @@
 ;; pretty-lambdada
 ;; pretty-mode
 
+;; Https://github.com/bddean/emacs-ereader
+(use-package ereader)
+
+;; https://github.com/syohex/emacs-fontawesome
+(use-package fontawesome)
+
+;; http://github.com/avendael/emacs-geeknote
+;; TODO - properly set up
+(use-package geeknote)
+
+;; google-contacts
+;; google-maps
+;; google-this
+;; google-translate
+
 ;; rainbow-blocks
+(use-package rainbow-blocks
+  :init
+  (add-hook 'clojure-mode-hook 'rainbow-blocks-mode))
+
 ;; rainbow-mode
+(use-package rainbow-mode)
+
 ;; ranger
-;; roguel-ike
+
 ;; runner
+(use-package runner)
+
 ;; screenshot
+(use-package screenshot)
+
 ;; tabula-rasa
+(use-package tabula-rasa)
+
 ;; thesaurus
+(use-package thesaurus)
+
 ;; transmission
-;; xkcd
+;; hacker-typer
+;; heroku
+;; hide-comnt
+;; hl-anything
+;; hl-indent
+;; hlinum
+;; lorem-ipsum
+
+;; mode-icons
+(use-package mode-icons
+  :init
+  (mode-icons-mode))
+
+;; nanowrimo
+
+(use-package nov
+  :ensure t
+  :mode ("\\.epub\\'" . nov-mode))
+
+(use-package all-the-icons
+  :ensure t)
 
 ;; Games!
 ;; 2048-game
 ;; steam
 ;; roguel-ike
+;; gnugo

@@ -5,15 +5,20 @@
 ;; (eval-after-load "sql"
 ;;   (load-library "sql-indent"))
 
+(use-package sql-mode
+  :mode "\\.sql\\'"
+  :config
+  (use-package sql-indent))
 
 (use-package sql
   :config
   (setq sql-connection-alist
-        '((spacelist (sql-product 'postgres)
-                     (sql-port 5432)
-                     (sql-server "127.0.0.1")
-                     (sql-user "deploy")
-                     (sql-database "spacelist_development"))
+        '((sadie-users (sql-product 'postgres)
+                       (sql-port 5454)
+                       (sql-server "192.168.0.62")
+                       (sql-user "user")
+                       (sql-password "secret")
+                       (sql-database "users"))
           (phoney (sql-product 'postgres)
                   (sql-port 5454)
                   (sql-server "127.0.0.1")
@@ -33,8 +38,7 @@
 
   (defun phoney-database ()
     (interactive)
-    (my-sql-connect 'postgres 'phoney))
-  )
+    (my-sql-connect 'postgres 'phoney)))
 
 (use-package edbi
   :commands edbi:open-db-viewer)

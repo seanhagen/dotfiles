@@ -1,26 +1,5 @@
 (use-package notmuch
-  :load-path "/usr/local/share/emacs/site-lisp"
-  ;; :bind (:map notmuch-search-mode-map
-  ;;             ("u" .   (lambda ()
-  ;;                        "toggle read status for message"
-  ;;                        (interactive)
-  ;;                        (if (member "unread" (notmuch-search-get-tags))
-  ;;                            (notmuch-search-remove-tag "-unread")
-  ;;                          (notmuch-search-add-tag "+unread"))
-  ;;                        ;; (if (member "unread" (notmuch-search-get-tags))
-  ;;                        ;;     (notmuch-show-tag (list "-unread"))
-  ;;                        ;;   (notmuch-show-tag (list "+unread")))
-  ;;                        ))
-  ;;             ("d" . (lambda ()
-  ;;                      "toggle deleted tag for message"
-  ;;                      (interactive)
-  ;;                      (if (member "deleted" (notmuch-search-get-tags))
-  ;;                          (notmuch-show-tag (list "-deleted"))
-  ;;                        (notmuch-show-tag (list "+deleted")))))
-  ;;             ("S" . (lambda ()
-  ;;                      "mark message as spam"
-  ;;                      (interactive)
-  ;;                      (notmuch-show-tag-message "+spam" "-inbox"))))
+  :load-path "/usr/share/emacs/site-lisp/elpa-src/notmuch-0.25.1"
   :config
   (setq smtpmail-smtp-server "localhost"
         message-send-mail-funciton 'smtpmail-send-it
@@ -42,8 +21,9 @@
   ;;       epg-debug t)
 
   (setq notmuch-saved-searches
-        '((:name "inbox" :query "tag:inbox AND tag:unread AND NOT tag:social")
-          (:name "work" :query "tag:spacelist AND tag:unread")
+        '((:name "inbox" :query "tag:inbox AND tag:unread AND NOT tag:social AND NOT tag:work AND NOT tag:seanhagenca AND NOT tag:newsletter AND NOT tag:wrong")
+          (:name "wrong" :query "tag:wrong AND tag:unread")
+          (:name "work" :query "tag:work AND tag:unread")
           (:name "seanhagenca" :query "tag:seanhagenca AND tag:unread")
           (:name "freshbooks" :query "tag:freshbooks AND tag:unread")
           (:name "cerberus" :query "tag:cerberus AND tag:unread")
@@ -87,20 +67,20 @@
            nil ;; No extra body text
            "~/.signature"
            )
-          ("Spacelist"
-           nil
-           "Sean Patrick Hagen <sean@spacelist.ca>"
-           nil
-           nil
-           nil
-           "~/.signature-spacelist")
           ("SHCA"
            nil
            "Sean Patrick Hagen <sean@seanhagen.ca>"
            nil
            nil
            nil
-           "~/.signature-shca")))
+           "~/.signature-shca")
+          ("Biba"
+           nil
+           "Sean Patrick Hagen <sean@playbiba.com>"
+           nil
+           nil
+           nil
+           "~/.signature-biba")))
 
   (setq gnus-alias-default-identity "Gmail")
   (setq gnus-alias-identity-rules
